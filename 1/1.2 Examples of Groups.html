@@ -1,0 +1,188 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-29 20:39:26
+ * @LastEditTime: 2020-11-29 20:40:23
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \sudoku-1d:\Project\maki-lab\maki-lab\1\1.2 Examples of Groups.html
+-->
+<h3>1.2 More Examples of Groups</h3>
+
+<p>​    We have already seen some examples before. In this section, we will <strong>find</strong> more.</p>
+
+<h4>The group of roots of unity in $\C$</h4>
+
+<p>​    Consider the equation $z^n=1$. In $\C$, it has $n$ roots called <strong>roots of unity</strong>. They are:
+$$
+G = {e^{\frac{2\pi ik}n}|\ k=0,\cdots,n-1}
+$$
+and you can find $G$ is a group under <strong>multiplication</strong>. [<strong>Ex 1.2.1</strong>]</p>
+
+<p>​    We may research a little more things about this group. That is about the form of elements in $G$. We can easily find the <strong>&#39;power&#39; relationship</strong> between an arbitrary elements and $e^{\frac{2\pi i}n}$
+$$
+\forall k=0,\cdots,n-1: e^{\frac{2\pi ik}n}=(e^{\frac{2\pi i}n})^k
+$$
+​    Thus, if $e^{\frac{2\pi i}n}$ is denoted by $\sigma$, then the group $G$ is formed by
+$$
+G={\sigma^0(=1),\sigma^1,\sigma^2,\cdots,\sigma^{n-1}}
+$$
+and $\sigma^n=e^{2\pi i}=1=\sigma^0$, so there is a <strong>cycle</strong> of elements. The element in $G$ is all showed above. The group which has a form like this is called the <strong>cyclic group</strong>. We will research it in section 1.?.</p>
+
+<h4>The symmetrical group</h4>
+
+<p>​    Let us think about some &#39;easy&#39; function: a bijection $f:{1,2,3}\to{1,2,3}$, which has many (how many?) possibilities, for example</p>
+
+<p>| $x$    | $1$  | $2$  | $3$  |
+| ------ | ---- | ---- | ---- |
+| $f(x)$ | $2$  | $3$  | $1$  |</p>
+
+<p>​    We give a simple expression:
+$$
+f=
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \
+2 &amp; 3 &amp; 1
+\end{pmatrix}
+$$
+​    Assume all of these bijections consist a set, which we write $S<em>3$ (the precise means of this notation will be introduced in section 1.?. here we just use it.). Then $S</em>3$ include 6 bijections. Then we can compose two bijections in $S<em>3$, for example:
+$$
+f=
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \
+2 &amp; 3 &amp; 1
+\end{pmatrix},\ 
+g=
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \
+3 &amp; 2 &amp; 1
+\end{pmatrix}\
+\therefore f\circ g = 
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \
+1 &amp; 3 &amp; 2
+\end{pmatrix}\ and\ 
+g\circ f = 
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \
+2 &amp; 1 &amp; 3
+\end{pmatrix}
+$$
+​    Notice that for composition operation of two map, we have to compose from right to left. ($f\circ g(x)=f(g(x)),x\mapsto g(x)\mapsto f(g(x))$, first do transformation $g$, then $f$)
+​    Maybe you always observe $f\circ g$ and $g\circ f$ are in $S</em>3$ (i.e. $f\circ g$ and $g\circ f$ are bijections from ${1,2,3}$ to itself). We prove a more general proposition.</p>
+
+<p><strong>Proposition 2.1</strong> If maps $f:A\to A,g:A\to A$ are all bijective, and $A$ is a finite set, then $f\circ g: A\to A$ is bijective.
+​    <em>Proof</em>: for arbitrary $a,b\in A$, we have
+$$
+\begin{align}
+a = b &amp;\iff g(a) = g(b)       &amp;\text{($g$ is bijective.)}\
+      &amp;\iff f(g(a)) = f(g(b)) &amp;\text{($f$ is bijective.)}
+\end{align}
+$$
+so $f\circ g$ is injective (&#39;$\leftarrow$&#39;), and the <strong>order</strong> of $A$ equals to the order of image of $f\circ g$, thus $f\circ g$ is surjective. In conclusion, $f\circ g$ is bijective.</p>
+
+<p>​    It is also known that for three maps $f:A\to B,\ g:B\to C,\ h:C\to D$, we have the <strong>associative law</strong>: $h\circ (g\circ f)=(h\circ g)\circ f$ (try to prove it!). So we can easily find the set $S_3$ with composition $\circ$, is a group <a href="You need to find the **identity** and the **inverse** of each element."><strong>Ex 1.2.2</strong></a>. We called the <strong>symmetrical group of degree 3</strong>. You can guess there may be a symmetrical group of degree n, we will introduce it in section 1.?.</p>
+
+<p><strong>Ex 1.2.3</strong> Guess the form of the group $S_4$.</p>
+
+<h4>Dihedral groups</h4>
+
+<p><img alt="final" src="F:\Maki&#39;s Lab\基础代数学I - 讲义\1.2\final.png"/></p>
+
+<p>​    We will research a equilateral triangle, and consider all rigid motion which make it coincide with the &#39;old one&#39;. In order to help us to see the &#39;motion&#39; of triangle clearly, we express three vertices as &#39;1,2,3&#39; (Picture 1.2.2) and the initial position is sub-picture (1). First, the identity motion still get (1). Then, rotate the triangle will get (2) (120 degree anticlockwise) and (3) (240 degree anticlockwise). Finally, do axial symmetry along axis through point 1 (denoted as &#39;axis 1&#39;), we get (4), (5) and (6) respectively. Notice that we can certainly be along every axis-k, but it cannot get new results. (For example, do axial symmetry along axis 2, and (1) become (5). )
+​    It is not difficult to prove that all these transformations form a group, which is called the dihedral group of degree 6 and denoted by $D<em>6$. (In some textbooks this group is written as $D</em>3$) Why is degree 6? Because the order of $D<em>6$ is 6. We will explain the conclusion in the general case.
+​    Generally speaking, for the <strong>regular n-gon</strong>, we also express its $n$ vertices as $1,2,\cdots,n$ <strong>anticlockwise</strong>. From the discussion above, we have two kinds of rigid motion to keep the n-gon coincide with the old $n$-gon: rotate $2k\pi/n, (k=0,1,\cdots,n-1)$ degrees, and do axial symmetry along axis 1. Notice that here we do not rotate &#39;anticlockwise&#39;. Instead we rotate the n-gon $2k\pi/n$ degrees so that point $(k+1)$ coincide the point 1 <strong>in the old n-gon</strong>. Thus we have $n$ kinds of rotation and 2 kinds of axial symmetry,and totally we have $2n$ kinds of rigid motion.
+​    Let $\sigma$ is the rotation of $2\pi/n$ degrees and $\tau$ is the axial symmetry along axis 1 (look at picture 1.2.2). From properties of motions we have
+$$
+\sigma^n = e,\ \tau^2 = e
+$$
+We always rotate first in the above discussion, because when we do axial symmetry first, we can find the equivalent motion. For example, begin with the position (1), if we do axial symmetry and rotate 120 degree (i.e. $\sigma\tau$), then we get (6), $\tau\sigma^2$. So we have an additional relation in $D</em>6$
+$$
+\begin{align}
+\sigma\tau &amp;= \tau\sigma^2 \
+\to \sigma\tau &amp;= \tau\sigma^{-1} \
+\to \tau\sigma &amp;= \sigma^{-1}\tau \
+\end{align}
+$$
+The last equation is correct for all $n$-gon.(Why?) Then all rigid motions form such a group:
+$$
+D<em>{2n}=\left&lt;\sigma,\ \tau|\ \sigma^n=e,\ \tau^2=e,\ \tau\sigma = \sigma^{-1}\tau\right&gt;
+$$
+<strong>Ex 1.2.4</strong> Try to use regular 4 and 5-gon and write the group $D</em>8$ and $D<em>{10}$. Do these satisfy the general expression of $D</em>{2n}$?</p>
+
+<h4>Generators and relations</h4>
+
+<p>​    In example 3, we show a kind of expression of groups. Before this, if we want to express a group, we must write the set of elements and the operation between them. When the set and expression have exclusive notations, this expression is not complex. But when they not have exclusive notations (just like example 3), we need to write all its elements, and operation equations, in which the workload is huge if $n$ is large.</p>
+
+<p>​    But actually, the key information in the group $D<em>{2n}$ is not much. The first 2 relation $\sigma^n = e,\ \tau^2 = e$ limit the degree of $\sigma$ and $\tau$ cannot be over $n$ and $2$, respectively. And the last relation $\tau\sigma = \sigma^{-1}\tau$ determines that all elements in $D</em>{2n}$ must form $\sigma^i\tau^j$. For example, give a term $\sigma^2\tau^3\sigma^{-2}\in D<em>4$, we can simplify it to
+$$
+\begin{align}
+\sigma^2\tau^3\sigma^{-2} &amp;= \sigma^2\tau\sigma^2 \
+  &amp;= \sigma^2(\sigma^{-1}\tau)\sigma \
+  &amp;= \sigma(\tau\sigma) \
+  &amp;= \sigma(\sigma^{-1}\tau) \
+  &amp;= \tau
+\end{align}
+$$
+​    So the expression
+$$
+D</em>{2n}=\left&lt;\sigma,\ \tau|\ \sigma^n=e,\ \tau^2=e,\ \tau\sigma = \sigma^{-1}\tau\right&gt;
+$$
+indicate not only elements, but the operation of the group $D<em>{2n}$ as well. In general, we can express a group by
+$$
+G = \left&lt;S|\ R</em>1,R<em>2,\cdots,R</em>n\right&gt;
+$$
+where $S$ is called <strong>the generator set</strong>, in which any element is called <strong>the generator</strong> of $G$, and $R<em>1,R</em>2,\cdots,R_n$ is called <strong>relations</strong> of $G$. This kind of expression is called a <strong>representation</strong> of the group $G$. The rigorous definition will be introduced in &#39;Abstract Algebra II&#39;. </p>
+
+<p><strong>Example 1</strong> In subsection 1, every <strong>finite</strong> cyclic group can be expressed as
+$$
+\left&lt; a|\ a^n=e\right&gt;
+$$
+<strong>Ex 1.2.5</strong> <strong>Klein 4-group</strong></p>
+
+<p>​    A set $K_4={e,a,b,ab}$, with product $\cdot$ and such <strong>relations</strong>:
+$$
+a^2=b^2, ab=ba, (ab)^2=e
+$$
+Try to prove that it&#39;s an Abelian group and write its representation.</p>
+
+<h4>The Group included in linear space</h4>
+
+<p>​    Review the definition of the linear space, we can easily find if $V$ is a linear space, then $(V,+)$ is a Abelian group. [<strong>Ex 1.2.6</strong>] We are familiar with the linear space, so we can <strong>rediscover</strong> a group with respect to it.</p>
+
+<p><strong>Example 2</strong> From the linear space $\R^n$, we have $(\R^n,+)$ is a group.</p>
+
+<p><strong>Example 3</strong> Consider the set of continuous function on $[a,b]$, $C^0[a,b]$, we have $C^0[a,b]$ with the addition between functions is a group. [<strong>Ex 1.2.7</strong>] Actually we can also define the scale multiplication
+$$
+(\lambda f)(x) = \lambda f(x), \forall x\in[a,b]
+$$
+and induce that $C^0[a,b]$ with addition and scale multiplication is a linear space.</p>
+
+<p>​    This relation between groups and linear spaces will inspire us to &#39;project&#39; some conclusions in the linear algebra (which we have learned before) into the group theory.</p>
+
+<p><strong>Ex 1.2.8</strong> Let $\R[x]$ be the set of all polynomials which coefficients are all real, prove that $(\R[x],+)$ is a group. How about the set $\C[x]$?</p>
+
+<h4>Direct Products</h4>
+
+<p>​    When we have some groups, we can construct a new one.</p>
+
+<p><strong>Definition 2.2</strong> The Direct product, $G<em>1\times \cdots\times G</em>n$.
+​    Let $(G<em>1,\ast</em>1),\cdots,(G<em>n,\ast</em>n)$ are some groups. Define the direct product of these groups
+$$
+G<em>1\times\cdots\times G</em>n = {(g<em>1,\cdots,g</em>n)|\ \forall i\in\N^*<em>{\leqslant n},g</em>i\in G<em>i}
+$$
+and the operation on the direct product
+$$
+(g</em>1,\cdots,g<em>n)\ast(g&#39;</em>1,\cdots,g&#39;<em>n) = (g</em>1\ast<em>1 g&#39;</em>1,\cdots,g<em>n\ast</em>ng&#39;_n)
+$$</p>
+
+<p><strong>Ex 1.2.9</strong> Prove that the direct product with the operation $\ast$ is a group.</p>
+
+<p><strong>Example 4</strong> In example 2, $(\R^n,+)$ is actually a direct product $(\R,+)\times\cdots\times(\R,+)$.</p>
+
+<p>​    More propositions of direct product will be introduced in section 1.?.</p>
+
+<p><strong>Ex 1.2.10</strong> [!] Let $G={(a,b)|\ a\in R_*, b\in R}$. Define the multiplication
+$$
+(a,b)(c,d) = (ac,ad+b)
+$$
+Prove that $(G,\cdot)$ is a group.</p>

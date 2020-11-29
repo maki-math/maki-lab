@@ -1,0 +1,276 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-29 20:40:02
+ * @LastEditTime: 2020-11-29 20:41:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \sudoku-1d:\Project\maki-lab\maki-lab\1\1.6 Homomorphisms.html
+-->
+<h3>1.6 Homomorphisms</h3>
+
+<h4>The definition of homomorphisms</h4>
+
+<p>​    In section 1.3 to 1.5, we deeply discuss the subgroup, which are all in just one group. Today we will begin with two groups together, which means a kind of specific map between two groups. Let&#39;s have a look at a canonical example first.</p>
+
+<p><strong>Example 1</strong> determinant</p>
+
+<p>​    In linear algebra, we have learned for all $A,B \in F^{n\times n}$, 
+$$
+\det A\cdot\det B = \det AB
+$$
+Now we restrict the discussion limit into $GL<em>n(\C)$. In fact, we can see the &#39;determinant&#39; as a map:
+$$
+\begin{align}
+\det:(GL</em>n(C),\cdot) &amp;\to (\C^*,\cdot)\
+                   A &amp;\mapsto \det(A)
+\end{align}
+$$
+Thus it is a map between two groups. (Notice that two operations are not the same.) Also, it has a &#39;parallel relation&#39;</p>
+
+<p>| $(GL_n(C),\cdot)$ | $(C^*,\cdot)$                  |
+| ----------------- | ------------------------------ |
+| $A$               | $\det A$                       |
+| $B$               | $\det B$                       |
+| $AB$              | $\det AB = \det A\cdot \det B$ |</p>
+
+<p>The equation $\det AB = \det A\cdot \det B$ is not trivial, we need to give it a definition.</p>
+
+<p><strong>Definition 6.1</strong> homomorphisms
+​    Let $(G,\cdot)$ and $(H,\circ)$ are two groups. A map $f:G\to H$ s.t. for all $x,y\in G$
+$$
+f(a\cdot b) = f(a)\circ f(b)
+$$
+is called a homomorphism.</p>
+
+<p>​    We will see more examples of homomorphisms.</p>
+
+<p><strong>Example 2</strong> If $H$ is a subgroup of $G$, then we just define a <strong>embedding map</strong>
+$$
+\begin{align}
+i:H &amp;\to G \
+  h &amp;\mapsto h
+\end{align}
+$$
+then it is a homomorphism because
+$$
+\begin{align}
+i(g)+i(h) &amp;= g+h \
+          &amp;= i(g+h)
+\end{align}
+$$
+​    This is a simple but important homomorphism.</p>
+
+<p><strong>Example 3</strong> Define the map
+$$
+\begin{align}
+f:(\Z,+) &amp;\to (\Z/n\Z,+) \
+       i &amp;\mapsto \bar i
+\end{align}
+$$
+then it is a homomorphism because
+$$
+\begin{align}
+f(i)+f(j) &amp;= \bar i+\bar j \
+          &amp;= (i+n\Z)+(j+n\Z) \
+          &amp;= (i+j)+n\Z  &amp;(n\Z+n\Z=n\Z) \
+          &amp;= \overline{i+j} \
+          &amp;= f(i+j)
+\end{align}
+$$</p>
+
+<p><strong>Example 4</strong> We have known that if define $U = {x\in \C|\ x^n=1}$, then $(U,\cdot)$ will be a group.(Section 1.2) Let $\sigma=e^{2\pi/n}$, and define a map:
+$$
+\begin{align}
+f: (\Z/n\Z) &amp;\to (U,\cdot) \
+     \bar i &amp;\mapsto \sigma^i
+\end{align}
+$$
+then it is a homomorphism because
+$$
+\begin{align}
+f(\bar i)+f(\bar j) &amp;= \sigma^i\cdot\sigma^j \
+                    &amp;= \sigma^{i+j} \
+                    &amp;= f(\overline{i+j}) \
+                    &amp;= f(\bar i+\bar j)
+\end{align}
+$$
+​    Furthermore, we can find that $f$ is a bijection, then there is obviously an inverse map
+$$
+\begin{align}
+f^{-1}: (U,\cdot) &amp;\to (\Z/n\Z) \
+         \sigma^i &amp;\mapsto \bar i
+\end{align}
+$$
+and it is also a homomorphism! [<strong>Ex 1.6.1</strong>]</p>
+
+<p>​    In <strong>example 4</strong> we can learn that a homomorphism with a bijection will have more beautiful properties, thus we will give it a name.</p>
+
+<p><strong>Definition 6.2</strong> isomorphisms/ isomorphic, $G\cong H$
+    Let $f:G\to H$ is a (group) homomorphism. If $f$ is a bijection, then we will call $f$ is an isomorphism. And $G$ and $H$ are said to be <strong>isomorphic</strong>, written $G\cong H$.</p>
+
+<p><strong>Example 5</strong> The linear map
+​    For two linear space $V,W$ and a linear map $T:V\to W$, if we view linear spaces as groups and only consider the addition, then $T$ is a homomorphism. What&#39;s more, if $\dim V=\dim W$, then $T$ is an isomorphism. [<strong>Ex 1.6.2</strong>]</p>
+
+<p><strong>Example 6</strong> <strong>projections</strong> of the direct product</p>
+
+<p>​    Let $G<em>1,\cdots, G</em>n$ are groups. Then define the $i^{th}$ <strong>projection</strong> of the direct product $G<em>1\times\cdots\times G</em>n$
+$$
+\begin{align}
+\pi<em>i:G</em>1\times\cdots\times G<em>n &amp;\to G</em>i \
+  (g<em>1,\cdots,g</em>n) &amp;\mapsto g_i
+\end{align}
+$$
+Then this map is a homomorphism. [<strong>Ex 1.6.3</strong>]</p>
+
+<p><strong>Ex 1.6.4</strong> Try to find a homomorphism from $(\R,+)$ to $(\R_+,\cdot)$.</p>
+
+<p><strong>Ex 1.6.5</strong> [*,!] Prove that $(\Q,+)$ and $(\Q^\ast,\cdot)$ are not isomorphic.</p>
+
+<h4>Some basic properties of homomorphisms</h4>
+
+<p><strong>Theorem 6.3</strong> keep the identity and inverse
+​    Let $f:G\to H$ is a homomorphism. $e$ is the identity of $G$, and $e&#39;$ is the identity of $H$. We have
+​    (1) $f(e)=e&#39;$.
+​    (2) If $g\in G$, then $f(g^{-1})=(f(g))^{-1}$.</p>
+
+<p>​    <em>Proof</em>: (1). $f(e) = f(e\cdot e)=f(e)f(e)$, thus $e&#39;=f(e)$.
+​    (2). 
+$$
+\begin{align}
+f(g^{-1}) &amp;= f(g^{-1})e&#39; \
+          &amp;= f(g^{-1})\cdot f(g)(f(g))^{-1} \
+          &amp;= f(g^{-1})f(g)\cdot (f(g))^{-1} \
+          &amp;= f(g^{-1}g)\cdot (f(g))^{-1} \
+          &amp;= f(e)\cdot (f(g))^{-1} \
+          &amp;= e&#39;\cdot (f(g))^{-1} \
+          &amp;= (f(g))^{-1}
+\end{align}
+$$</p>
+
+<p><strong>Ex 1.6.6</strong> Let $f:G\to H$ is a homomorphism. If $g$ is in $G$, then for arbitrary $n\in\Z$, $f(g^n)=(f(g))^n$.</p>
+
+<h4>Review: null and image space of a linear map</h4>
+
+<p>​    Before our further learning, we&#39;d like to review some important things about <strong>linear maps</strong> in linear algebra. There are two subspaces with respect to a linear map $T: V\to W$, null space (or kernel) and image space (or range):
+$$
+\ker T = {\vec v\in V|\ T\vec v=\vec 0} \
+\mathrm{im} T = {T\vec v\in W|\ \forall\vec v\in V }
+$$
+And they have some properties (due to space limitations, detailed proof is not given here, you can review in any textbook of linear algebra.)</p>
+
+<p><strong>Theorem L.1</strong> subspaces
+​    (1) null space $\ker T$ is a subspace of domain $V$.
+​    (2) image space $\mathrm{im} T$ is a subspace of co-domain $W$.</p>
+
+<p><strong>Theorem L.2</strong> injective and surjective
+​    (1) A linear map $T: V\to W$ is injective, iff. $\ker T={\vec 0}$.
+​    (2) A linear map $T: V\to W$ is surjective, iff. $\mathbb{im} T=W$.</p>
+
+<p><strong>Theorem L.3</strong> nullity+rank
+    (1) For arbitrary linear map $T: V\to W$, $\dim V = \dim\ker T + \dim\mathbb{im}T$.
+    (2) Thus, for respective quotient space $T/\ker T$, $\dim(T/\ker T) = \dim \mathbb{im}T$, then $T/\ker T \cong \mathbb{im}T$. </p>
+
+<p>​    When we only consider the addition in a linear space, we can deduce it is an Abelian group, and a linear map is a homomorphism in respective group. So can we find parallel definitions and theorems, which are mentioned above, in group theory? Try to do! </p>
+
+<h4>Kernel and image</h4>
+
+<p>​    Just like null and image space, we will define the &#39;similar&#39; things with respect to a (group) homomorphism (Notice that in this section, we will omit the word &#39;group&#39; in order to keep brevity).</p>
+
+<p><strong>Definition 6.4</strong> kernel and image
+​    For a homomorphism $f:G\to H$, define the <strong>kernel</strong> of $f$ which includes all elements in $G$ that map to the identity $e&#39;$ of $H$.
+$$
+\ker f = {g\in G|\ f(g) = e&#39;}
+$$
+​    We also define the <strong>image</strong> of $f$ which includes all images under $f$ of elements in $G$.
+$$
+\mathrm{im} f = {f(g)|\ \forall g\in G}
+$$</p>
+
+<p>​    Now we come back to examples 1 to 4, and try to find the kernel and image of those homomorphisms.</p>
+
+<p><strong>Example 1&#39;</strong> For the homomorphism $\det:(GL<em>n(C),\cdot) \to (\C^*,\cdot)$: 
+$$
+N := \ker \det = {A\in GL</em>n(C)|\ \det(A)=1}
+$$
+then the kernel $N$ is $SL_n(C)$. And the image $I$ is the whole $\C^\ast$, because for all $z\in\C^\ast$, $\det(\mathrm{diag}(z,1,\cdots,1)) = z$.</p>
+
+<p><strong>Example 2&#39;</strong> For the embedding homomorphism $i:H \to G$, $N = {e}, I = H$. [<strong>Ex 1.6.7</strong>]</p>
+
+<p><strong>Example 3&#39;</strong> For the homomorphism $f:(\Z,+) \to (\Z/n\Z,+)$:
+$$
+\begin{align}
+N &amp;= {i\in\Z|\ \bar i = \bar 0} \
+  &amp;= {i\in\Z|\ i \in n\Z} \
+  &amp;= n\Z \
+\end{align}
+$$
+And the image $I$ is the whole $\Z/n\Z$.</p>
+
+<p><strong>Example 4&#39;</strong> Similar discussions leave to reader. [<strong>Ex 1.6.8</strong>]</p>
+
+<p><strong>Example 6&#39;</strong> For the $i^{th}$ projection $\pi<em>i$, $N=G</em>1\times\cdots\times{e<em>i}\times\cdots\times G</em>n \cong G<em>1\times\cdots\times G</em>{i-1}\times G<em>{i+1}\times\cdots\times G</em>n$ and $I=G_i$. [<strong>Ex 1.6.9</strong>]</p>
+
+<p>​    Parallel with <strong>Theorem L.1</strong>, we have:</p>
+
+<p><strong>Theorem 6.5</strong> subgroups with respect to a homomorphism
+​    Let $f:G\to H$ is a homomorphism, then we have
+​    (1) $\ker f \lhd G$.
+​    (2) $\mathrm{im} f \leqslant H$.</p>
+
+<p>​    <em>Proof</em>:  (1) (i) wts. $\ker f \leqslant G$.
+​    Obviously, the identity $e$ of $G$ is in $\ker f$. (<strong>6.3 (1)</strong>, why we need to say this point in proof?)
+​    For all $a,b\in \ker f$, we have:
+$$
+\begin{align}
+f(ab^{-1}) &amp;= f(a)f(b^{-1}) &amp;\text{(6.1)}\
+           &amp;= f(a)(f(b))^{-1} &amp;\text{(6.3 (2))}\
+           &amp;= e&#39;(e&#39;)^{-1} \
+           &amp;= e&#39;
+\end{align}
+$$
+ thus, $\forall a,b \in \ker f,\ ab^{-1}\in \ker f$, i.e. $\ker f\leqslant G$. (<strong>3.3</strong>)
+​    (ii) wts. for all $g\in G$, $g(\ker f)g^{-1}\subset \ker f$. (then for <strong>5.3</strong>, $\ker f\lhd G$)
+​    For all $a\in \ker f$, we have
+$$
+\begin{align}
+f(gag^{-1}) &amp;= f(g)f(a)f(g^{-1}) &amp;\text{(6.1)} \
+            &amp;= f(g)e&#39;(f(g))^{-1} &amp;\text{(6.3 (2))} \
+            &amp;= f(g)(f(g))^{-1} \
+            &amp;= e&#39;
+\end{align}
+$$
+so $\forall a\in \ker f, gag^{-1}\in \ker f$. That is to say, $g(\ker f)g^{-1}\subset \ker f$.</p>
+
+<p>​    (2) Obviously, $e&#39;$ is in $\mathrm{im} f$. (<strong>6.3 (1)</strong>)
+​    For all $x,y\in \mathrm{im}f$ (i.e. there are some $a,b\in G$ s.t. $f(a) = x, f(b) = y$), we have
+$$
+\begin{align}
+xy^{-1} &amp;= f(a)(f(b))^{-1} \
+        &amp;= f(a)f(b^{-1}) &amp;\text{(6.3 (2))} \
+        &amp;= f(ab^{-1}) &amp;\text{(6.1)}
+\end{align}
+$$
+so $\forall x,y \in \mathrm{im}f, xy^{-1}\in\mathrm{im}f$, i.e. $\mathrm{im}f\leqslant H$. (<strong>3.3</strong>)</p>
+
+<p>​    Use <strong>Theorem 6.5</strong> in examples above, we can get a non-trivial conclusion.</p>
+
+<p><strong>Example 1&#39;&#39;</strong> From <strong>example 1&#39;</strong>, we have:
+$$
+SL<em>n(C) \lhd GL</em>n(C)
+$$
+You can also prove it use <strong>Theorem 5.3</strong>. [<strong>Ex 1.6.10</strong>]</p>
+
+<p><strong>Ex 1.6.11</strong> [!] Let $f:G\to H$ is a homomorphism, and $M$ is a subgroup of $G$. Try to prove that $f^{-1}(f(M))=(\ker f)M$.</p>
+
+<p>​    Parallel with <strong>Theorem L.2</strong>, we have:</p>
+
+<p><strong>Theorem 6.6</strong> injective and surjective
+​    Let $f:G\to H$ is a homomorphism. $e$ is the identity of $G$, and $e&#39;$ is the identity of $H$. Then we have:
+​    (1) A homomorphism $f:G\to H$ is injective, iff. $\ker f={e}$.
+​    (2) A homomorphism $f:G\to H$ is surjective, iff. $\mathbb{im} f=H$. (Actually it&#39;s the definition of the surjection. We put it here because it is parallel with (1).)</p>
+
+<p>​    <em>Proof</em>: we only need to prove (1).
+​    (i) &#39;$\rightarrow$&#39;: If $f:G\to H$ is injective, then for all $a,b\in G$, $f(a)=f(b)$ leads to $a=b$. Thereby $f(ab^{-1})=e&#39;$ leads to $ab^{-1}=e$, i.e. $ab^{-1}\in \ker f\to ab^{-1}=e$. So $\ker f\subset{e}$, and $\ker f = {e}$.
+​    (ii) &#39;$\leftarrow$&#39;: Let $\ker f={e}$. If $a,b\in G$, $f(a)=f(b)$, then $f(ab^{-1})=e&#39;$. That is to say, $ab^{-1}=e$. So $a=b$. Thus $f$ is injective.</p>
+
+<p>​    We can find the homomorphism in <strong>example 1</strong>, <strong>example 3</strong> and <strong>example 6</strong> are surjective, in <strong>example 2</strong> is injective, and in <strong>example 4</strong> is bijective (thus is an isomorphism).</p>s

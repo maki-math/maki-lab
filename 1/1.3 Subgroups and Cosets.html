@@ -1,0 +1,253 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-29 20:39:35
+ * @LastEditTime: 2020-11-29 20:40:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \sudoku-1d:\Project\maki-lab\maki-lab\1\1.3 Subgroups and Cosets.html
+-->
+<h3>1.3 Subgroups and Cosets</h3>
+
+<h4>Subgroups</h4>
+
+<p>​    We begin our learning with the integer group $(\Z,+)$. In primary school, we have learned the <strong>even</strong> number and <strong>odd</strong> number, and know that an even number plus an even number is also an even number. So, you can prove that the even number set $2\Z={2n|\ n\in\Z}$ with addition is a group. [<strong>Ex 1.3.1</strong>] What is the relationship between the group $(2\Z,+)$ and $(\Z,+)$?
+​    The question is not difficult. At the viewpoint of the set, we have $2\Z\subset\Z$, and the operations are the same. So we called that $(2\Z,+)$ is a <strong>subgroup</strong> of $(\Z,+)$.</p>
+
+<p><strong>Definition 3.1</strong> Subgroups $H\leqslant G$.
+​    Let $(G,\cdot)$ is a group, if $H$ is the subset of $G$, and $(H,\cdot)$ is also the group (with the same operation), then we say $(H,+)$ is a <strong>subgroup</strong> of $(G,+)$. This relationship is denote by $H\leqslant G$.</p>
+
+<p>​    Furthermore, if we also have $H\neq G$, then we say $(H,+)$ is a <strong>proper subgroup</strong> of $(G,+)$, and denoted by $H&lt;G$.
+​    In mathematics, there are many definitions which are called &quot;sub-xx&quot;, such that subset, subspace (in linear algebra), subbasis (in topology), subcovering (in topology), subdiagonal, ..., and substitution (ha ha ha...). And one of the meaning of the &#39;sub-&#39; express a <strong>inclusion relation</strong> and some <strong>same properties</strong>.
+​    Before we give some examples of subgroups, we introduce a useful notation.</p>
+
+<p><strong>Notation 3.2</strong> &#39;operation between sets and elements&#39;
+​    Let $(G,\cdot)$ is a group, $A,B$ are subgroups of $G$, $g\in G$, and we define
+$$
+\begin{align}
+AB     &amp;= {ab|\ a\in A,b\in B}\
+gA     &amp;= {ga|\ a\in A}\
+Ag     &amp;= {ag|\ a\in A}\
+A^{-1} &amp;= {a^{-1}|\ a\in A}
+\end{align}
+$$</p>
+
+<p><strong>Example 1</strong> $(SL<em>n(F),\cdot)$ is a subgroup of $(GL</em>n(F),\cdot)$.
+​    It is a easy example, because $SL<em>n(F)\subset GL</em>n(F)$, and we have already known $(SL_n(F),\cdot)$ is a group.</p>
+
+<p><strong>Example 2</strong> we have such a relation: [<strong>Ex 1.3.2</strong>]
+$$
+(\Z,+) &lt; (\Q,+) &lt; (\R,+) &lt; (\C,+) \
+(\Q_<em>,\cdot) &lt; (\R_</em>,\cdot) &lt; (\C_*,\cdot)
+$$</p>
+
+<p><strong>Example 3</strong> like the beginning of this section, we have for all $n\in Z_{\geqslant 2}$ [<strong>Ex 1.3.3</strong>]
+$$
+n\Z &lt; \Z
+$$
+​    We have a more simple criterion to decide a subgroup.</p>
+
+<p><strong>Theorem 3.3</strong> The Subgroup Criterion
+​    A subset $H$ of a group $G$ is a subgroup iff.
+​    (1) $H$ is not empty
+​    (2) for all $x,y\in H$, $xy^{-1}\in H$.</p>
+
+<p>​    <em>Proof</em>: If $H &lt; G$, it&#39;s easy to verify $(1)$ and $(2)$ are right. Now assume $(1)$ and (2) are right ,we try to prove that $H&lt;G$.
+​    (i). choose an element $x\in H$, $e=hh^{-1}\in H$.
+​    (ii). for all $x\in H$, $x^{-1}=ex^{-1}\in H$.
+​    (iii). for all $x,y\in H$, $xy = x(y^{-1})^{-1}\in H$. (use (ii), $y^{-1}\in H$)
+​    (iv). associative law is always right in $H$.
+​    So $H$ is a group, and is a subgroup of $G$.</p>
+
+<p>​    The above proof also prove an important assertion.</p>
+
+<p><strong>Corollary 3.4</strong>  &#39;multiply own inverse&#39;
+​    A subset $H$ of a group $G$ is a subgroup iff.
+​    (1) $H$ is not empty
+​    (2) $HH^{-1}=H$. (or $H^{-1}H=H$)</p>
+
+<p>​    <em>Proof</em>: we only need to prove &#39;$\leftarrow$&#39;. 
+​    Use <strong>3.3</strong>, we have already known: $HH^{-1}\subset H$. (why?) And $H\subset HH^{-1}$ is correct because of $H=He^{-1}\subset HH^{-1}$.$H^{-1}H=H$ is similar to prove.</p>
+
+<p><strong>Ex 1.3.3</strong> A subset $H$ of a group $G$ satisfied
+​    (1) $H$ is not empty
+​    (2) for all $x,y\in H$, $xy\in H$.
+​    Is $H$ a subgroup of $G$? Why?</p>
+
+<p><strong>Ex 1.3.4</strong> The Intersection of Subgroups (<strong>Theorem 3.5</strong>)
+​    (1) If $H$ and $K$ are subgroups of $G$, then so is their intersection $H\cap K$.
+​    (2) The intersection of an <strong>arbitrary</strong> nonempty collection of subgroups of $G$ is again a subgroup of $G$.
+​    Hint: notice that if $x\in H\cap K$, then $x\in H$ <strong>and</strong> $x\in K$.</p>
+
+<p><strong>Ex 1.3.5</strong> [*] If $H$ and $K$ are subgroups of $G$, then $HK$ is a subgroup of $G$ if and only if (.iff) $HK=KH$.</p>
+
+<h4>Cosets</h4>
+
+<p>​    The specific form of set have already presented some times, such that $n\Z$ and $He^{-1}$. These objects are all like a combination between an element and a subgroup, which we called them <strong>cosets</strong>.</p>
+
+<p><strong>Definition 3.6</strong> Left Cosets, $aH$.
+​    For a group $G$, if $H$ is a subgroup of $G$ and $g\in G$, we called $gH$ is a <strong>left coset</strong> of $H$ in $G$.
+​    Similarly, $Hg$ is called a <strong>right coset</strong> of $H$ in $G$.</p>
+
+<p>​    From <strong>3.6</strong>, we can say $n\Z$ is a left coset of $\Z$ in $\Z$, and $He^{-1}$ is a right coset of $H$ in $G$. Now we mostly research right cosets. (The reason can be find in <strong>Ex 1.3.6</strong>)</p>
+
+<p>​    We will give an important definition, then the discuss some properties of cosets.</p>
+
+<p><strong>Definition 3.7</strong> order of a set, $|A|$.
+​    The order of a set $A$ is <strong>the number</strong> of elements in $A$, and is denoted by $|A|$.
+​    In particular, if $A$ is infinite, we say $|A|=\infty$.</p>
+
+<p><strong>Property 3.8</strong> the order of coset
+​    If $H$ is a subgroup of group $G$, $g\in G$, then $|Hg|=|H|$.</p>
+
+<p>​    <em>Proof</em>: Because of the cancellation law (<strong>1.9</strong>):
+$$
+\forall a,b\in H: a = b\iff ag = bg
+$$
+In other words, there is a bijection between $Hg$ and $H$, thus $|Hg|=|H|$.</p>
+
+<p><strong>Property 3.9</strong> a specific cosets is a group
+    If $H$ is a subgroup of group $G$, $g\in G$, then the following are equivalent (TFAE):
+    (1) $g\in H$
+    (2) $Hg=H$.
+    (3) The right coset $Hg$ is a group.</p>
+
+<p>​    <em>Proof</em>: 
+​    (1)$\to$(2): $H$ is closed under binary operation, so $Hg\subset H$. And from <strong>3.8</strong>, $|Hg|=|H|$. Then $Hg=H$.
+​    (2)$\to$(3): $H$ is a group.
+​    (3)$\to$(1): 
+​    <em>Method 1</em>: If $Hg$ is a group, then it must be a subgroup of $G$, for $Hg\subset G$.
+​    Use <strong>3.3</strong>, for all $h<em>1,h</em>2\in H$, we have
+$$
+\begin{align}
+h<em>1g\cdot(h</em>2g)^{-1}\in Hg
+\to&amp; h<em>1h</em>2^{-1} \in Hg \
+\to&amp; \exist h \in H, h<em>1h</em>2^{-1}=hg \
+\to&amp; g=h^{-1}h<em>1h</em>2^{-1}\in H.
+\end{align}
+$$
+​    <em>Method 2</em> : $Hg$ is a group, then the identity $e\in Hg$.
+$$
+\begin{align}
+e\in Hg &amp;\to \exist h\in H, hg=e \
+        &amp;\to h = g^{-1} \
+        &amp;\to g^{-1}\in H \
+        &amp;\to g\in H
+\end{align}
+$$</p>
+
+<p>​    Notice that In <strong>3.9</strong>, (1)$\iff$(2). It will be used many times.
+​    Generally, there are many right cosets of a subgroup. What are the relationships between these cosets? We have such a property.</p>
+
+<p><strong>Property 3.10</strong> &#39;The one is all!&#39;
+​    If $H$ is a subgroup of $G$, $x,y\in G$, and the intersection $Hx\cap Hy$ is not empty, then $Hx=Hy$.</p>
+
+<p>​    <em>Proof</em>: If $Hx\cap Hy$ is not empty, then there are $h<em>1,h</em>2\in H$ s.t. $h<em>1x=h</em>2y$. Thus: 
+$$
+\begin{align}
+h<em>1x=h</em>2y &amp;\iff xy^{-1} = h<em>1^{-1}h</em>2 &amp;\text{(Why?)}\
+          &amp;\iff xy^{-1}\in H^{-1}H\
+          &amp;\iff xy^{-1}\in H &amp;\text{(Corollary 3.4)}\
+          &amp;\iff Hxy^{-1} = H &amp;\text{(Property 3.8)}\
+          &amp;\iff Hx = Hy
+\end{align}
+$$
+​    The <strong>3.10</strong> tell us that, the relationship between any two cosets just exists two conditions: equal or not intersected. So it is a <strong>partition</strong> of group $G$. Now we discuss the respective <strong>equivalence relation</strong> on $G$. For two elements $x,y\in G$, if they are in the same <strong>equivalence class</strong> $Hg$, then we have:
+$$
+\begin{align}
+&amp;\exist h<em>1,h</em>2\in H, x = h<em>1g,\ y = h</em>2g \
+\to&amp; g=h<em>1^{-1}x=h</em>2^{-1}y \
+\to&amp; xy^{-1} = h<em>1h</em>2^{-1} \in H
+\end{align}
+$$
+​    So we have the property below.</p>
+
+<p><strong>Property 3.11</strong> the equivalence relation with respect to cosets
+​    If $H$ is a subgroup of $G$, then define relation &#39;$\sim$&#39; on set $G$: for $x,y\in G$, 
+$$
+x\sim y \iff xy^{-1} \in H
+$$</p>
+
+<p>​    The complete proof are left to reader. (We need not this assertion in our learning, and you can prove that use the theory of <strong>partition and equivalence relation</strong>. If you have some confusion about that, please listen the Maki&#39;s class - Mathematical basis.) 
+​    Naturally we have such a disjoint union of right cosets:
+$$
+G = \bigcup Hg
+$$
+where $Hg$&#39;s are all different right cosets of $H$. If we respectively choose one element (i.e. the <strong>representative element</strong> of <strong>equivalent class</strong>) from every distinct right cosets (Here use the <strong>Axiom of Choice</strong>, the more things about AC are in set theory), we get a set $R$ and above equation can be written as
+$$
+G = \bigcup_{g\in R} Hg
+$$
+Obviously, the order of $R$ is equal to the number of distinct right cosets of $H$ in $G$, which we called the <strong>index</strong> of $H$ with respect to $G$, and express it as $[G:H]$. So can we calculate this index?</p>
+
+<p><strong>Theorem 3.12</strong> Lagrange&#39;s Theorem
+    If $H$ is a subgroup of group $G$, then 
+$$
+|G| = |H|[G:H]
+$$
+​    <em>Proof</em>: 
+$$
+\begin{align}
+|G| &amp;= \left|\bigcup<em>{g\in R} Hg\right| &amp;\text{(the discussion above)} \[5pt]
+    &amp;= \sum</em>{g\in R}|Hg|                &amp;\text{(the disjoint union)} \
+    &amp;= \sum_{g\in R}|H|                 &amp;\text{(Corollary 3.9)} \
+    &amp;= |H||R|                                                   \[5pt]
+    &amp;= |H|[G:H]                         &amp;\text{(the definition of index)}
+\end{align}
+$$</p>
+
+<p>​    Lagrange&#39;s Theorem gives us a simple description about the structure of a group. If you already know or find a subgroup of a group, you can divide this group into some small &#39;pieces&#39;, which have the same order.</p>
+
+<p><strong>Example 4</strong> In example 3 we have learned $n\Z&lt;\Z$. Let $n=5$, then we have such a disjoint union of group $\Z$:
+$$
+\Z = \bigcup_{i=0}^4 (i+5\Z)
+$$</p>
+
+<p><strong>Ex 1.3.6</strong> 
+​    (1). If G is a group and $H\leqslant G$, then all left cosets of $H$ can also form a partition of $G$.
+​    (2). [*] If G is a group, $H\leqslant G$, and $G$ has a partition consisted of right cosets
+$$
+G = \bigcup<em>{g\in R} Hg
+$$
+then
+$$
+G = \bigcup</em>{g\in R} g^{-1}H
+$$
+is also a partition of $G$. 
+​    Hint: partition: disjoint+union</p>
+
+<h4>The Application of cosets</h4>
+
+<p>​    In this subsection, we will use cosets to solve some problems.</p>
+
+<p><strong>Theorem 3.13</strong> &#39;the order of the multiplication of subgroups&#39;
+​    Let $G$ is a finite group, $H,K\leqslant G$, then
+$$
+|HK| = \frac{|H||K|}{|H\cap K|}
+$$</p>
+
+<p>​    <em>Analysis</em>: Obviously ,we can not give the specific number of all these orders. The only tool we have is <strong>cosets decomposition</strong>. So we need to find appropriate cosets.
+​    We only need to prove $|HK|/|H|=|K|/|H\cap K|$. From this, do you find decomposition?</p>
+
+<p>​    <em>Proof</em>: We have
+$$
+HK = \bigcup<em>{k\in K}Hk,\ K=\bigcup</em>{k\in K}(H\cap K)k
+$$
+the latter is right because $(H\cap K)K=(HK)\cap K=K$ ($K\subset HK$). 
+​    Now we want to show (wts.) that the number of &#39;cosets&#39; $Hk$ is equal to the number of cosets $(H\cap K)k$. For $k<em>1,k</em>2\in K$, 
+$$
+\begin{align}
+(H\cap K)k<em>1=(H\cap K)k</em>2 &amp;\iff (H\cap K)k<em>1k</em>2^{-1}=(H\cap K) \
+&amp;\iff k<em>1k</em>2^{-1}\in (H\cap K) &amp;\text{(H\cap K is a group, use 3.9)}\
+&amp;\iff k<em>1k</em>2^{-1}\in H         &amp;\text{($k<em>1k</em>2^{-1}\in H$)}\
+&amp;\iff Hk<em>1k</em>2^{-1} = H         &amp;\text{(use 3.9)}\
+&amp;\iff Hk<em>1 = Hk</em>2
+\end{align}
+$$
+​    So there is a bijection between the collection of &#39;cosets&#39; $Hk$ and the collection of cosets $(H\cap K)k$. That is to say, they have the same order: $|HK|/|H|=|K|/|H\cap K|$.</p>
+
+<p>​    Notice that $HK$ may not be a group, but the decomposition is right, and each &#39;divided part&#39; has the same order, so the number of &#39;divided part&#39; is also equal to $|HK|/|H|$. It is like the &#39;counting question&#39;: you have 6 apples and need to divided them into some pocket which contain 3 apples, then you have $6/3=2$ pockets.</p>
+
+<p><strong>Ex 1.3.7</strong> [*,!] If $G$ is a finite group, $H,K\leqslant G$, then for $g\in G$
+$$
+|HgK| = |H|[K:g^{-1}Hg\cap K]
+$$
+​    Hint: try to copy the proof of theorem <strong>3.13</strong>.</p>
