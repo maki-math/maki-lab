@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>上传指南（md原文）</title></head>
+<body><h1>上传指南</h1>
+<p>		</p>
+<blockquote><p>这是一份用于maki_lab网站课程文本内容的后台上传，编辑与维护的技术文档。</p>
+<p>version <strong>0.1</strong>	by <strong>Revot_wyq	date 2020/12/4</strong></p>
+</blockquote>
+<hr />
+<h3>开始</h3>
+<p>	我们推荐使用<strong>typora</strong>进行写作。在typora中使用markdown和LaTeX两种标记语言，尽管它们不能被浏览器直接解析，但可以通过正则表达式<del>或者手动慢慢改</del>将markdown标签替换为浏览器使用的html标签，搭配LaTeX的渲染脚本，在web页面中展示开发组作者们写作的内容。</p>
+<h3>Markdown主题</h3>
+<p>	Markdown拥有不同的主题，由一些css样式表所定义，因而可以更换或自定义。要使得在web的显示效果与编辑器中预览效果一致，只需在html中以外部样式表引用的方式引入相应的markdown主题。本文暂时使用typora默认主题<a href='http://theme.typora.io/'>typora_markdown主题库</a>之一的github_theme 。</p>
+<p>	因为我们的网站主要展示的是学术内容，与一般网页的markdown内容不同，相应适合的主题也会有差异。后期可以根据用户们的反馈，优化采用的主题，以实现更佳的阅读体验。还可以增添如定义/定理/证明之类markdown默认语法中不存在的标签。</p>
+<h3>MD转换HTML</h3>
+<p>	转换的工作可以用一段正则代码来实现。可以用后端脚本在服务器中完成，也可以用前端脚本在浏览器中完成。但为了减轻服务器的压力，和不同浏览器浏览的稳定性，我们最好还是在上传到服务器之前，就用软件转换为html。</p>
+<figure><table>
+<thead>
+<tr><th>名称</th><th>markdown</th><th>html</th></tr></thead>
+<tbody><tr><td>标题</td><td>#</td><td>&lt;h1&gt;&lt;/h1&gt;</td></tr><tr><td>换行</td><td>双空格或回车</td><td>&lt;br/&gt;</td></tr><tr><td>分割线</td><td>***</td><td>&lt;hr/&gt;</td></tr><tr><td>删除线</td><td>~~内容~~</td><td>&lt;del&gt;&lt;/del&gt;</td></tr><tr><td>区块</td><td>&gt;</td><td>&lt;blockquote&gt;&lt;/blodckquote&gt;</td></tr><tr><td>代码</td><td>四个空格</td><td>&lt;code&gt;&lt;/code&gt;</td></tr><tr><td>超链接</td><td>[标题](地址)</td><td>&lt;a href=&quot;地址&quot;&gt;标题&lt;/a&gt;</td></tr><tr><td>表格</td><td>竖线和短横线</td><td>&lt;table&gt;&lt;/table&gt;</td></tr></tbody>
+</table></figure>
+<h3>使用typora转换</h3>
+<p>	typora可以把写好的markdown文档导出成HTML。请按照以下步骤操作：</p>
+<ul>
+<li><p>找到选项	<strong>文件</strong>&gt;<strong>偏好设置</strong>&gt;<strong>markdown</strong>&gt;<strong>公式</strong>&gt;<strong>当复制或导出为无格式的HTML时</strong></p>
+<p>将其更改为	<strong>使用LaTeX 代码</strong></p>
+</li>
+<li><p><strong>文件</strong>&gt;<strong>导出</strong>&gt;<strong>HTML(without styles)</strong></p>
+</li>
+
+</ul>
+<h3>解析LaTeX</h3>
+<p>	相比于在文本中插入公式图片，渲染LaTeX代码显然是更好的显示数学公式的方式。typora中内置的解析器是mathjax，是最早的应用于web端的LaTeX解析器。但是在一些浏览器中，其效果并不理想。使用mathjax解析速度较慢，会先显示LaTeX原始代码，卡顿一下之后才渲染成适合阅读的公式。这种卡顿在网页中包含大量数学公式时，尤为明显。所以我们决定采用更快更轻量的KaTeX作为解析器。</p>
+<p>	 目前我们使用的KaTeX配置如下：</p>
+<pre><code class='language-html' lang='html'>&lt;!--使用cdn的镜像--&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css&quot; integrity=&quot;sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js&quot; integrity=&quot;sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt; 
+    &lt;!--定义分界符delimiters属性--&gt;
+    &lt;script defer&gt;
+        let katex_config = {
+            delimiters: 
+            [
+                {left: &quot;$$&quot;, right: &quot;$$&quot;, display: true},
+                {left: &quot;$&quot;, right: &quot;$&quot;, display: false},
+                {left: &quot;\\(&quot;, right: &quot;\\)&quot;, display: false},
+                {left: &quot;\\[&quot;, right: &quot;\\]&quot;, display: true}
+            ],
+            ignoredTags:
+            [&quot;script&quot;, &quot;noscript&quot;, &quot;style&quot;, &quot;textarea&quot;, &quot;pre&quot;, &quot;code&quot;, &quot;option&quot;]
+        }
+    &lt;/script&gt;
+    &lt;!--启用自动渲染,指定渲染id为contents的DOM元素--&gt;
+    &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js&quot; integrity=&quot;sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa&quot; crossorigin=&quot;anonymous&quot;
+    onload=&quot;renderMathInElement(document.getElementById(&#39;contents&#39;),katex_config);&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3>如何使用</h3>
+<ul>
+<li><p>复制以上代码到HTML的头部</p>
+</li>
+<li><p>创建一个用来放置内容的DOM（文本对象模型）元素，一般是&lt;div&gt;，将其id改为“contents”，只有在这个元素内部的文本，才会被KaTeX解析。</p>
+</li>
+<li><p>将typora导出的HTML代码中，&lt;body&gt;标签包含的代码，复制到上一步创建的<strong>id=&quot;contents&quot;</strong>元素中。</p>
+</li>
+<li><p>KaTeX会检索其中由分界符包含的字段，将其判定为LaTeX代码，并渲染为适合阅读的公式样式。</p>
+</li>
+<li><p>我们定义了四种可用的定界符：</p>
+<p>	双美元符<strong>$$</strong>或反斜线加方括号<strong>\[</strong>用来标记行间公式</p>
+<pre><code class='language-latex' lang='latex'>这是一个$$\int^{+\infin}_{-\infin}e^{\frac{-x^2}{c^2}}dx=c\sqrt{\pi}$$行间公式
+</code></pre>
+<p>这是一个$$\int^{+\infin}_{-\infin}e^{\frac{-x^2}{c^2}}dx=c\sqrt{\pi}$$行间公式</p>
+<p>	单美元符<strong>$</strong>或反斜线加圆括号<strong>\(</strong>用于标记行内公式</p>
+<pre><code>这是一个$\int^{+\infin}_{-\infin}e^{\frac{-x^2}{c^2}}dx=c\sqrt{\pi}$行内公式
+</code></pre>
+<p>这是一个$\int^{+\infin}_{-\infin}e^{\frac{-x^2}{c^2}}dx=c\sqrt{\pi}$行内公式</p>
+</li>
+
+</ul>
+<h3>KaTeX支持的规范</h3>
+<p>	LaTeX拥有大量的符号，经历了多个不同的细分版本，这使得不同的LaTeX解析器支持的写作规范都略有不同。在网页中，一旦检索到无法识别的LaTeX语法，解析器将会停止，接下来的所有LaTeX代码都将不会被渲染。所以，请尽量使用KaTeX支持的格式进行写作，在上传之前请务必确保使用的语法符合规范。</p>
+<p>	要查询KaTeX支持的规范，<a href='https://katex.org/docs/support_table.html#symbols'>点击这里</a></p>
+</body>
+</html>
