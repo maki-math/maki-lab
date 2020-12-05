@@ -6,169 +6,239 @@
  * @Description: In User Settings Edit
  * @FilePath: \sudoku-1d:\Project\maki-lab\maki-lab\1\1.1 Definition of Groups.html
 -->
-<div>
-<h3>1.1 Definition of Groups</h3>
+<!DOCTYPE html>
+<html lang="en">
 
-<h4>definition of groups</h4>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!--使用cdn的镜像-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+  <!--定义分界符delimiters属性-->
+  <script defer>
+      let katex_config = {
+          delimiters: 
+          [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false},
+              {left: "\\(", right: "\\)", display: false},
+              {left: "\\[", right: "\\]", display: true}
+          ],
+          ignoredTags:
+          ["script", "noscript", "style", "textarea", "pre", "code", "option"]
+      }
+  </script>
+  <!--启用自动渲染,指定渲染id为contents的DOM元素-->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
+</head>
 
-<p>​    Now we start our trips in the world of abstract algebra (the basic part). 
-​    The first chapter, groups, tell us we will contact with a new thing called the <strong>group</strong>. Let&#39;s begin with the <strong>set</strong>, which everyone is familiar with.
-​    A simple set, which does not have the distinct definition, may contains something (&#39;elements&#39;), and need <strong>not</strong> hold other properties, for example, a class is a set that contains many students. As everyone knows, however, many sets also contains some &#39;relations&#39; and &#39;operations&#39;, such as $\R$, which contains addition, multiplication, &#39;little than&#39;, and so on. We will focus on the &#39;(binary) operation&#39;.</p>
+<body>
+  <div id="contents">
+    <h3>1.1 Definition of Groups</h3>
 
-<p><strong>Definition 1.1</strong> binary operation/ rule of combination
-​    A binary operation is a map: $f:A\times B\to C,\ (a,b)\mapsto f(a,b)$. 
-​    In particular, if we let $B, C$ equal $A$: $f:A\times A\to A$, we called the binary operation on set $A$.</p>
+    <h4>definition of groups</h4>
+  
+    <p>​ Now we start our trips in the world of abstract algebra (the basic part).
+      ​ The first chapter, groups, tell us we will contact with a new thing called the <strong>group</strong>. Let&#39;s
+      begin with the <strong>set</strong>, which everyone is familiar with.
+      ​ A simple set, which does not have the distinct definition, may contains something (&#39;elements&#39;), and need
+      <strong>not</strong> hold other properties, for example, a class is a set that contains many students. As everyone
+      knows, however, many sets also contains some &#39;relations&#39; and &#39;operations&#39;, such as $\R$, which
+      contains addition, multiplication, &#39;little than&#39;, and so on. We will focus on the &#39;(binary)
+      operation&#39;.</p>
+  
+    <p><strong>Definition 1.1</strong> binary operation/ rule of combination
+      ​ A binary operation is a map: $f:A\times B\to C,\ (a,b)\mapsto f(a,b)$.
+      ​ In particular, if we let $B, C$ equal $A$: $f:A\times A\to A$, we called the binary operation on set $A$.</p>
+  
+    <p> we have learned many binary operations before:</p>
+  
+    <p><strong>Example 1</strong> addition, subtraction, multiplication on $R$. (where is the &#39;division&#39;?)</p>
+  
+    <p><strong>Example 2</strong> addition, subtraction on vector space $\R^{n}$.</p>
+  
+    <p><strong>Example 3</strong> for vectors in $R^{n}$, the &#39;dot product&#39;: $\cdot:\R^n\times \R^n\to \R$</p>
+  
+    <p>​ And now, we will give the definition of groups:</p>
+  
+    <p><strong>Definition 1.2</strong> groups, $(G,\cdot)$
+      ​ A group is a set $G$ with a binary operation &#39;&#39;$\cdot$&#39;&#39; <strong>on $G$</strong>, satisfing the
+      following axioms:
+      ​ (1) (the associative law) for all $a,b,c\in G$, $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+      ​ (2) (identity) there is an element $e\in G$ s.t. (&#39;such that&#39;) for all $a\in G$, $ae=ea=a$. $e$ is called
+      an <strong>identity</strong> of $G$.
+      ​ (3) (inverse) for all $a\in G$, there is an element $b\in G$ s.t. $ab=ba=e$. $b$ is called an
+      <strong>inverse</strong> of $a$.</p>
+  
+    <p>​ Without confusion, we will write $G$ instead of $(G,\cdot)$ to express a group, and use $ab$ instead of $a\cdot
+      b$.</p>
+  
+    <p>​ The definition of groups seem clearly, but you may not know what it is. This definition is a typical
+      &#39;abstract&#39; definition, which means it does not tell you a <strong>specific</strong> object, but some
+      <strong>properties</strong> to restrict something, and get a <strong>kind</strong> of new objects. We will give some
+      examples for &#39;groups&#39;, and you will find the advantage of the abstract definition.</p>
+  
+    <p><strong>Example 4</strong> the integer set $\Z$, with addition $+$:</p>
+  
+    <p>| $\forall i,j\in\Z, i+j\in\Z$ |
+      | ----------------------------------------------- |
+      | $\forall i,j,k\in\Z, (i+j)+k=i+(j+k)$ |
+      | $\exist 0\in\Z,\forall n\in\Z,n+0=0+n=n$ |
+      | $\forall n\in\Z,\exist -n\in\Z,n+(-n)=(-n)+n=0$ |</p>
+  
+    <p>​ Thus $(\Z,+)$ is a group.</p>
+  
+    <p><strong>Ex 1.1.1</strong> how about $(\N,+),(\Q,+),(\R,+),(\C,+)$ ?</p>
+  
+    <p><strong>Example 5</strong> the positive rational number set $\Q_+$, with multiplication $\cdot$:</p>
+  
+    <p>| $\forall q,r\in\Q<em>+, qr\in\Q</em>+$ |
+      | ------------------------------------------------------- |
+      | $\forall q,r,s\in\Z, (qr)s=q(rs)$ |
+      | $\exist 1\in\Q<em>+,\forall q\in\Z,q\cdot1=1\cdot q=q$ |
+        | $\forall q\in\Q</em>+,\exist q^{-1}\in\Z,qq^{-1}=q^{-1}q=1$ |</p>
+  
+    <p>​ Thus $(\Q_+,\cdot)$ is a group.</p>
+  
+    <p><strong>Ex 1.1.2</strong> how about $(\Z_+,\cdot),(\Q,\cdot)$?</p>
+  
+    <p><strong>Example 6</strong> the set of all $m\times n$ <strong>real</strong> matrix $\R^{m\times n}$, with addition
+      $+$ is a group.</p>
+  
+    <p><strong>Example 7</strong> the set of all function $f:\R\to \R$, $\R^{\R}$, with addition &#39;$+$&#39; defined
+      $$
+      \forall x\in \R, (f+g)(x)=f(x)+g(x)
+      $$
+      ​ Then $(\R^{\R},+)$ is a group.</p>
+  
+    <p>​ Maybe you have already found the advantage of the abstract definition: it can describe a lot of objects which
+      have the same properties (&#39;axioms&#39;). If we want to know some other properties in these objects, just
+      research the abstract one instead of them all!
+      ​ Some reader may find that, in example 1.5-1.7, an another property exist, <strong>the commutative law</strong>:
+      for all $a,b\in G$, $a+b=b+a$, why does it not appear in the three axioms of groups? Because we have some other
+      examples:</p>
+  
+    <p><strong>Example 8</strong> <strong>general linear group of degree $n$</strong>, $GL<em>n(F),\ F=\Q,\R$ or $\C$.
+        $$
+        GL</em>n(F) = {A\in F^{n\times n}|\ \det A\neq 0}
+      $$
+      ​ It contains all $n\times n$ matrix, which the determinant of $A$ is not zero. We consider the
+      &#39;multiplication&#39; of the two matrices $A,B\in GL_n(F)$:</p>
+  
+    <p>| $\forall A,B\in GL<em>n(F), AB\in GL</em>n(F)$ |
+      | ------------------------------------------------------------ |
+      | $\forall A,B,C\in GL<em>n(F), (AB)C=A(BC)$ |
+        | $\exist I</em>n\in GL<em>n(F),\forall A\in GL</em>n(F),AI<em>n=I</em>nA=A$ |
+      | $\forall A\in GL<em>n(F),\exist A^{-1}\in GL</em>n(F),AA^{-1}=A^{-1}A=I_n$ |</p>
+  
+    <p>​ Thus $(GL<em>n(F),\cdot)$ is a group.
+        ​ Consider the commutative law. Obviously, for arbitrary $A,B\in GL</em>n(F)$, $AB\neq BA$ ! The commutative law
+      is not necessary.</p>
+  
+    <p><strong>Definition 1.3</strong> commutative groups/ Abelian groups
+      ​ If a group also satisfies the commutative laws, we say it is a commutative group, or an Abelian groups.</p>
+  
+    <p>​ Groups in example 3 to 7 are all Abelian groups.</p>
+  
+    <p><strong>Ex 1.1.3</strong> define <strong>special linear group of degree $n$</strong>, $SL<em>n(F), F=\Q,\R$ or
+        $\C$.
+        $$
+        SL</em>n(F) = {A\in F^{n\times n}|\ \det A=1}
+      $$
+      ​ How about $(SL_n(F),\cdot)$? does it satisfies the commutative law?</p>
+  
+    <p>​ Now we will deduce some properties of groups, from the three axioms, in the next section, we will see more and
+      important examples.</p>
+  
+    <h4>Properties of groups</h4>
+  
+    <p><strong>Property 1.4</strong> In group $G$, there is a <strong>unique</strong> identity.
+      ​ Generally speaking, if you want to say something is unique, you can firstly assume two things like it, and try to
+      prove that they are the same.
+      ​ <em>Proof</em>: let $e,e&#39;$ are identities of $G$, then we have:
+      $$
+      \begin{align}
+      e &amp;= ee&#39;&amp;\text{($e&#39;$ is an identity)}\
+      &amp;= e&#39; &amp;\text{($e$ is an identity)}
+      \end{align}
+      $$</p>
+  
+    <p><strong>Property 1.5</strong> In group G, for arbitrary $a\in G$, there is a <strong>unique</strong> inverse
+      element of $a$.
+      ​ <em>Proof</em>: let $b,b&#39;\in G$ are inverse elements of $a$, then we have:
+      $$
+      \begin{align}
+      b &amp;= be &amp;\text{(inentity)}\
+      &amp;= b(ab&#39;) &amp;\text{(inverse)}\
+      &amp;= (ba)b&#39; &amp;\text{(the associative law)}\
+      &amp;= eb&#39; &amp;\text{(inverse)}\
+      &amp;= b&#39; &amp;\text{(inentity)}\
+      \end{align}
+      $$
+      ​ Because of this uniqueness, we give a symbol, $a^{-1}$, to denote <strong>the inverse</strong> of $a$.</p>
+  
+    <p><strong>Ex 1.1.4</strong> In group $G$, $a\in G$, then $(a^{-1})^{-1}=a$. (<strong>Property 1.6</strong>)</p>
+  
+    <p><strong>Ex 1.1.5</strong> [*, !] Let the set $A$ contains a binary operation &#39;$\cdot$&#39;, which satisfies the
+      associative law, and $A$ has an identity $e$, then $b\in A$ is the inverse of $a$ iff. $aba=a$ and $ab^2a=e$.</p>
+  
+    <p><strong>Property 1.7</strong> In group $G$, for all $a,b\in G$, we have $(ab)^{-1}=b^{-1}a^{-1}$.
+      ​ <em>Proof</em>: calculate $(ab)(b^{-1}a^{-1})$ and $(b^{-1}a^{-1})(ab)$, then they all equal to $e$. Thus
+      $(b^{-1}a^{-1})$ is the inverse of $ab$. Also, $(ab)^{-1}$ is obviously the inverse of $ab$. In conclusion,
+      $(ab)^{-1}=b^{-1}a^{-1}$.</p>
+  
+    <p><strong>Property 1.8</strong> In group $G$, for all $a,b\in G$, the equation $ax=b$ have solutions in $G$. $ya=b$
+      is the same.
+      ​ <em>Proof</em>: it is easy to find that $x=a^{-1}b$ is a solution of $ax=b$.</p>
+  
+    <p><strong>Ex 1.1.6</strong> In group $G$, if $a,x, y\in G$ s.t. $ax=ay$, then $x=y$. $xa=ya$ is the same.
+      (<strong>Property 1.9: the cancellation law</strong> )</p>
+  
+    <h4>Other Definition of Groups</h4>
+  
+    <p>​ In history, mathematicians always left definitions and theorems become shorter and shorter, for example the
+      &#39;postulate of parallel lines&#39; in geometry. Groups also have some briefer definitions. We introduce a useful
+      one.</p>
+  
+    <p><strong>Definition 1.10</strong> Groups, &#39;the left side&#39;
+      A group is a set $G$ with a binary operation &#39;&#39;$\cdot$&#39;&#39; <strong>on $G$</strong>, satisfying the
+      following axioms:
+      (1) (the associative law) for all $a,b,c\in G$, $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+      (2) (left identity) there is an element $e\in G$ s.t. (&#39;such that&#39;) for all $a\in G$, $ea=a$.
+      (3) (left inverse) for all $a\in G$, there is an element $a^{-1}\in G$ s.t. $a^{-1}a=e$. </p>
+  
+    <p>​ We need to prove this definition is equivalent to the definition 1.2, that is to say, we need to prove $ae=a$ and
+      $aa^{-1}=e$ from definition 1.10.
+      ​ <em>Proof</em>: firstly
+      $$
+      \begin{align}
+      aa^{-1} &amp;= e(aa^{-1}) &amp;\text{(left identity)}\
+      &amp;= ((a^{-1})^{-1}a^{-1})(aa^{-1}) &amp;\text{(left inverse)}\
+      &amp;= (a^{-1})^{-1}(a^{-1}a)a^{-1} &amp;\text{(the associative law)}\
+      &amp;= (a^{-1})^{-1}ea^{-1} &amp;\text{(left inverse)}\
+      &amp;= (a^{-1})^{-1}(ea^{-1}) &amp;\text{(the associative law)}\
+      &amp;= (a^{-1})^{-1}a^{-1} &amp;\text{(left identity)}\
+      &amp;= e &amp;\text{(left inverse)}\
+      \end{align}
+      $$
+      ​ secondly
+      $$
+      \begin{align}
+      ae &amp;= a(a^{-1}a) &amp;\text{(left inverse)}\
+      &amp;= (aa^{-1})a &amp;\text{(the associative law)}\
+      &amp;= ea &amp;\text{(prove above!)}\
+      &amp;= a &amp;\text{(left identity)}\
+      \end{align}
+      $$</p>
 
-<p>   we have learned many binary operations before:</p>
 
-<p><strong>Example 1</strong> addition, subtraction, multiplication on $\R$. (where is the &#39;division&#39;?)</p>
+  <div id='catalog'>catalog</div>
 
-<p><strong>Example 2</strong> addition, subtraction on vector space $\R^{n}$.</p>
 
-<p><strong>Example 3</strong> for vectors in $R^{n}$, the &#39;dot product&#39;: $\cdot:\R^n\times \R^n\to \R$</p>
+</body>
 
-<p>​    And now, we will give the definition of groups:</p>
-
-<p><strong>Definition 1.2</strong> groups, $(G,\cdot)$
-​    A group is a set $G$ with a binary operation &#39;&#39;$\cdot$&#39;&#39; <strong>on $G$</strong>, satisfing the following axioms:
-​    (1) (the associative law) for all $a,b,c\in G$, $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
-​    (2) (identity) there is an element $e\in G$ s.t. (&#39;such that&#39;) for all $a\in G$, $ae=ea=a$. $e$ is called an <strong>identity</strong> of $G$.
-​    (3) (inverse) for all $a\in G$, there is an element $b\in G$ s.t. $ab=ba=e$. $b$ is called an <strong>inverse</strong> of $a$.</p>
-
-<p>​    Without confusion, we will write $G$ instead of $(G,\cdot)$ to express a group, and use $ab$ instead of $a\cdot b$.</p>
-
-<p>​    The definition of groups seem clearly, but you may not know what it is. This definition is a typical &#39;abstract&#39; definition, which means it does not tell you a <strong>specific</strong> object, but some <strong>properties</strong> to restrict something, and get a <strong>kind</strong> of new objects. We will give some examples for &#39;groups&#39;, and you will find the advantage of the abstract definition.</p>
-
-<p><strong>Example 4</strong> the integer set $\Z$, with addition $+$:</p>
-
-<p>| $\forall i,j\in\Z, i+j\in\Z$                    |
-| ----------------------------------------------- |
-| $\forall i,j,k\in\Z, (i+j)+k=i+(j+k)$           |
-| $\exist 0\in\Z,\forall n\in\Z,n+0=0+n=n$        |
-| $\forall n\in\Z,\exist -n\in\Z,n+(-n)=(-n)+n=0$ |</p>
-
-<p>​    Thus $(\Z,+)$ is a group.</p>
-
-<p><strong>Ex 1.1.1</strong> how about $(\N,+),(\Q,+),(\R,+),(\C,+)$ ?</p>
-
-<p><strong>Example 5</strong> the positive rational number set $\Q_+$, with multiplication $\cdot$:</p>
-
-<p>| $\forall q,r\in\Q<em>+, qr\in\Q</em>+$                         |
-| ------------------------------------------------------- |
-| $\forall q,r,s\in\Z, (qr)s=q(rs)$                       |
-| $\exist 1\in\Q<em>+,\forall q\in\Z,q\cdot1=1\cdot q=q$     |
-| $\forall q\in\Q</em>+,\exist q^{-1}\in\Z,qq^{-1}=q^{-1}q=1$ |</p>
-
-<p>​    Thus $(\Q_+,\cdot)$ is a group.</p>
-
-<p><strong>Ex 1.1.2</strong> how about $(\Z_+,\cdot),(\Q,\cdot)$?</p>
-
-<p><strong>Example 6</strong> the set of all $m\times n$ <strong>real</strong> matrix $\R^{m\times n}$, with addition $+$ is a group.</p>
-
-<p><strong>Example 7</strong> the set of all function $f:\R\to \R$, $\R^{\R}$, with addition &#39;$+$&#39; defined
-$$
-\forall x\in \R, (f+g)(x)=f(x)+g(x)
-$$
-​    Then $(\R^{\R},+)$ is a group.</p>
-
-<p>​    Maybe you have already found the advantage of the abstract definition: it can describe a lot of objects which have the same properties (&#39;axioms&#39;). If we want to know some other properties in these objects, just research the abstract one instead of them all!
-​    Some reader may find that, in example 1.5-1.7, an another property exist, <strong>the commutative law</strong>: for all $a,b\in G$, $a+b=b+a$, why does it not appear in the three axioms of groups? Because we have some other examples:</p>
-
-<p><strong>Example 8</strong> <strong>general linear group of degree $n$</strong>, $GL<em>n(F),\ F=\Q,\R$ or $\C$. 
-$$
-GL</em>n(F) = {A\in F^{n\times n}|\ \det A\neq 0}
-$$
-​    It contains all $n\times n$ matrix, which the determinant of $A$ is not zero. We consider the &#39;multiplication&#39; of the two matrices $A,B\in GL_n(F)$:</p>
-
-<p>| $\forall A,B\in GL<em>n(F), AB\in GL</em>n(F)$                      |
-| ------------------------------------------------------------ |
-| $\forall A,B,C\in GL<em>n(F), (AB)C=A(BC)$                      |
-| $\exist I</em>n\in GL<em>n(F),\forall A\in GL</em>n(F),AI<em>n=I</em>nA=A$     |
-| $\forall A\in GL<em>n(F),\exist A^{-1}\in GL</em>n(F),AA^{-1}=A^{-1}A=I_n$ |</p>
-
-<p>​    Thus $(GL<em>n(F),\cdot)$ is a group. 
-​    Consider the commutative law. Obviously, for arbitrary $A,B\in GL</em>n(F)$, $AB\neq BA$ ! The commutative law is not necessary.</p>
-
-<p><strong>Definition 1.3</strong> commutative groups/ Abelian groups
-​    If a group also satisfies the commutative laws, we say it is a commutative group, or an Abelian groups.</p>
-
-<p>​    Groups in example 3 to 7 are all Abelian groups.</p>
-
-<p><strong>Ex 1.1.3</strong> define <strong>special linear group of degree $n$</strong>, $SL<em>n(F), F=\Q,\R$ or $\C$.
-$$
-SL</em>n(F) = {A\in F^{n\times n}|\ \det A=1}
-$$
-​    How about $(SL_n(F),\cdot)$? does it satisfies the commutative law?</p>
-
-<p>​    Now we will deduce some properties of groups, from the three axioms, in the next section, we will see more and important examples.</p>
-
-<h4>Properties of groups</h4>
-
-<p><strong>Property 1.4</strong> In group $G$, there is a <strong>unique</strong> identity.
-​    Generally speaking, if you want to say something is unique, you can firstly assume two things like it, and try to prove that they are the same. 
-​    <em>Proof</em>: let $e,e&#39;$ are identities of $G$, then we have:
-$$
-\begin{align}
-e &amp;= ee&#39;&amp;\text{($e&#39;$ is an identity)}\
-  &amp;= e&#39; &amp;\text{($e$ is an identity)}
-\end{align}
-$$</p>
-
-<p><strong>Property 1.5</strong> In group G, for arbitrary $a\in G$, there is a <strong>unique</strong> inverse element of $a$.
-​    <em>Proof</em>: let $b,b&#39;\in G$ are inverse elements of $a$, then we have:
-$$
-\begin{align}
-b &amp;= be     &amp;\text{(inentity)}\
-  &amp;= b(ab&#39;) &amp;\text{(inverse)}\
-  &amp;= (ba)b&#39; &amp;\text{(the associative law)}\
-  &amp;= eb&#39;    &amp;\text{(inverse)}\
-  &amp;= b&#39;     &amp;\text{(inentity)}\
-\end{align}
-$$
-​    Because of this uniqueness, we give a symbol, $a^{-1}$, to denote <strong>the inverse</strong> of $a$.</p>
-
-<p><strong>Ex 1.1.4</strong> In group $G$, $a\in G$, then $(a^{-1})^{-1}=a$. (<strong>Property 1.6</strong>)</p>
-
-<p><strong>Ex 1.1.5</strong> [*, !] Let the set $A$ contains a binary operation &#39;$\cdot$&#39;, which satisfies the associative law, and $A$ has an identity $e$, then $b\in A$ is the inverse of $a$ iff. $aba=a$ and $ab^2a=e$.</p>
-
-<p><strong>Property 1.7</strong> In group $G$, for all $a,b\in G$, we have $(ab)^{-1}=b^{-1}a^{-1}$.
-​    <em>Proof</em>: calculate $(ab)(b^{-1}a^{-1})$ and $(b^{-1}a^{-1})(ab)$, then they all equal to $e$. Thus $(b^{-1}a^{-1})$ is the inverse of $ab$. Also, $(ab)^{-1}$ is obviously the inverse of $ab$. In conclusion, $(ab)^{-1}=b^{-1}a^{-1}$.</p>
-
-<p><strong>Property 1.8</strong> In group $G$, for all $a,b\in G$, the equation $ax=b$ have solutions in $G$. $ya=b$ is the same.
-​    <em>Proof</em>: it is easy to find that $x=a^{-1}b$ is a solution of $ax=b$.</p>
-
-<p><strong>Ex 1.1.6</strong> In group $G$, if $a,x, y\in G$ s.t. $ax=ay$, then $x=y$. $xa=ya$ is the same. (<strong>Property 1.9: the cancellation law</strong> )</p>
-
-<h4>Other Definition of Groups</h4>
-
-<p>​    In history, mathematicians always left definitions and theorems become shorter and shorter, for example the &#39;postulate of parallel lines&#39; in geometry. Groups also have some briefer definitions. We introduce a useful one.</p>
-
-<p><strong>Definition 1.10</strong> Groups, &#39;the left side&#39;
-    A group is a set $G$ with a binary operation &#39;&#39;$\cdot$&#39;&#39; <strong>on $G$</strong>, satisfying the following axioms:
-    (1) (the associative law) for all $a,b,c\in G$, $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
-    (2) (left identity) there is an element $e\in G$ s.t. (&#39;such that&#39;) for all $a\in G$, $ea=a$.
-    (3) (left inverse) for all $a\in G$, there is an element $a^{-1}\in G$ s.t. $a^{-1}a=e$. </p>
-
-<p>​    We need to prove this definition is equivalent to the definition 1.2, that is to say, we need to prove $ae=a$ and $aa^{-1}=e$ from definition 1.10.
-​    <em>Proof</em>: firstly
-$$
-\begin{align}
-aa^{-1} &amp;= e(aa^{-1})                     &amp;\text{(left identity)}\
-        &amp;= ((a^{-1})^{-1}a^{-1})(aa^{-1}) &amp;\text{(left inverse)}\
-        &amp;= (a^{-1})^{-1}(a^{-1}a)a^{-1}   &amp;\text{(the associative law)}\
-        &amp;= (a^{-1})^{-1}ea^{-1}           &amp;\text{(left inverse)}\
-        &amp;= (a^{-1})^{-1}(ea^{-1})         &amp;\text{(the associative law)}\
-        &amp;= (a^{-1})^{-1}a^{-1}            &amp;\text{(left identity)}\
-        &amp;= e                              &amp;\text{(left inverse)}\
-\end{align}
-$$
-​         secondly
-$$
-\begin{align}
-ae &amp;= a(a^{-1}a) &amp;\text{(left inverse)}\
-   &amp;= (aa^{-1})a &amp;\text{(the associative law)}\
-   &amp;= ea         &amp;\text{(prove above!)}\
-   &amp;= a          &amp;\text{(left identity)}\
-\end{align}
-$$</p>
-</div>
+</html>
