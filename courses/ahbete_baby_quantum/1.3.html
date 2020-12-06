@@ -1,0 +1,71 @@
+<h1>1.3 The Compton Effect</h1>
+
+<center>
+    <iframe src="//player.bilibili.com/player.html?aid=627673955&bvid=BV1tt4y1e7Th&cid=253332948&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</center>
+
+<p>According to special relativity, a particle with zero mass should have momentum-energy relation given by $$E=pc.$$</p>
+
+<p>From previous two sections, we assumed photon energy is determined by $$E=hf.$$</p>
+
+<p>Thus $$p=\frac{h}{\lambda}.$$</p>
+
+<h2>1.3.1 A Two-Particle Collision (Elastic)</h2>
+
+<center>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Compton-scattering.svg/1024px-Compton-scattering.svg.png" alt="Compton-scattering" width="30%">
+    <p style="font-size: small;">Image from Wikipedia</p>
+</center>
+
+<ul>
+    <li>Before collision: A photon of wavelength \(\lambda\) approaches an electron at rest.</li>
+    <ul>
+        <li>Photon: \(E=h/\lambda\), \(P=hc/\lambda\);</li>
+        <li>Electron: \(E=0\), \(m_ec^2\).</li>
+    </ul>
+    <li>After collision: The electron scatters at speed of \(u\), angle \(\phi\). A photon of wavelength \(\lambda'\) scatters at angle \(\theta\).</li>
+    <ul>
+        <li>Photon: \(E=h/\lambda'\), \(P=hc/\lambda\);</li>
+        <li>Electron: \(E=\gamma_u m_e u\), \(P=\gamma_u m_e c^2\).</li>
+    </ul>
+</ul>
+
+<p>Here \(\lambda_u=1/\sqrt{1-u^2/c^2}\) is the Lorentz factor, as electron is moving fast and relativistic correction needs to be considered.</p>
+
+<p>To solve for scattering angle, consider conservation of both energy and momentum.</p>
+
+<ul>
+    <li>Momentum</li>
+    <ul>
+        <li>x-comp.: \(\frac{h}{\lambda}=\frac{h}{\lambda'}\cos(\theta)+\gamma_u m_e u\cos(\phi);\)</li>
+        <li>y-comp.: \(0=\frac{h}{\lambda'}\sin(\theta)-\gamma_u m_e u\sin(\phi).\)</li>
+    </ul>
+
+    <li>Energy</li>
+    <ul>
+        <li>\(h\frac{c}{\lambda}+m_ec^2=h\frac{c}{\lambda'}+\gamma_u m_ec^2.\)</li>
+    </ul>
+</ul>
+
+<p>The result of Compton effect by solving above set of equation is $$\bbox[silver]{\lambda'-\lambda=\frac{h}{m_e c}(1-\cos(\theta)).}$$</p>
+
+<p>The expression for \(\phi\) leaves as exercise.</p>
+
+<hr>
+
+<h3>Problems</h3>
+
+<ol>
+    <li>
+        <p>(Harris) An X-ray of unknown wavelength is directed at a carbon sample (source of electron). An electron is scattered with a speed of \(4.5\times10^{7}\) m/s at an angle of \(60^\circ\). Determine the wavelength of the X-ray source.</p>
+    </li>
+
+    <li>
+        <p>(Harris) Obtain $$\lambda'-\lambda=\frac{h}{m_e c}(1-\cos(\theta)),$$ from $$\begin{cases}\frac{h}{\lambda}=\frac{h}{\lambda'}\cos(\theta)+\gamma_u m_e u\cos(\phi),\\0=\frac{h}{\lambda'}\sin(\theta)-\gamma_u m_e u\sin(\phi),\\h\frac{c}{\lambda}+m_ec^2=h\frac{c}{\lambda'}+\gamma_u m_ec^2.\end{cases}$$</p>
+        <p>(Hint: use \(\cos^2(\phi)+\sin^2(\phi)=1\))</p>
+    </li>
+
+    <li>
+        <p>(Harris) Show the scattering angles of the photon and the electron following $$\cot(\frac{\theta}{2})=\left(1+\frac{h}{mc\lambda}\right)\tan(\phi).$$</p>
+    </li>
+</ol>

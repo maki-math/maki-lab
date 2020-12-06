@@ -1,0 +1,221 @@
+<h2>3 Heisenberg Picture</h2>
+<p>Organized by Tim</p>
+
+<center>
+    <iframe src="//player.bilibili.com/player.html?aid=626929780&bvid=BV1bt4y1S7NV&cid=232051389&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</center>
+
+<h3>3.1 正文</h3>
+上回说到，在薛定谔绘景中，当体系的哈密顿量不显性含时的时候，基矢固定而量子态相对其做周期旋转运动：
+\begin{equation}
+    | \psi(t) \rangle = \hat{U}(t) | \psi(0) \rangle = \mathrm{e}^{\frac{-\mathrm{i}\hat{H} t}{\hbar}} | \psi(0) \rangle
+\end{equation}
+检查一下可以得知，上述\(| \psi(t) \rangle\)的表达式满足薛定谔方程（Eq. 2.3）
+\begin{equation}
+\begin{aligned}
+    \mathrm{i} \hbar \frac{\partial}{\partial t} | \psi(t) \rangle & = \mathrm{i} \hbar \frac{\partial}{\partial t} \hat{U}(t) | \psi(0) \rangle{\partial t} \\
+    & = \mathrm{i} \hbar \cdot ( - \mathrm{i} / \hbar) \hat{H} \mathrm{e}^{\frac{-\mathrm{i}\hat{H} t}{\hbar}} | \psi(0) \rangle \\
+    & = \hat{H} | \psi(t) \rangle
+\end{aligned}
+\end{equation}
+若哈密顿量显性与时间相关时，薛定谔绘景中的状态表示将会变得尤为困难：
+\begin{equation}\label{eq:explicit}
+    | \psi(t) \rangle = \prod^{N-1}_{n=0} \mathrm{e}^\frac{-\mathrm{i} \Delta \hat{H}(n\Delta)}{\hbar} | \psi(0) \rangle \text{,}  \Delta = t / N
+\end{equation}
+尽管如此，该态向量\(| \psi(t) \rangle\)仍然是符合薛定谔方程的。
+<div style="border-style: groove;">
+<b>一个不怎么严格的推演</b><br>
+由Eq. \ref{eq:explicit}可以得出在\(t+\Delta \)时刻的态向量\(| \psi(t+\Delta) \rangle\):
+\begin{equation}
+\begin{aligned}
+    | \psi(t+\Delta) \rangle = \hat{U}(t+\Delta) | \psi(0) \rangle & = \prod^{N}_{n=0} \mathrm{e}^\frac{-\mathrm{i} \Delta  \hat{H}(n\Delta )}{\hbar} | \psi(0) \rangle \\
+    & = \mathrm{e}^{\frac{-\mathrm{i}\hat{H}(N\Delta)\Delta}{\hbar}} \prod^{N-1}_{n=0} \mathrm{e}^\frac{-\mathrm{i} \Delta  \hat{H}(n\Delta )}{\hbar} | \psi(0) \rangle
+\end{aligned}
+\end{equation}
+对状态进行偏导：
+\begin{equation}
+\begin{aligned}
+    \frac{\partial}{\partial t} | \psi(t) \rangle & = \frac{\partial \hat{U}(t)}{\partial t} | \psi(0) \rangle \\
+    & = \lim_{\Delta \to 0} \frac{\hat{U}(t+\Delta)-\hat{U}(t)}{\Delta} | \psi(0) \rangle \\
+    & = \lim_{\Delta \to 0} \frac{\left( \mathrm{e}^{\frac{-\mathrm{i}\hat{H}(N\Delta)\Delta}{\hbar}} - \hat{I} \right) \prod^{N-1}_{n=0} \mathrm{e}^\frac{-\mathrm{i} \Delta  \hat{H}(n\Delta )}{\hbar}}{\Delta} | \psi(0) \rangle
+\end{aligned}
+\end{equation}
+考虑等价无穷小\((\mathrm{e}^{x} - 1) \sim x\)，则上式变成
+\begin{equation}
+\begin{aligned}
+    & = -\frac{\mathrm{i}}{\hbar}\hat{H}(N \Delta) \prod^{N-1}_{n=0} \mathrm{e}^\frac{-\mathrm{i} \Delta  \hat{H}(n\Delta )}{\hbar} | \psi(0) \rangle \\
+    & = -\frac{\mathrm{i}}{\hbar}\hat{H}(N \Delta) | \psi(t) \rangle
+\end{aligned}
+\end{equation}
+即量子态\(| \psi(t) \rangle\)以及时间平移算符\(\hat{U}(t)\)都符合薛定谔方程Eq. \ref{eq:Schrödinger}，其中算符\(\hat{U}(t)\)的薛定谔方程可表示为：
+\begin{equation}
+\begin{aligned}
+    \frac{\partial}{\partial t}\hat{U}(t) & = - \frac{\mathrm{i}}{\hbar} \hat{H}(t) \hat{U}(t) \\
+    \frac{\partial}{\partial t}\hat{U}^\dagger(t) & = \frac{\mathrm{i}}{\hbar} \hat{H}(t) \hat{U}^\dagger(t)
+\end{aligned}
+\end{equation}
+</div>
+    另一方面，海森堡则将所有的时间依赖性从量子态转移到算子上，从而将量子态固定不变：
+\begin{equation}
+\begin{aligned}
+    \langle  \hat{A}(t) \rangle & = \langle \psi(t) | \hat{A}(t) | \psi(t)\rangle \\
+    & = \langle \psi(0) | \hat{U}^\dagger(t) \hat{A}(t) \hat{U}(t) | \psi(0)\rangle \\
+    & = \langle \psi(0) | \hat{\mathscr{A}}(t) | \psi(0) \rangle 
+\end{aligned}
+\end{equation}
+为了避免混淆，我们采用两种不同的字体来对不同框架下的含时算符进行区分，其中\(\hat{A}\)为薛定谔绘景中的算符，\(\hat{\mathscr{A}}\)为海森堡绘景中的算符。对\(\hat{\mathscr{A}}(t)\)进行时间微分：
+\begin{equation}
+\begin{aligned}
+    \frac{\mathrm{d} \hat{\mathscr{A}}(t)}{\mathrm{d} t} & = \frac{\partial \hat{U}^\dagger(t)}{\partial t} \hat{A}(t) \hat{U}(t) + \hat{U}^\dagger \frac{\partial \hat{A}(t)}{\partial t} \hat{U} + \hat{U}^\dagger(t) \hat{A}(t) \frac{\partial \hat{U}(t)}{\partial t} \\
+    & = \frac{\mathrm{i}}{\hbar} \hat{H}(t) \hat{\mathscr{A}}(t) - \frac{\mathrm{i}}{\hbar} \hat{\mathscr{A}}(t) \hat{H}(t) + \hat{U}^\dagger(t) \frac{\partial \hat{A}(t)}{\partial t} \hat{U}(t) \\
+    & = \frac{\mathrm{i}}{\hbar} \left[ \hat{H}(t), \hat{\mathscr{A}}(t) \right] + \hat{U}^\dagger(t) \frac{\partial \hat{A}(t)}{\partial t} \hat{U}(t)
+\end{aligned}
+\end{equation}
+记最后一项
+\begin{equation}
+    \hat{U}^\dagger(t) \frac{\partial \hat{A}(t)}{\partial t} \hat{U}(t) = \left( \frac{\partial\hat{A}(t)}{\partial t} \right)_H
+\end{equation}
+则可得到海森堡公式Eq. 2.44。
+<h3>3.2 例子</h3>
+<h4>3.2.1 玻色子的产生算符和消灭算符</h4>
+更具体地，我们选择光子作为本节的讨论对象，但得出的结论和公式是适用于其他玻色子系统的。每个光子本身是<b>没有区别的</b>(<b>indistinguishable</b>)，有意义的只是某量子态上有多少个光子。光子数是个动力学变量，可以通过算符\(\hat{n}\)进行测量，其本征值为\(n = 0, 1, 2, ...\)，对应的本征矢为\(| n \rangle = | 0 \rangle, | 1 \rangle, | 2 \rangle, ...\)，即
+\begin{equation}
+    \hat{n} | n \rangle = n | n \rangle
+\end{equation}
+因为\(\hat{n}\)的本征值间距相等，因此可以考虑通过和数量算符\(\hat{n}\)的对易关系，来构造\(\hat{n}\)的一对<b>升降算符</b>(<b>Raising & Lowering Operator</b>)。当有\(\hat{n}\)有一个已知的本征值和本征向量时，可以通过升降算符来迅速获得其他本征值和本征向量。对易关系如下：
+\begin{equation}\label{eq:raising-lowering}
+\begin{aligned}
+    \left[\hat{n},\hat{a}\right] & = - \hat{a} \text{,} \\
+    [\hat{n},\hat{a}^\dagger] & = \hat{a}^\dagger \text{.}
+\end{aligned}
+\end{equation}
+其中，\(\hat{a}\)和\(\hat{a}^\dagger\)相互厄米共轭。对于这样构造出来的升降算符有以下性质：<br>
+（1）只要\(\hat{a}^\dagger | n \rangle \neq \overrightarrow{0}\)，那么它就是\(\hat{n}\)的另一个本征值为\(n+1\)的本征矢。<br>
+（2）只要\(\hat{a} | n \rangle \neq \overrightarrow{0}\)，那么它就是\(\hat{n}\)的另一个本征值为\(n-1\)的本征矢。<br>
+用数学的语言可以表达为
+\begin{equation}
+\begin{aligned}
+    \hat{n} \hat{a} | n\rangle & = (n-1) \hat{a} | n\rangle \text{,} \\
+    \hat{n} \hat{a}^\dagger | n\rangle & = (n+1) \hat{a}^\dagger | n\rangle \text{.}
+\end{aligned}
+\end{equation}
+即
+\begin{equation}\label{eq:state_change}
+\begin{aligned}
+    \hat{a} | n\rangle = C_{n \to n-1} | n-1\rangle \text{,} \\
+    \hat{a}^\dagger | n\rangle = C_{n \to n+1} | n+1\rangle \text{.}
+\end{aligned}
+\end{equation}
+<div style="border-style: groove;">
+<b>一个范围更广的结论和证明</b> <br>
+给定一个算符\(\hat{A}\), \(\hat{A}| \alpha \rangle = a | \alpha \rangle\)，如果能够找到一对厄米共轭算符\(\hat{\eta}\)和\(\hat{\eta}^\dagger\)，它们满足与\(\hat{A}\)以下的对易关系：
+\begin{equation}\label{eq:general-raising}
+\begin{aligned}
+    \left[\hat{A},\hat{\eta}\right] & = - \lambda \hat{\eta} \text{,} \\
+    [\hat{A},\hat{\eta}^\dagger] & = \lambda \hat{\eta}^\dagger \text{.}
+\end{aligned}
+\end{equation}
+则
+\begin{equation}
+\begin{aligned}
+    \hat{A}\hat{\eta}| \alpha \rangle & = (a - \lambda) \hat{\eta}| \alpha \rangle \text{,} \\
+    \hat{A}\hat{\eta}^\dagger | \alpha \rangle & = (a + \lambda) \hat{\eta}^\dagger| \alpha \rangle \text{.}
+\end{aligned}
+\end{equation}
+将Eq. \ref{eq:general-raising}中的第一条等式两端作用于本征矢\(| \alpha \rangle\)上，可得：
+\begin{equation}
+\begin{aligned}
+    \left[\hat{A},\hat{\eta}\right] | \alpha \rangle & = - \lambda \hat{\eta} | \alpha \rangle \\
+    \hat{A}\hat{\eta}| \alpha \rangle - \hat{\eta} \hat{A} | \alpha \rangle & = - \lambda \hat{\eta} | \alpha \rangle \\
+    \hat{A}\hat{\eta}| \alpha \rangle - a \hat{\eta} | \alpha \rangle & = - \lambda \hat{\eta} | \alpha \rangle \\
+    \hat{A}\hat{\eta}| \alpha \rangle & = (a - \lambda) \hat{\eta}| \alpha \rangle
+\end{aligned}
+\end{equation}
+同理可证升算符的特性。
+</div>
+    由Eq. \ref{eq:state_change}可以看出，升算符\(\hat{a}^\dagger\)将“有\(n\)个光子的状态”变为了“有\(n+1\)个光子的状态”，可以用于描述光子的发射，因此也被称为<b>产生算符</b>(<b>Creation Operator</b>)；相对应的\(\hat{a}\)可以用于描述光子的吸收，称为<b>湮灭算符</b>(<b>Anihiliation Operator</b>)。考虑系统的光子态从真空变成一个光子的过程：
+\begin{equation}
+    \hat{a}^\dagger | 0 \rangle = C_{0 \to 1} | 1 \rangle
+\end{equation}
+根据公设 V的阐述，发射一颗光子后观察到光子态为\(| 1 \rangle\)的概率幅为：
+\begin{equation}
+    \langle 1 | \hat{a}^\dagger | 0 \rangle = C_{0 \to 1}
+\end{equation}
+光子被吸收后观测到光子态为\(| 0 \rangle\)的概率辐为
+\begin{equation}
+    \langle 0 | \hat{a} | 1 \rangle = C_{1 \to 0} = C^*_{0 \to 1}
+\end{equation}
+光子态从\(| 0 \rangle\)到\(| 1 \rangle\)的过程被称为自发辐射；不妨将\(C_{n \to n+1}\)重新定义辐射发生于自发辐射概率幅的比值，那么
+\begin{equation}\label{eq:redefining}
+    C_{0 \to 1} = C_{1 to 0} = 1
+\end{equation}
+根据爱因斯坦的观察，若在某个特定量子态中已经有了\(n\)个光子，原子在发射一个光子到此状态的概率辐，比没有光子时大了\(\sqrt{n+1}\)倍，即
+\begin{equation}\label{eq:bosonic_experiment}
+    C_{n \to n+1} = \sqrt{n+1} C_{0 \to 1}
+\end{equation}
+据此可得:
+\begin{equation}
+    \begin{aligned}
+        \hat{a} | n\rangle = \sqrt{n} | n-1\rangle \text{,} \\
+        \hat{a}^\dagger | n\rangle = \sqrt{n+1} | n+1\rangle \text{.}
+    \end{aligned}
+    \end{equation}
+将一个状态\(| n \rangle\) 先降后升，可以得到：
+\begin{equation}\label{eq:downthenup}
+    \hat{a}^\dagger \hat{a} | n \rangle = \sqrt{n} \hat{a}^\dagger | n-1\rangle = n | n \rangle
+\end{equation}
+即我们之前没有详细介绍的粒子数算符\(\hat{n}\)，其实就是先降后升的乘积：
+\begin{equation}\label{eq:number_operator}
+    \hat{n} = \hat{a}^\dagger \hat{a}
+\end{equation}
+同理，将一个状态\(| n \rangle\) 先升后降，则可得到：
+\begin{equation}\label{eq:upthendown}
+    \hat{a} \hat{a}^\dagger | n \rangle = \sqrt{n+1} \hat{a} | n+1\rangle = (n+1) | n \rangle
+\end{equation}
+比较Eq. \ref{eq:downthenup}和Eq. \ref{eq:upthendown}两式，可以得出如下对易关系：
+\begin{equation}\label{eq:boson_commutation}
+    \left[\hat{a}^\dagger, \hat{a}\right] = \hat{I}
+\end{equation}
+我们从升降算符的数学定义Eq. \ref{eq:raising-lowering}，升降算符的物理含义Eq. \ref{eq:redefining}以及实验得出的玻色子的性质Eq. \ref{eq:bosonic_experiment}推导出了粒子数算符的数学表达Eq. \ref{eq:number_operator}以及玻色子升降算符的对易关系Eq. \ref{eq:boson_commutation}。而实际上，升降算符的对易关系可能才是粒子更深层的本质：例如满足某粒子系统的升降算符如果满足Eq. \ref{eq:boson_commutation}，则该系统为玻色子系统；而满足某粒子系统的升降算符如果满足<b>反对易</b>(<b>Anticommutation</b>)关系：
+\begin{equation}
+    \lbrace \hat{a}_i, \hat{a}_j^\dagger \rbrace = \hat{a}_i \hat{a}_j^\dagger + \hat{a}_j^\dagger \hat{a}_i = \delta_{ij}\hat{I}
+\end{equation}
+则该系统为费米子系统。也就是说，如果我们把逻辑反过来，从升降算符的对易关系入手，再从数学上直接定义粒子数算符Eq. \ref{eq:number_operator}，并加入归一化条件，一样可以推出符合玻色子系统实验结果的结论Eq. \ref{eq:bosonic_experiment}。<br>
+上述的结论是在薛定谔绘景中进行推导的，不过既然是算符，升降算子也一样可以变换到海森堡绘景中，以查看其时间演变规律。考虑最简单的情形，即系统的哈密顿量不随时间改变。此时光子的哈密顿量可以写成：
+\begin{equation}
+    \hat{H}(t) = \hat{H} = \hat{a}^\dagger \hat{a} \omega_0 \hbar
+\end{equation}
+即状态的能量在光子角频率\(\omega_0\)恒定的情况下，正比于光子数量，其中\(\hat{a}\)和\(\hat{a}^\dagger\)处于薛定谔绘景之下。首先考察降算符\(\hat{a}\)，将其变换到海森堡绘景中，套用Eq. 2.41则有:
+\begin{equation}
+    \hat{a}(t) = \mathrm{e}^\frac{\mathrm{i}\omega_0 \hat{a}^\dagger \hat{a} t}{\hbar} \hat{a} \mathrm{e}^\frac{-\mathrm{i}\omega_0 \hat{a}^\dagger \hat{a} t}{\hbar}
+\end{equation}
+上式还能够进一步简化，但需要用到两个数学上的结论：<br>
+<div style="border-style: groove;">
+    <b>Baker-Campbell-Hausdorff Formula</b> <br>
+\begin{equation}
+    \mathrm{e}^{\hat{A}}\mathrm{e}^{\hat{B}} = \mathrm{e}^{\hat{A}+\hat{B}+\frac{1}{2}[\hat{A},\hat{B}]+\frac{1}{12}\left[\hat{A},[\hat{A},\hat{B}]\right]+\frac{1}{12}\left[\hat{B},[\hat{A},\hat{B}]\right] \cdots}
+\end{equation}
+</div>
+    这个其实不重要，重要的是从它推出的一个引理：
+<div style="border-style: groove;">
+    <b>Baker-Hausdorff Lemma</b> <br>
+\begin{equation}
+    \mathrm{e}^{\mathrm{i}\lambda\hat{A}} \hat{B} \mathrm{e}^{\mathrm{i}\lambda\hat{A}} = \hat{B} + \mathrm{i}\lambda[\hat{A},\hat{B}] + \frac{(\mathrm{i}\lambda)^2}{2!}\left[ \hat{A}, [\hat{A},\hat{B}] \right] + \cdots
+\end{equation}
+</div>
+    则上述降算符的表达式为
+\begin{equation}
+\begin{aligned}
+    \hat{a}(t) & = \hat{a} + \mathrm{i} \omega_0 t [\hat{a}^\dagger \hat{a}, \hat{a}] +  \frac{(\mathrm{i} \omega_0 t)^2}{2!}\left[ \hat{a}^\dagger \hat{a}, [\hat{a}^\dagger \hat{a},\hat{a}] \right] + \cdots \\
+    & = \hat{a} + (-1) \mathrm{i} \omega_0 t \hat{a} + \frac{(\mathrm{i} \omega_0 t)^2}{2!}\left[ \hat{a}^\dagger \hat{a}, -\hat{a} \right] + \cdots \\
+    & = \hat{a} + (-1) \mathrm{i} \omega_0 t \hat{a} + (-1)^2 \frac{(\mathrm{i} \omega_0 t)^2}{2!} \hat{a} + \cdots \\
+    & = \hat{a} \sum_{i=0}^\infty \frac{(-\mathrm{i}\omega_0 t)^i}{i !} \\
+    & = \hat{a} \mathrm{e}^{-\mathrm{i}\omega_0 t}
+\end{aligned}
+\end{equation}
+同理可得升算符在海森堡绘景中的表达式为：
+\begin{equation}
+    \hat{a}^\dagger(t) = \hat{a}^\dagger \mathrm{e}^{\mathrm{i}\omega_0 t}
+\end{equation}
+
+<hr>
