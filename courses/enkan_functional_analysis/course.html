@@ -81,24 +81,74 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <h1>初等数论</h1>
-        <p>作者：Maki</p>
+        <h1>泛函分析</h1>
+        <p>作者：Enkan</p>
         <div id="accordion">
           
           <div class="card">
             <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
                 第一章 距离空间
               </a>
             </div>
-            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item" onclick="sdafsd(1)">/li>
+                <li class="list-group-item" onclick="sdafsd(1)">1 距离空间</li>
               </ul>
             </div>
           </div>
-          
 
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                第二章 拓扑空间
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse" type = "button" data-parent="#accordion">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" onclick="sdafsd(2)">2 拓扑空间</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                第三章 赋范空间
+              </a>
+            </div>
+            <div id="collapseThree" class="collapse" type = "button" data-parent="#accordion">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" onclick="sdafsd(3)">3 赋范空间</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                第四章 赋范空间和距离空间
+              </a>
+            </div>
+            <div id="collapseFour" class="collapse" type = "button" data-parent="#accordion">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" onclick="sdafsd(4)">4 赋范空间和距离空间</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
+                第五章 巴拿赫空间
+              </a>
+            </div>
+            <div id="collapseFive" class="collapse" type = "button" data-parent="#accordion">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" onclick="sdafsd(5)">5 巴拿赫空间</li>
+              </ul>
+            </div>
+          </div>
           
 
         </div>
@@ -128,21 +178,12 @@
   // 
   // 
 
-  function sdafsd(params) {
+  function sdafsd(i) {
     let html = '';
-    switch (params) {
-      case 1:
-        html = './1.html';
-        break;
-      case 2:
-        html = './1.html';
-        break;
-      default:
-        break;
-    }
-    // console.log($('#iframe').src);
+    html = './'+String(i) + '.html';
     $('#iframe').attr('src', html)
   }
+
 
 
 
