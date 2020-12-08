@@ -18,22 +18,26 @@
     <iframe src="//player.bilibili.com/player.html?aid=457538124&bvid=BV1f541157QU&cid=248872200&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%"> </iframe>
 </center>
 
-<p><b>Black-body</b>: any object from which electromagnetic radiation emanates solely due to the thermal motion of its charges. Any radiation that strikes it must be absorbed.</p>
+<p><b>Black-body</b> (hypothetical) is any object from which electromagnetic radiation emanates solely due to the thermal motion of its charges. Any radiation that strikes it must be absorbed.</p>
+
+<p>Max Plank in the year 1900 found the theory that explains black-body radiation, which resolved the problem so called <b>ultraviolet  catastrophe</b> (Detailed discussion below. Also, see classical theory curve in picture below, which tends to infinity), and started the quantum age.</p>
 <h2>1.1.1 Spectral Energy Density</h2>
 <center>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_body.svg/1024px-Black_body.svg.png" alt="Spectral energy density plot" width="80%">
-    <p style="font-size: small;">Image from Wikipedia</p>
+    <p style="font-size: small;">The black-body radiation graph compared with the classical model of Rayleigh and Jeans. Image from Wikipedia</p>
 </center>
 <p>
-    <b>Goal</b>: find$$dU=\text{ energy between }f\text{ to }f+df.$$
-    <b>Define</b>:$$dN(f)\equiv\text{number of modes between }f\text{ to }f+df,$$
+    The <b>goal</b> of the theory of black-body radiation is to find the spectral energy density $$dU=\text{ energy between }f\text{ to }f+df.$$
+    Let us <b>define</b>:$$dN(f)\equiv\text{number of modes between }f\text{ to }f+df,$$
     $$\overline{E(f)}\equiv\text{average energy for a wave of freq }f.$$
+    We can assume$$dU\approx dN \overline{E}.$$
 </p>
 
 <h2>1.1.2 Counting Modes</h2>
+<p>First let us figure out what is \(dN\), which is essentially a counting-mode problem.</p>
 <h3>One Dimension</h3>
 <p>
-    Wave on a string from \(x=0\) to \(x=L\):
+    Begin with considering a 1-D case: wave on a string from \(x=0\) to \(x=L\) can be represented as
     $$\Psi(x,t)=A\sin\left(\frac{n\pi x}{L}\right)\cos\left(2\pi ft\right),$$
     here \(n\) is the number of antinodes. Wave equation
     $$\frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\frac{\partial^2}{\partial x^2}\Psi(x,t),$$
@@ -45,7 +49,7 @@
 
 <h3>Three Dimension</h3>
 <p>
-    Now consider a 3-D case.
+    Now extend the above situation to a 3-D case.
     $$\begin{align}\Psi(x,y,z,t)=A&\sin\left(\frac{n_x\pi x}{L}\right)\sin\left(\frac{n_y\pi y}{L}\right)\\&\sin\left(\frac{n_z\pi z}{L}\right)\cos\left(2\pi ft\right),\end{align}$$
     $$\frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\nabla^2\Psi(x,t).$$
     We obtain
@@ -66,11 +70,11 @@
     $$\overline{E}=\frac{\sum EP(E)}{\sum P(E)}=\frac{\sum E\mathrm{e}^{-E/k_BT}}{\sum\mathrm{e}^{-E/k_BT}}.$$
     <b>Classically</b>, there is no restriction on frequency (thus energy, as \(E=hf\)), the summation turns into an integration
     $$\overline{E}=\frac{\int_0^\infty E\mathrm{e}^{-E/k_BT}}{\int_0^\infty\mathrm{e}^{-E/k_BT}}=k_BT.$$
-    This result leads to the <b>ultraviolet catastrophe</b>, as the spectral energy density would blow up at high frequency. In the year 1900, Max Planck was trying to solve the problem. By claiming the electromagnetic radiation with frequency \(f\) is only allowed to have energy \(E=nhf\), the new average energy is
+    This result leads to the <b>ultraviolet catastrophe</b>, as the spectral energy density would blow up at high frequency. Max Planck solved the problem by claiming the electromagnetic radiation with frequency \(f\) is only allowed to have energy \(E=nhf\). The new average energy is
     $$\overline{E(f)}=\frac{\sum_{n=0}^\infty nhf\mathrm{e}^{-nhf/k_BT}}{\sum_{n=0}^\infty\mathrm{e}^{-nhf/k_BT}}=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}.$$
 </p>
 
-<h2>1.1.4 Spectral Energy Density</h2>
+<h2>1.1.4 Result</h2>
 <p>
     <b>Classical:</b>
     $$dU(f)=k_BT\frac{8\pi V}{c^3}f^2df.$$
@@ -79,12 +83,18 @@
 </p>
 
 <h2>1.1.5 Application</h2>
+<p>Based on Planck's spectral energy density, we can derive following laws.</p>
 <h3>Stefan-Boltzmann law(斯特藩－玻尔兹曼定律)</h3>
-$$I=\int\frac{c}{4\pi}dU=\sigma T^4,$$
-here \(\sigma={(2\pi^5k_B^4)}/{(15c^2h^3)}=5.670\times10^{-8}Wm^{-2}K^{-4}.\)
+<p>
+    To find the intensity radiated by a black-body, we can integrate the spectral energy density.
+    $$I=\int\frac{c}{4\pi}dU=\sigma T^4,$$
+    here \(\sigma={(2\pi^5k_B^4)}/{(15c^2h^3)}=5.670\times10^{-8}Wm^{-2}K^{-4}.\)
+</p>
 <h3>Wien's displacement law(维恩位移定律)</h3>
-By solving \({\partial(dU(\lambda)}/{\partial\lambda}=0\), we can find the peak wavelength of the radiation, which turned out to be
-$$\lambda_{\text{peak}}T=2.897\times10^{-3}m\cdot K$$
+<p>
+    By solving \({\partial(dU(\lambda)}/{\partial\lambda}=0\), we can find the peak wavelength of the radiation, which turned out to be
+    $$\lambda_{\text{peak}}T=2.897\times10^{-3}m\cdot K.$$
+</p>
 <hr>
 
 <h2>Problems</h2>
