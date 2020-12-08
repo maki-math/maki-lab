@@ -1,276 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+</head>
+<body>
+<h2>2 Postulates of Quantum Mechanics</h2>
+<p>Organized by Tim</p>
 
-        <h2>2 Postulates of Quantum Mechanics</h2>
-        <p>Organized by Tim</p>
+<center>
+    <iframe src="//player.bilibili.com/player.html?aid=329402467&bvid=BV14A411n7jY&cid=229792486&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  width="80%"> </iframe>
+</center>
 
-        <center>
-            <iframe src="//player.bilibili.com/player.html?aid=329402467&bvid=BV14A411n7jY&cid=229792486&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-        </center>
+在上一节中我们为了介绍态向量不可避免地提前剧透了一些量子力学公设，在本节中将会把这些公设重新一条条归纳，并加入对应例子，方便大家的理解。
+<h3>2.1 正文</h3>
+<span style="font-size:x-large;">公设 I.</span> 微观粒子遵循<b>薛定谔方程</b>(<b>Schrödinger Equation</b>)。<br>
+微观粒子的行为遵循薛定谔方程，其中最深入人心，也最容易让人理解的形式是波函数的形式：
+\begin{equation}\label{eq:wave-Schrödinger}
+    \mathrm{i} \hbar \frac{\partial}{\partial t} \psi(\vec{r}, t) = \left[ \frac{- \hbar^2}{2m} \nabla^2 + V(\vec{r} ,t) \right] \psi(\vec{r}, t)
+\end{equation}
+经典力学中，系统的位置\(x\)，动量\(p\)在确定的势能场里，在某个给定时刻\(t\)都是唯一确定的。微观粒子中在特定时刻里面也有能确定的东西，就是所谓的“状态” \(\psi\)。“状态”包罗万象，而在特定位置出现的<b>概率幅</b>(<b>Probability Amplitude</b>) \(\psi(\vec{x}, t)\) 则是能从其中提取出来的一项信息，且与波的行为具有高度相似性，故从这个层面上来说微观粒子具有波性（见下文：以正弦波为例引出薛定谔方程）。概率辐本身不具有物理意义，但其绝对值的平方等于粒子在位置\(\vec{x}\)，\(t\) 时刻内找到该粒子的概率：
+\begin{equation}
+    P(\vec{x},t) = \psi^*(\vec{x}, t)\psi(\vec{x}, t) = |\psi(\vec{x}, t)|^2
+\end{equation}
+摒弃其位置信息，薛定谔方程同样也适合用于表述“状态”本身，用右矢的符号\(| \psi (t) \rangle\)来表示“状态”，故Eq. \ref{eq:wave-Schrödinger}可以改为更广义的形式：
+\begin{equation}\label{eq:Schrödinger}
+    \mathrm{i} \hbar \frac{\partial}{\partial t} | \psi (t) \rangle = \hat{H}(t) | \psi (t) \rangle
+\end{equation}
+其中\(\hat{H}\)为<b>哈密顿算符</b>(<b>Hamiltonian</b>)，是与系统能量相关的一个算符。
+<div style="border-style: groove;">
+<b>波动力学角度引出薛定谔方程</b><br>
+想象一列在\(x\)方向上传播的正弦波：
+\begin{equation}
+    \psi(x,t) = A \cdot \mathrm{e}^{-\mathrm{i} 2 \pi \left( \nu t - \frac{x}{\lambda} \right)}
+\end{equation}
+</div>
+<br><span style="font-size:x-large;">公设 II.</span> 微观粒子的状态可以用向量表示。<br>
+上述的特定时刻\(t\)的“状态”可以用希尔伯特空间\(\mathcal{H}\)内的向量\(| \psi (t) \rangle\)来表示，或者说，满足与向量一样的运算法则。量子系统的“状态”为何在“本质上”和向量是相同的东西，不是本教程讨论的内容。但包含其位置信息\(\vec{x}\)的波函数可以用向量来表示，这是毋庸置疑的，具体的例子可以看下面灰框内的内容：
+<div style="border-style: groove;">
+<b>函数是如何写成向量的？</b><br>
+以往我们都是把一维函数\(f(x)\)考虑成一个从一维空间到一维空间的映射，即\(f: \mathbb{R}^1 \rightarrow \mathbb{R}^1\)。现在不妨换另外一个思路，把\(x\)轴上的每个点，都看作一个一个的基向量\(| x_i \rangle\)，而映射\(f\)本身（不是\(f(x)\)）则可以看成一个右矢\(| f \rangle\)，可以用基表示出来。在离散的情况下,假设一共有\(N\)个基向量，则映射\(| f \rangle\)可以写成：
+\begin{equation}
+    | f \rangle = \sum_{i=1}^N f(x_i) | x_i \rangle = \left(\def\arraystretch{1.1}\begin{array}{c}
+        f(x_1)\\
+        f(x_2) \\
+        \vdots \\
+        f(x_N)
+    \end{array}\right) \\
+\end{equation}
+对应的示意图如Fig. 2.1所示。<br>
+<center><img src="2.1.PNG" alt="函数的向量表述" width="80%""><br>Fig 2.1 函数的向量表述</center>
+以向量的角度，可以重新定义关于位置的函数：
+\begin{equation}
+    f(x) \equiv \langle x | f \rangle
+\end{equation}
+很容易得出函数满足线性关系：
+\begin{equation}
+\begin{aligned}
+    (f+g)(x) &= f(x) + g(x) \\
+    \langle x  (|f \rangle + |g \rangle) &= \langle x | f \rangle + \langle x | g \rangle
+\end{aligned}
+\end{equation}
+另外一个很有意思的结论是：两函数的内积等于两函数相乘后积分：也就是说，函数的内积，并不是如第一节里所说的，仅仅是一个强行定义的概念，而是真的与向量点乘有更加密切的联系。首先先考虑离散情况：
+\begin{equation}
+\begin{aligned}
+    \langle g | f \rangle & = \langle g| \sum_{i=1}^N | x_i \rangle f(x_i) 
+    = \sum_{i=1}^N \langle g | x_i \rangle f(x_i) \\
+    & = \sum_{i=1}^N g^*(x_i) \cdot f(x_i) 
+    = \left(\def\arraystretch{1.0}\begin{array}{cccc}
+        g^*(x_1) & g^*(x_2) & \cdots & g^*(x_n)    
+        \end{array}\right)  
+        \left(\def\arraystretch{1.1}\begin{array}{c}
+            f(x_1)\\
+            f(x_2) \\
+            \vdots \\
+            f(x_n)
+        \end{array}\right)
+\end{aligned}
+\end{equation}
+同理将Eq. 1.18中的连续情况代入到上述证明中，可得：
+\begin{equation}
+\begin{aligned}
+    \langle g | f \rangle & = \langle g| \int | x \rangle f(x) \mathrm{d}x \\
+    & = \int \langle g | x \rangle f(x) \mathrm{d}x
+    & = \int g^*(x) f(x) \mathrm{d}x
+\end{aligned}
+\end{equation}
+故函数的内积与其积分具有非常深刻的联系。:)
+</div>
+<br><span style="font-size:x-large;">公设 III.</span> 微观系统的可观测量是通过作用在系统的算子来获得的。 <br>
+前面已经提到过了，右矢\(| \psi \rangle\)本身包罗万象，而其物理性质，或者能被观测到的物理量，是通过依靠不同的算子\(\hat{O}\)作用在状态上来获得的。而在上一节Eq. 1.27已经提到过了，将一个算子作用于右矢上，得到的结果还是同一个空间中的右矢，例如哈密顿算符：
+\begin{equation}
+    \hat{H} | \psi \rangle = | \psi_N \rangle
+\end{equation}
+角动量平方算符：
+\begin{equation}
+    \hat{L}^2 | \psi \rangle = | \psi_L \rangle
+\end{equation}
+以及角动量算符的\(z\)分量：
+\begin{equation}
+    \hat{L}_z | \psi \rangle = | \psi_M \rangle
+\end{equation}
+等等......上述的这些算符具体的物理意义，等到以后将氢原子模型的时候再细细探讨。现在只需要接受“向量可以表示量子系统”，或者“量子系统符合向量的运算法则”这个设定即可。 <br><br>
+<br><span style="font-size:x-large;">公设 IV.</span> 单次观测的最终结果只可能是算子的本征值。<br>
+接受了公设 II 和公设 III 的设定以后，算子自然而然的就可以用矩阵表示出来(Eq. 1.24)。而由于物理学里的可观测量是厄米算子(Eq. 1.34)，且特征向量都相互正交，因此上述经过算子处理后的向量可以写成特征向量\( | \alpha_i \rangle\)的线性组合：
+\begin{equation}\label{eq:decomposition}
+    \hat{A} | \psi \rangle = | \psi^\prime \rangle = \sum_{i=1}^N \mathfrak{P}(a_i) \cdot a_i | \alpha_i \rangle
+\end{equation}
+这里的\(\mathfrak{P}(a_i)\)我们先把它看作一个待定系数。<br>
+    邪门的事情就发生在这里了。由于微观粒子过于小，以至于任何观测手段将会对其本身状态产生影响，使其坍缩到某一个本征态\(| \alpha_i \rangle\)上，得到的观测值则为对应的本征值\(a_i\)，如Fig 2.2所示。
+    <center><img src="2.2.PNG" alt="量子态在测量后的随机坍缩" width="80%""><br>Fig 2.2 量子态在测量后的随机坍缩</center>
+而在观测后再次采取相同的测量手段进行测量时，得到的结果100%是原来的本征值\(a_i\)；而改变测量手段后（使用另一个不对易的算子），又会重新以一定几率坍缩到其他状态\(| \beta_j \rangle\)，如Fig. 2.3所示。
+<center><img src="2.3.PNG" alt="量子态坍缩后再次测量的影响" width="80%""><br>Fig 2.2 量子态坍缩后再次测量的影响</center>
+这里再举一个光的双折射现象作为例子，以便大家理解。
+<div style="border-style: groove;">
+<b>光的双折射</b><br>
+冰洲石是一种双折射晶体
+</div>
+<br><span style="font-size:x-large;">公设 V.</span> 经过测量后粒子的状态将以一定概率\(P(a_i)\)坍缩到某个本征态\(| \alpha_i \rangle\)上，得到本征值\(a_i\)。而这个概率\(P(a_i)\)为：
+\begin{equation}
+    P = \mathfrak{P}^* \mathfrak{P}
+\end{equation}
+\begin{equation}\label{eq:Probability}
+    \mathfrak{P}(a_i) = \langle \alpha_i | \psi \rangle
+\end{equation}
+这与上一节中基的分解Eq. \ref{eq:decom_compare}完全一致，故原向量可以表示成结果向量的线性组合
+\begin{equation}
+    | \psi \rangle = \mathfrak{P}(a_i) | \alpha_i \rangle
+\end{equation}
+可以证明，这里的概率辐\(\mathfrak{P}(a_i)\)正是Eq. \ref{eq:decomposition}中的待定系数。将Eq. \ref{eq:decomposition}左边左乘一个左矢\(\langle \alpha_k|\)，可得:
+\begin{equation}
+\begin{aligned}
+    \langle \alpha_k | \hat{A} | \psi \rangle & = (\langle \psi | \hat{A} | \alpha_k \rangle)^*  \\
+    & = (a_k \langle \psi | \alpha_k \rangle)^*  \\
+    & = a_k^* \langle \alpha_k | \psi \rangle \\
+    & = \mathfrak{P}(a_k) a_k
+\end{aligned}
+\end{equation}
+<br>
+<span style="font-size:x-large;">公设 VI.</span> 经过测量后的状态是归一的，即
+\begin{equation}
+    \langle \alpha_i | \alpha_i \rangle = 1
+\end{equation}
+目的是为了满足Fig 2.3中所描述的情况：当刚好测量到算子\(\hat{A}\)的某一个本征态\(\alpha_1 \rangle\)时，本征态不会再改变，且测量的结果必定为对应的本征值\(a_1\)，即100%的概率观测到\(|\alpha_1 \rangle\)，因为：
+\begin{equation}
+\begin{aligned}
+    \langle \alpha_1 | \hat{A} | \alpha_1 \rangle & = \langle \alpha_1  | \sum^N_{i=1} \mathfrak{P}(a_i) \cdot a_i | \alpha_i \rangle \\
+    & = \mathfrak{P}(a_1) a_1 \langle \alpha_1 | \alpha_1 \rangle  = a_1
+\end{aligned}
+\end{equation}
+所以当\(\langle \alpha_i | \alpha_i \rangle = 1\)成立时，每次观测到\(a_1\)的概率幅\(\mathfrak{P}(a_1)\)才会等于\(1\)，从而概率\(P(a_1)\)也才会等于\(1\)。由此也可以引申出用算子\(\hat{A}\)对状态处于同一量子态\(| \psi \rangle\)的微观系统多次观测后的（量子）平均值：
+\begin{equation}
+\langle \hat{A} \rangle =  \langle \psi | \hat{A} |\psi \rangle = \sum_i^N P(a_i) a_i
+\end{equation}
+<h3>2.2 课后习题</h3>
+1. (a) 证明
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d} t} \langle \psi(t) | \phi(t) \rangle = 0
+\end{equation}
+    (b) 证明<b>时间平移算符</b>(<b>Time Evolution</b>)：\(\hat{U}(t) \equiv \partial / \partial t\)， 为<b>幺正算子</b>(<b>Unitary Operator</b>)，即
+\begin{equation}\label{eq:time_is_uni}
+    \hat{U}^\dagger(t) \hat{U}(t) = \hat{I}
+\end{equation}
+其中时间平移算符的定义为：
+\begin{equation}
+    \hat{U}(t) |\psi(t_1) \rangle = | \psi(t_1 + t) \rangle
+\end{equation}
+    (c) 考虑哈密顿量\(\hat{H}\)不随时间变化的情况，使用哈密顿量\(\hat{H}\)的本征值\(E_i\)和本征态\(| E_i \rangle\) 来表示时间平移算符\(\hat{U}(t) \)
+<br>
+<br>
+<br>
+2. 证明<b>埃伦费斯特定理</b>：(<b>Ehrenfest Theorem</b>):
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t} \langle \hat{A} \rangle = \frac{1}{\mathrm{i} \hbar} \langle [\hat{A},\hat{H}] \rangle + \left\langle \frac{\partial \hat{A}}{\partial t} \right\rangle
+\end{equation}
 
-        在上一节中我们为了介绍态向量不可避免地提前剧透了一些量子力学公设，在本节中将会把这些公设重新一条条归纳，并加入对应例子，方便大家的理解。
-        <h3>2.1 正文</h3>
-        <span style="font-size:x-large;">公设 I.</span> 微观粒子遵循<b>薛定谔方程</b>(<b>Schrödinger Equation</b>)。<br>
-        微观粒子的行为遵循薛定谔方程，其中最深入人心，也最容易让人理解的形式是波函数的形式：
-        \begin{equation}\label{eq:wave-Schrödinger}
-            \mathrm{i} \hbar \frac{\partial}{\partial t} \psi(\vec{r}, t) = \left[ \frac{- \hbar^2}{2m} \nabla^2 + V(\vec{r} ,t) \right] \psi(\vec{r}, t)
-        \end{equation}
-        经典力学中，系统的位置\(x\)，动量\(p\)在确定的势能场里，在某个给定时刻\(t\)都是唯一确定的。微观粒子中在特定时刻里面也有能确定的东西，就是所谓的“状态” \(\psi\)。“状态”包罗万象，而在特定位置出现的<b>概率幅</b>(<b>Probability Amplitude</b>) \(\psi(\vec{x}, t)\) 则是能从其中提取出来的一项信息，且与波的行为具有高度相似性，故从这个层面上来说微观粒子具有波性（见下文：以正弦波为例引出薛定谔方程）。概率辐本身不具有物理意义，但其绝对值的平方等于粒子在位置\(\vec{x}\)，\(t\) 时刻内找到该粒子的概率：
-        \begin{equation}
-            P(\vec{x},t) = \psi^*(\vec{x}, t)\psi(\vec{x}, t) = |\psi(\vec{x}, t)|^2
-        \end{equation}
-        摒弃其位置信息，薛定谔方程同样也适合用于表述“状态”本身，用右矢的符号\(| \psi (t) \rangle\)来表示“状态”，故Eq. \ref{eq:wave-Schrödinger}可以改为更广义的形式：
-        \begin{equation}\label{eq:Schrödinger}
-            \mathrm{i} \hbar \frac{\partial}{\partial t} | \psi (t) \rangle = \hat{H}(t) | \psi (t) \rangle
-        \end{equation}
-        其中\(\hat{H}\)为<b>哈密顿算符</b>(<b>Hamiltonian</b>)，是与系统能量相关的一个算符。
-        <div style="border-style: groove;">
-        <b>波动力学角度引出薛定谔方程</b><br>
-        想象一列在\(x\)方向上传播的正弦波：
-        \begin{equation}
-            \psi(x,t) = A \cdot \mathrm{e}^{-\mathrm{i} 2 \pi \left( \nu t - \frac{x}{\lambda} \right)}
-        \end{equation}
-        </div>
-        <br><span style="font-size:x-large;">公设 II.</span> 微观粒子的状态可以用向量表示。<br>
-        上述的特定时刻\(t\)的“状态”可以用希尔伯特空间\(\mathcal{H}\)内的向量\(| \psi (t) \rangle\)来表示，或者说，满足与向量一样的运算法则。量子系统的“状态”为何在“本质上”和向量是相同的东西，不是本教程讨论的内容。但包含其位置信息\(\vec{x}\)的波函数可以用向量来表示，这是毋庸置疑的，具体的例子可以看下面灰框内的内容：
-        <div style="border-style: groove;">
-        <b>函数是如何写成向量的？</b><br>
-        以往我们都是把一维函数\(f(x)\)考虑成一个从一维空间到一维空间的映射，即\(f: \mathbb{R}^1 \rightarrow \mathbb{R}^1\)。现在不妨换另外一个思路，把\(x\)轴上的每个点，都看作一个一个的基向量\(| x_i \rangle\)，而映射\(f\)本身（不是\(f(x)\)）则可以看成一个右矢\(| f \rangle\)，可以用基表示出来。在离散的情况下,假设一共有\(N\)个基向量，则映射\(| f \rangle\)可以写成：
-        \begin{equation}
-            | f \rangle = \sum_{i=1}^N f(x_i) | x_i \rangle = \left(\def\arraystretch{1.1}\begin{array}{c}
-                f(x_1)\\
-                f(x_2) \\
-                \vdots \\
-                f(x_N)
-            \end{array}\right) \\
-        \end{equation}
-        对应的示意图如Fig. 2.1所示。<br>
-        <center><img src="2.1.PNG" alt="函数的向量表述" width="80%""><br>Fig 2.1 函数的向量表述</center>
-        以向量的角度，可以重新定义关于位置的函数：
-        \begin{equation}
-            f(x) \equiv \langle x | f \rangle
-        \end{equation}
-        很容易得出函数满足线性关系：
-        \begin{equation}
-        \begin{aligned}
-            (f+g)(x) &= f(x) + g(x) \\
-            \langle x  (|f \rangle + |g \rangle) &= \langle x | f \rangle + \langle x | g \rangle
-        \end{aligned}
-        \end{equation}
-        另外一个很有意思的结论是：两函数的内积等于两函数相乘后积分：也就是说，函数的内积，并不是如第一节里所说的，仅仅是一个强行定义的概念，而是真的与向量点乘有更加密切的联系。首先先考虑离散情况：
-        \begin{equation}
-        \begin{aligned}
-            \langle g | f \rangle & = \langle g| \sum_{i=1}^N | x_i \rangle f(x_i) 
-            = \sum_{i=1}^N \langle g | x_i \rangle f(x_i) \\
-            & = \sum_{i=1}^N g^*(x_i) \cdot f(x_i) 
-            = \left(\def\arraystretch{1.0}\begin{array}{cccc}
-                g^*(x_1) & g^*(x_2) & \cdots & g^*(x_n)    
-                \end{array}\right)  
-                \left(\def\arraystretch{1.1}\begin{array}{c}
-                    f(x_1)\\
-                    f(x_2) \\
-                    \vdots \\
-                    f(x_n)
-                \end{array}\right)
-        \end{aligned}
-        \end{equation}
-        同理将Eq. 1.18中的连续情况代入到上述证明中，可得：
-        \begin{equation}
-        \begin{aligned}
-            \langle g | f \rangle & = \langle g| \int | x \rangle f(x) \mathrm{d}x \\
-            & = \int \langle g | x \rangle f(x) \mathrm{d}x
-            & = \int g^*(x) f(x) \mathrm{d}x
-        \end{aligned}
-        \end{equation}
-        故函数的内积与其积分具有非常深刻的联系。:)
-        </div>
-        <br><span style="font-size:x-large;">公设 III.</span> 微观系统的可观测量是通过作用在系统的算子来获得的。 <br>
-        前面已经提到过了，右矢\(| \psi \rangle\)本身包罗万象，而其物理性质，或者能被观测到的物理量，是通过依靠不同的算子\(\hat{O}\)作用在状态上来获得的。而在上一节Eq. 1.27已经提到过了，将一个算子作用于右矢上，得到的结果还是同一个空间中的右矢，例如哈密顿算符：
-        \begin{equation}
-            \hat{H} | \psi \rangle = | \psi_N \rangle
-        \end{equation}
-        角动量平方算符：
-        \begin{equation}
-            \hat{L}^2 | \psi \rangle = | \psi_L \rangle
-        \end{equation}
-        以及角动量算符的\(z\)分量：
-        \begin{equation}
-            \hat{L}_z | \psi \rangle = | \psi_M \rangle
-        \end{equation}
-        等等......上述的这些算符具体的物理意义，等到以后将氢原子模型的时候再细细探讨。现在只需要接受“向量可以表示量子系统”，或者“量子系统符合向量的运算法则”这个设定即可。 <br><br>
-        <br><span style="font-size:x-large;">公设 IV.</span> 单次观测的最终结果只可能是算子的本征值。<br>
-        接受了公设 II 和公设 III 的设定以后，算子自然而然的就可以用矩阵表示出来(Eq. 1.24)。而由于物理学里的可观测量是厄米算子(Eq. 1.34)，且特征向量都相互正交，因此上述经过算子处理后的向量可以写成特征向量\( | \alpha_i \rangle\)的线性组合：
-        \begin{equation}\label{eq:decomposition}
-            \hat{A} | \psi \rangle = | \psi^\prime \rangle = \sum_{i=1}^N \mathfrak{P}(a_i) \cdot a_i | \alpha_i \rangle
-        \end{equation}
-        这里的\(\mathfrak{P}(a_i)\)我们先把它看作一个待定系数。<br>
-          邪门的事情就发生在这里了。由于微观粒子过于小，以至于任何观测手段将会对其本身状态产生影响，使其坍缩到某一个本征态\(| \alpha_i \rangle\)上，得到的观测值则为对应的本征值\(a_i\)，如Fig 2.2所示。
-          <center><img src="2.2.PNG" alt="量子态在测量后的随机坍缩" width="80%""><br>Fig 2.2 量子态在测量后的随机坍缩</center>
-        而在观测后再次采取相同的测量手段进行测量时，得到的结果100%是原来的本征值\(a_i\)；而改变测量手段后（使用另一个不对易的算子），又会重新以一定几率坍缩到其他状态\(| \beta_j \rangle\)，如Fig. 2.3所示。
-        <center><img src="2.3.PNG" alt="量子态坍缩后再次测量的影响" width="80%""><br>Fig 2.2 量子态坍缩后再次测量的影响</center>
-        这里再举一个光的双折射现象作为例子，以便大家理解。
-        <div style="border-style: groove;">
-        <b>光的双折射</b><br>
-        冰洲石是一种双折射晶体
-        </div>
-        <br><span style="font-size:x-large;">公设 V.</span> 经过测量后粒子的状态将以一定概率\(P(a_i)\)坍缩到某个本征态\(| \alpha_i \rangle\)上，得到本征值\(a_i\)。而这个概率\(P(a_i)\)为：
-        \begin{equation}
-            P = \mathfrak{P}^* \mathfrak{P}
-        \end{equation}
-        \begin{equation}\label{eq:Probability}
-            \mathfrak{P}(a_i) = \langle \alpha_i | \psi \rangle
-        \end{equation}
-        这与上一节中基的分解Eq. \ref{eq:decom_compare}完全一致，故原向量可以表示成结果向量的线性组合
-        \begin{equation}
-            | \psi \rangle = \mathfrak{P}(a_i) | \alpha_i \rangle
-        \end{equation}
-        可以证明，这里的概率辐\(\mathfrak{P}(a_i)\)正是Eq. \ref{eq:decomposition}中的待定系数。将Eq. \ref{eq:decomposition}左边左乘一个左矢\(\langle \alpha_k|\)，可得:
-        \begin{equation}
-        \begin{aligned}
-            \langle \alpha_k | \hat{A} | \psi \rangle & = (\langle \psi | \hat{A} | \alpha_k \rangle)^*  \\
-            & = (a_k \langle \psi | \alpha_k \rangle)^*  \\
-            & = a_k^* \langle \alpha_k | \psi \rangle \\
-            & = \mathfrak{P}(a_k) a_k
-        \end{aligned}
-        \end{equation}
-        <br>
-        <span style="font-size:x-large;">公设 VI.</span> 经过测量后的状态是归一的，即
-        \begin{equation}
-            \langle \alpha_i | \alpha_i \rangle = 1
-        \end{equation}
-        目的是为了满足Fig 2.3中所描述的情况：当刚好测量到算子\(\hat{A}\)的某一个本征态\(\alpha_1 \rangle\)时，本征态不会再改变，且测量的结果必定为对应的本征值\(a_1\)，即100%的概率观测到\(|\alpha_1 \rangle\)，因为：
-        \begin{equation}
-        \begin{aligned}
-            \langle \alpha_1 | \hat{A} | \alpha_1 \rangle & = \langle \alpha_1  | \sum^N_{i=1} \mathfrak{P}(a_i) \cdot a_i | \alpha_i \rangle \\
-            & = \mathfrak{P}(a_1) a_1 \langle \alpha_1 | \alpha_1 \rangle  = a_1
-        \end{aligned}
-        \end{equation}
-        所以当\(\langle \alpha_i | \alpha_i \rangle = 1\)成立时，每次观测到\(a_1\)的概率幅\(\mathfrak{P}(a_1)\)才会等于\(1\)，从而概率\(P(a_1)\)也才会等于\(1\)。由此也可以引申出用算子\(\hat{A}\)对状态处于同一量子态\(| \psi \rangle\)的微观系统多次观测后的（量子）平均值：
-        \begin{equation}
-        \langle \hat{A} \rangle =  \langle \psi | \hat{A} |\psi \rangle = \sum_i^N P(a_i) a_i
-        \end{equation}
-        <h3>2.2 课后习题</h3>
-        1. (a) 证明
-        \begin{equation}
-            \frac{\mathrm{d}}{\mathrm{d} t} \langle \psi(t) | \phi(t) \rangle = 0
-        \end{equation}
-         (b) 证明<b>时间平移算符</b>(<b>Time Evolution</b>)：\(\hat{U}(t) \equiv \partial / \partial t\)， 为<b>幺正算子</b>(<b>Unitary Operator</b>)，即
-        \begin{equation}\label{eq:time_is_uni}
-            \hat{U}^\dagger(t) \hat{U}(t) = \hat{I}
-        \end{equation}
-        其中时间平移算符的定义为：
-        \begin{equation}
-            \hat{U}(t) |\psi(t_1) \rangle = | \psi(t_1 + t) \rangle
-        \end{equation}
-         (c) 考虑哈密顿量\(\hat{H}\)不随时间变化的情况，使用哈密顿量\(\hat{H}\)的本征值\(E_i\)和本征态\(| E_i \rangle\) 来表示时间平移算符\(\hat{U}(t) \)
-        <br>
-        <br>
-        <br>
-        2. 证明<b>埃伦费斯特定理</b>：(<b>Ehrenfest Theorem</b>):
-        \begin{equation}
-            \frac{\mathrm{d}}{\mathrm{d}t} \langle \hat{A} \rangle = \frac{1}{\mathrm{i} \hbar} \langle [\hat{A},\hat{H}] \rangle + \left\langle \frac{\partial \hat{A}}{\partial t} \right\rangle
-        \end{equation}
+<h3>2.3 课后习题解答</h3>
+1. (a) 不妨用把右矢\(|\phi (t) \rangle\)重新拆分，看成系数随时间变化，但本身恒定不变基矢的叠加，即：
+\begin{equation}
+    |\phi(t) \rangle = \sum_i^N C_i(t) | u_i \rangle
+\end{equation}
+同理，左矢则可看作:
+\begin{equation}
+    \langle \psi(t) | = \sum_i^N D_i^{*}(t) \langle u_i |
+\end{equation}
+然后就不难理解薛定谔方程：
+\begin{equation}
+    \mathrm{i}\hbar \frac{\partial}{\partial t} | \phi(t) \rangle = \hat{H}(t) | \phi(t) \rangle
+\end{equation}
+以及其对偶形式了：
+\begin{equation}
+    -\mathrm{i}\hbar \frac{\partial}{\partial t} \langle \psi(t) | = \langle \psi(t) | \hat{H}^\dagger(t)
+\end{equation}
+使用微分的分配率可得：
+\begin{equation}
+\begin{aligned}
+    \frac{\mathrm{d}}{\mathrm{d} t} \langle \psi(t) | \phi(t) \rangle & = \langle \psi(t) |\left( \frac{\mathrm{d}}{\mathrm{d} t} | \phi(t) \rangle \right) + \left( \frac{\mathrm{d}}{\mathrm{d} t } \langle \psi(t) | \right) | \phi(t) \rangle \\
+    & = \langle \psi(t) |\hat{H}(t)| \phi(t) \rangle - \langle \psi(t) |\hat{H}^\dagger(t)| \phi(t) \rangle \\
+    & = 0
+\end{aligned}
+\end{equation}
+<br>
+<br>
+    (b) 根据时间平移算符的定义可得：
+\begin{equation}
+    \langle \psi(t) | \phi(t) \rangle = \langle \psi(0) | \hat{U}^\dagger(t) \hat{U}(t) | \phi(0) \rangle
+\end{equation}
+由 (a) 可知，\( \mathrm{d}/\mathrm{d}t \langle \psi(t) | \phi(t) \rangle = 0 \)，所以
+\begin{equation}
+    \langle \psi(t) | \phi(t) \rangle = \langle \psi(0) | \phi(0) \rangle
+\end{equation}
+故Eq. \ref{eq:time_is_uni}成立。 <br>
+<br>
+<br>
+    (c) 将\(| \psi(t) \rangle\) 在基矢\(\lbrace | E_i \rangle \rbrace\)上进行分解:
+\begin{equation}\label{eq:Energy_decom}
+    | \psi(t) \rangle = \sum_{i=1}^N a_{E_i}(t) | E_i \rangle
+\end{equation}
+其中
+\begin{equation}
+    a_{E_i}(t) = \langle E_i | \psi(t) \rangle
+\end{equation}
+则在\(t=0\)时刻的状态也可分解为
+\begin{equation}
+    | \psi(0) \rangle = \sum_{i=1}^N a_{E_i}(0) | E_i \rangle
+\end{equation}
+将薛定谔方程移项可得：
+\begin{equation}
+\begin{aligned}
+    0 & = \left( \mathrm{i} \hbar \frac{\partial}{\partial t} - \hat{H} \right) | \psi(t) \rangle 
+    & = \sum_{i=1}^N \left( \mathrm{i}\hbar \frac{\mathrm{d}}{\mathrm{d} t} a_{E_i}(t) - E_i a_{E_i}(t) \right) | E_i \rangle
+\end{aligned}
+\end{equation}
+因为\( | E_i \rangle\)之间是线性无关，且都不为\(\vec{0}\)向量，所以可得微分方程：
+\begin{equation}
+    a_{E_i}(t) - E_i a_{E_i}(t) = 0
+\end{equation}
+其解为：
+\begin{equation}
+    a_{E_i}(t) = a_{E_i}(0) \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
+\end{equation}
+或者写成：
+\begin{equation}
+    \langle E_i | \psi(t) \rangle = \langle E_i | \psi(t) \rangle \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
+\end{equation}
+代入回Eq. \ref{eq:Energy_decom}中可得：
+\begin{equation}
+    | \psi(t) \rangle = \sum_{i=1}^N | E_i \rangle \langle E_i | \psi(0) \rangle \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
+\end{equation}
+所以，时间平移算符的表达式为：
+\begin{equation}
+    \hat{U}(t) = \sum_{i=1}^N | E_i \rangle \langle E_i | \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
+\end{equation}
+也可以写为（证明暂略）：
+\begin{equation}\label{eq:time-evol-independent}
+    \hat{U}(t) = \mathrm{e}^{-\mathrm{i}/\hat{H} t\hbar} 
+\end{equation}
+一句题外话：当\(| \psi(0) \rangle\)为定态波函数时（为其中一个本征态\(| E_k \rangle\) 时）上述的表达式可简化为
+\begin{equation}
+    | \psi(t) \rangle = \mathrm{e}^{-\mathrm{i}E_0 t/\hbar} | \psi(0) \rangle
+\end{equation}
+再一句题外话：上述采用固定基矢的方法，被称为<b>薛定谔绘景</b>：(<b>Schrödinger Picture</b>)。另外一种维持向量本身不变，而基矢和算子随时间演变的考虑方法被称为<b>海森堡绘景</b>：(<b>Heisenberg Picture</b>)，在以后的教程会提到。<br>
+<br>
+<br>
+<br>
+2. 只需要把观测值的期望值详细展开，并进行微分分配即可：
+\begin{equation}
+\begin{aligned}
+    \frac{\mathrm{d}}{\mathrm{d} t} \left( \langle \psi | \hat{A} | \psi \rangle \right) & = 
+    \left( \frac{\partial}{\partial t} \langle \psi | \right)  \hat{A} | \psi \rangle + \langle \psi | \frac{\partial}{\partial t} \hat{A} | \psi \rangle + \langle \psi | \hat{A} \left( \frac{\partial}{\partial t} | \psi \rangle \right) \\
+    & = \frac{\mathrm{i}}{\hbar} \langle \psi | \hat{H}\hat{A} - \hat{A}\hat{H} | \psi \rangle + \langle \psi | \frac{\partial}{\partial t} \hat{A} | \psi \rangle \\
+    & = \frac{1}{\mathrm{i}\hbar} \langle [\hat{A},\hat{H}] \rangle + \left\langle \frac{\partial \hat{A}}{\partial t} \right\rangle
+\end{aligned}
+\end{equation}
+而从海森堡绘景的角度来看，上述结论可以由下面的海森堡公式一步到位：
+\begin{equation}\label{eq:Heisenberg_picture}
+    \frac{\mathrm{d}}{\mathrm{d} t} \hat{\mathscr{A}}(t) = \frac{\mathrm{i}}{\hbar} [\hat{H},\hat{\mathscr{A}}(t)] + \left( \frac{\partial\hat{A}(t)}{\partial t} \right)_H
+\end{equation}
+至于此公式里面的各个符号代表什么意思，且听下回分解。
 
-        <h3>2.3 课后习题解答</h3>
-        1. (a) 不妨用把右矢\(|\phi (t) \rangle\)重新拆分，看成系数随时间变化，但本身恒定不变基矢的叠加，即：
-        \begin{equation}
-            |\phi(t) \rangle = \sum_i^N C_i(t) | u_i \rangle
-        \end{equation}
-        同理，左矢则可看作:
-        \begin{equation}
-            \langle \psi(t) | = \sum_i^N D_i^{*}(t) \langle u_i |
-        \end{equation}
-        然后就不难理解薛定谔方程：
-        \begin{equation}
-            \mathrm{i}\hbar \frac{\partial}{\partial t} | \phi(t) \rangle = \hat{H}(t) | \phi(t) \rangle
-        \end{equation}
-        以及其对偶形式了：
-        \begin{equation}
-            -\mathrm{i}\hbar \frac{\partial}{\partial t} \langle \psi(t) | = \langle \psi(t) | \hat{H}^\dagger(t)
-        \end{equation}
-        使用微分的分配率可得：
-        \begin{equation}
-        \begin{aligned}
-            \frac{\mathrm{d}}{\mathrm{d} t} \langle \psi(t) | \phi(t) \rangle & = \langle \psi(t) |\left( \frac{\mathrm{d}}{\mathrm{d} t} | \phi(t) \rangle \right) + \left( \frac{\mathrm{d}}{\mathrm{d} t } \langle \psi(t) | \right) | \phi(t) \rangle \\
-            & = \langle \psi(t) |\hat{H}(t)| \phi(t) \rangle - \langle \psi(t) |\hat{H}^\dagger(t)| \phi(t) \rangle \\
-            & = 0
-        \end{aligned}
-        \end{equation}
-        <br>
-        <br>
-         (b) 根据时间平移算符的定义可得：
-        \begin{equation}
-            \langle \psi(t) | \phi(t) \rangle = \langle \psi(0) | \hat{U}^\dagger(t) \hat{U}(t) | \phi(0) \rangle
-        \end{equation}
-        由 (a) 可知，\( \mathrm{d}/\mathrm{d}t \langle \psi(t) | \phi(t) \rangle = 0 \)，所以
-        \begin{equation}
-            \langle \psi(t) | \phi(t) \rangle = \langle \psi(0) | \phi(0) \rangle
-        \end{equation}
-        故Eq. \ref{eq:time_is_uni}成立。 <br>
-        <br>
-        <br>
-         (c) 将\(| \psi(t) \rangle\) 在基矢\(\lbrace | E_i \rangle \rbrace\)上进行分解:
-        \begin{equation}\label{eq:Energy_decom}
-            | \psi(t) \rangle = \sum_{i=1}^N a_{E_i}(t) | E_i \rangle
-        \end{equation}
-        其中
-        \begin{equation}
-            a_{E_i}(t) = \langle E_i | \psi(t) \rangle
-        \end{equation}
-        则在\(t=0\)时刻的状态也可分解为
-        \begin{equation}
-            | \psi(0) \rangle = \sum_{i=1}^N a_{E_i}(0) | E_i \rangle
-        \end{equation}
-        将薛定谔方程移项可得：
-        \begin{equation}
-        \begin{aligned}
-            0 & = \left( \mathrm{i} \hbar \frac{\partial}{\partial t} - \hat{H} \right) | \psi(t) \rangle 
-            & = \sum_{i=1}^N \left( \mathrm{i}\hbar \frac{\mathrm{d}}{\mathrm{d} t} a_{E_i}(t) - E_i a_{E_i}(t) \right) | E_i \rangle
-        \end{aligned}
-        \end{equation}
-        因为\( | E_i \rangle\)之间是线性无关，且都不为\(\vec{0}\)向量，所以可得微分方程：
-        \begin{equation}
-            a_{E_i}(t) - E_i a_{E_i}(t) = 0
-        \end{equation}
-        其解为：
-        \begin{equation}
-            a_{E_i}(t) = a_{E_i}(0) \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
-        \end{equation}
-        或者写成：
-        \begin{equation}
-            \langle E_i | \psi(t) \rangle = \langle E_i | \psi(t) \rangle \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
-        \end{equation}
-        代入回Eq. \ref{eq:Energy_decom}中可得：
-        \begin{equation}
-            | \psi(t) \rangle = \sum_{i=1}^N | E_i \rangle \langle E_i | \psi(0) \rangle \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
-        \end{equation}
-        所以，时间平移算符的表达式为：
-        \begin{equation}
-            \hat{U}(t) = \sum_{i=1}^N | E_i \rangle \langle E_i | \mathrm{e}^{-\mathrm{i}E_i t/\hbar}
-        \end{equation}
-        也可以写为（证明暂略）：
-        \begin{equation}\label{eq:time-evol-independent}
-            \hat{U}(t) = \mathrm{e}^{-\mathrm{i}/\hat{H} t\hbar} 
-        \end{equation}
-        一句题外话：当\(| \psi(0) \rangle\)为定态波函数时（为其中一个本征态\(| E_k \rangle\) 时）上述的表达式可简化为
-        \begin{equation}
-            | \psi(t) \rangle = \mathrm{e}^{-\mathrm{i}E_0 t/\hbar} | \psi(0) \rangle
-        \end{equation}
-        再一句题外话：上述采用固定基矢的方法，被称为<b>薛定谔绘景</b>：(<b>Schrödinger Picture</b>)。另外一种维持向量本身不变，而基矢和算子随时间演变的考虑方法被称为<b>海森堡绘景</b>：(<b>Heisenberg Picture</b>)，在以后的教程会提到。<br>
-        <br>
-        <br>
-        <br>
-        2. 只需要把观测值的期望值详细展开，并进行微分分配即可：
-        \begin{equation}
-        \begin{aligned}
-            \frac{\mathrm{d}}{\mathrm{d} t} \left( \langle \psi | \hat{A} | \psi \rangle \right) & = 
-            \left( \frac{\partial}{\partial t} \langle \psi | \right)  \hat{A} | \psi \rangle + \langle \psi | \frac{\partial}{\partial t} \hat{A} | \psi \rangle + \langle \psi | \hat{A} \left( \frac{\partial}{\partial t} | \psi \rangle \right) \\
-            & = \frac{\mathrm{i}}{\hbar} \langle \psi | \hat{H}\hat{A} - \hat{A}\hat{H} | \psi \rangle + \langle \psi | \frac{\partial}{\partial t} \hat{A} | \psi \rangle \\
-            & = \frac{1}{\mathrm{i}\hbar} \langle [\hat{A},\hat{H}] \rangle + \left\langle \frac{\partial \hat{A}}{\partial t} \right\rangle
-        \end{aligned}
-        \end{equation}
-        而从海森堡绘景的角度来看，上述结论可以由下面的海森堡公式一步到位：
-        \begin{equation}\label{eq:Heisenberg_picture}
-            \frac{\mathrm{d}}{\mathrm{d} t} \hat{\mathscr{A}}(t) = \frac{\mathrm{i}}{\hbar} [\hat{H},\hat{\mathscr{A}}(t)] + \left( \frac{\partial\hat{A}(t)}{\partial t} \right)_H
-        \end{equation}
-        至于此公式里面的各个符号代表什么意思，且听下回分解。
-
-        <hr>
+<hr>
+</body>
+</html>
