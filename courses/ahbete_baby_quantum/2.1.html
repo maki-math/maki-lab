@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>1.4</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+<body>
+
+<h1>2.1 Double Slit Experiment</h1>
+
+<h2>2.1.1 Review</h2>
+<h3>Double Slit Interference</h3>
+<center>
+    <img src="http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/imgpho/doubsli.png" alt="double_slit" width="80%">
+    <p style="font-size: small;">Double slit interference. Image from HyperPhysics.</p>
+</center>
+<p>Bright regions occur at angles \(\theta\) for which$$\bbox[silver]{\sin\theta=\frac{m\lambda}{d},}$$ where \(d\) is the distance between two slits, \(\lambda\) is the wavelength, and \(m\) is the order number (see above image for detail).</p>
+<p>Intensity of two-source interference follows $$I=I_0\cos^2\frac{\phi}{2},$$where \(I_0\) is the maximum possible total intensity, and \(\phi\) is the relative phase between two source. It can be shown that for the case of double slit interference, the phase difference \(\phi\) is \(2\pi d\sin\theta/\lambda\). Therefore, consider the effect of two-slit interference only, the intensity profile is$$\bbox[silver]{I(\theta)=I_0\cos^2\left(\frac{\pi d\sin\theta}{\lambda}\right).}$$</p>
+
+
+<h3>Single Slit Diffraction</h3>
+<center>
+    <img src="http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/imgpho/sinslit.png" alt="single_slit" width="60%">
+    <p style="font-size: small;">Single slit diffraction. Image from HyperPhysics.</p>
+</center>
+<p>Angles of minimum intensity are at$$\bbox[silver]{\sin\theta=\frac{m\lambda}{a},}$$ where \(a\) is the slit width, \(\lambda\) is the wavelength, and \(m\) is the order number.</p>
+<p>Similarly, the intensity profile with the effect of single-slit diffraction only can be found to be$$\bbox[silver]{I=I_0\ \mathrm{sinc}^2\left(\frac{\pi a\sin\theta}{\lambda}\right)},$$ where the sinc function is defined as \(\mathrm{sinc\ }x=\sin x/x\) for \(x\neq 0\) and \(\mathrm{sinc\ }0=1\).</p>
+
+<h3>Fraunhofer Diffraction Equation</h3>
+Combined above two results, that is consider both effect of interference and diffraction, the intensity profile should be$$\bbox[silver]{I(\theta)=I_0\cos^2\left(\frac{\pi d\sin\theta}{\lambda}\right)\ \mathrm{sinc}^2\left(\frac{\pi a\sin\theta}{\lambda}\right).}$$
+
+<h2>2.1.2 Bragg's Law</h2>
+<p>Interference can be used in studying crystal structure. X-rays are often used in a such case. Rays reflected from different layer of crystal gives the information about the crystal structure.</p>
+
+<center>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/BraggPlaneDiffraction.svg" alt="braggs_law" width="80%">
+    <p style="font-size: small;">Bragg's law. Image from Wikipedia.</p>
+</center>
+
+<p>Constructive interference occurs at$$2d\sin\theta=m\lambda.$$</p>
+
+<hr>
+
+</body>
+</html>
