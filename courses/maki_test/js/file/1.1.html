@@ -113,28 +113,6 @@ onload="renderMathInElement(document.getElementById('contents'),katex_config);">
 </ol>
 <p>&nbsp;</p>
 	</div>>
-
-
-
-	<script>
-        var level = document.location.search.replace(/\?/, '') || 0
-        $('#nested').attr('href', 'frame.nested.html?' + ++level)
-      </script>
-  
-      <script>
-        var iFrameResizer = {
-          onMessage: function(message) {
-            alert(message, parentIFrame.getId())
-          }
-        }
-      </script>
-  
-      <script
-        type="text/javascript"
-        src="js/js/iframeResizer.contentWindow.min.js"
-        defer
-      ></script>
-
 	
 </body>
 </html>
