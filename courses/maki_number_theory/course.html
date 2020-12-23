@@ -16,7 +16,7 @@
   <style>
     iframe{
         width: 100%;
-        border: 2px solid #ccc;
+        border: "no";
     }
 </style>
 
@@ -85,7 +85,7 @@
       <div class="col-sm-8">
         <div class="card">
           <div class="card-body">
-            <iframe src="./1.1.html" id="ifrm" onload="setIframeHeight(this.id)" ></iframe>   ></iframe>
+            <iframe src="./1.1.html" id="myIframe" onload="setIframeHeight(this.id)" ></iframe>   ></iframe>
 
               <!--frameborder=0-->
               <!--  <iframe src="./1.1.html" id="iframe" onload="iframeLoad()" scrolling="no"
@@ -195,40 +195,33 @@
     <hr>
     <p>(C) 2020, Maki & his friends</p>
   </div>
-
+<!--
   <script>
-    $('ifrm').load(function() {
+    $('myIframe').load(function() {
         this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
     });
 </script>
+-->
 
 <script>
-function getDocHeight(doc) {
-    doc = doc || document;
-    // stackoverflow.com/questions/1145850/
-    var body = doc.body, html = doc.documentElement;
-    var height = Math.max( body.scrollHeight, body.offsetHeight, 
-        html.clientHeight, html.scrollHeight, html.offsetHeight );
-    return height;
-}
-function setIframeHeight(id) {
-    var ifrm = document.getElementById(id);
-    var doc = ifrm.contentDocument? ifrm.contentDocument: 
-        ifrm.contentWindow.document;
-    ifrm.style.visibility = 'hidden';
-    ifrm.style.height = "10px"; // reset to minimal height ...
-    // IE opt. for bing/msn needs a bit added or scrollbar appears
-    ifrm.style.height = getDocHeight( doc ) + 4 + "px";
-    ifrm.style.visibility = 'visible';
-}
+  // Selecting the iframe element
+  var iframe = document.getElementById("myIframe");
+  
+  // Adjusting the iframe height onload event
+  iframe.onload = function(){
+      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+  }
 </script>
+
+
+
 
 <script>
 
   function sdafsd(i, j) {
     let html = '';
     html = './'+String(i) + '.' + String(j) + '.html';
-    $('#ifrm').attr('src', html)
+    $('#myIframe').attr('src', html)
   }
 </script>
 
