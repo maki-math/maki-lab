@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Make iFrame Height Dynamic Based on Content Inside Using JavaScript</title>
+<style>
+    iframe{
+        width: 100%;
+        border: 2px solid #ccc;
+    }
+</style>
+</head>
+<body>
+    <iframe src="./1.2.html" id="myIframe" scrolling="no"></iframe>
+    
+	<script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("myIframe");
+    
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+	</script>
+</body>
+</html>                            
