@@ -40,9 +40,13 @@
   <style>
     
     iframe{
-      overflow-y:hidden !important;
       border: none;
+      overflow-y:hidden
     }
+    /*
+    iframe[width]{
+        width: 200%;
+    }*/
     .card{
       border-radius: 12px;
       text-align: center;
@@ -158,7 +162,7 @@
       <div class="col-sm-8">
         <div class="card" style="border-radius: 20px;">
           <div class="card-body">
-            <iframe src="1.1.html" id="myIframe" width="100%" style="border:0px"></iframe>
+            <iframe src="1.1.html" id="myIframe" width="100%"  style="border:0px; overflow-y: hidden !important;"></iframe>
 
               <!--frameborder=0-->
               <!--  <iframe src="./1.1.html" id="iframe" onload="iframeLoad()" scrolling="no"
