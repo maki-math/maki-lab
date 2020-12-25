@@ -20,9 +20,10 @@
   
   <script>
   $(document).ready(function(){
-    $("#load-file").load("./1.1.html");
+    $("#load-file").load("./1.2.html");
   });
-  </script>
+</script>
+
 
   <!--使用cdn的镜像-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
@@ -41,10 +42,10 @@
           ["script", "noscript", "style", "textarea", "pre", "code", "option"]
       }
   </script>
-  <!--启用自动渲染,指定渲染id为contents的DOM元素-->
+  <!--启用自动渲染,指定渲染id为contents的DOM元素
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
   onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
-  
+  -->
 
   <style>
     
@@ -81,7 +82,8 @@
     }
 
     #load-file{
-      font-size: 2vw;
+      width: inherit;
+      /*word-wrap: break-word;*/
     }
 
     #card-below{
@@ -306,8 +308,14 @@
     <hr>
     <p>(C) 2020, Maki & his friends</p>
   </div>
-
   
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+     "HTML-CSS": { linebreaks: { automatic: true } },
+             SVG: { linebreaks: { automatic: true } }
+    });
+    </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="./js/js/iframeResizer.min.js"></script>
