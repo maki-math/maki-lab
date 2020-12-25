@@ -2,18 +2,18 @@
 .def
 {
     border-style: none;
-    background-color:rgb(252, 235, 214)
+    background-color:rgb(252, 235, 214);
 }
 
 /*property, theorem, lemma, ...*/
 .theo
 {
     border-style: none;
-    background-color:rgb(196, 229, 250)
+    background-color:rgb(196, 229, 250);
 }
 
 /*sub-title*/
 h4
 {
-    color:rgb(110, 226, 220)
+    color:rgb(110, 226, 220);
 }
