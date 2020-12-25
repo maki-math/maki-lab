@@ -51,6 +51,16 @@
       color: #000000;
     }
 
+    .col-sm-8{
+      margin:0px;
+      padding: 0px;
+    }
+    .col-sm-4{
+      margin:0px;
+      padding:0px;
+      width:450px;
+    }
+
     #card-below{
       background-color: #ffffff55;
     }
@@ -80,8 +90,14 @@
     }
 
     .navbar {
-            background-color: #ffffff00 !important;
+            background-color: #333333 !important;
+            position:fixed;
+            overflow:visible;
+            z-index:1;
+            left:0px;
+            right:0px;
         }
+    
 
     .navbar-brand{
       color:#ffffff !important;
@@ -112,10 +128,8 @@
     -->
 
   
-
-  <div class="container">
-
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light mb-4">
       <div class="container" id="nav-container">
         <a class="navbar-brand " href="../../index.html">Maki's Lab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -135,6 +149,9 @@
         </div>
       </div>
     </nav>
+
+
+  <div class="container" style="padding-top: 100px;">
 
 
     <div class="row">
