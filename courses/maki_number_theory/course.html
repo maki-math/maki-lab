@@ -40,7 +40,7 @@
   <style>
     
     iframe{
-      overflow:auto !important;
+      overflow-y:hidden !important;
       border: none;
     }
     .card{
@@ -293,6 +293,7 @@
      */
 
     iFrameResize({
+      scrolling: true,
       log: true, // Enable console logging
       inPageLinks: true,
       onResized: function (messageData) {
