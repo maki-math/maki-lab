@@ -18,7 +18,7 @@
   -->
   <script src="./jquery-3.5.1.min.js"></script>
   
-    <script>
+  <script>
   $(document).ready(function(){
     $("#load-file").load("./1.1.html");
   });
@@ -56,6 +56,10 @@
     iframe[width]{
         width: 200%;
     }*/
+    .container{
+      width:unset;
+    }
+
     .card{
       border-radius: 12px;
       text-align: center;
@@ -74,6 +78,10 @@
       margin:0px;
       padding:0px;
       width:450px;
+    }
+
+    #load-file{
+      font-size: 2vw;
     }
 
     #card-below{
