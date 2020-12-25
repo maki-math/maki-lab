@@ -5,11 +5,21 @@
     background-color:rgb(252, 235, 214);
 }
 
+p.def> strong:first-child
+{
+    color:rgb(233, 172, 93)
+}
+
 /*property, theorem, lemma, ...*/
 .theo
 {
     border-style: none;
     background-color:rgb(196, 229, 250);
+}
+
+p.theo> strong:first-child
+{
+    color:rgb(9, 5, 199)
 }
 
 /*sub-title*/
@@ -18,7 +28,5 @@ h4
     color:rgb(110, 226, 220);
 }
 
-p.class> strong:first-child
-{
-    color:rgb(233, 172, 93)
-}
+
+
