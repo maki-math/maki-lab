@@ -22,8 +22,12 @@ p.theo> strong:first-child
     color:rgb(39, 36, 214)
 }
 
-/*exercise*/
+/*exercise, used on 'strong'*/
 
+.exe>
+{
+    color:rgb(177, 67, 76)
+}
 
 /*sub-title*/
 h4
