@@ -1,8 +1,13 @@
+/**/
+p, div
+{
+    margin: 10px 20px 10px 20px;
+}
+
 /*definition*/
 .def
 {
     border-style: none;
-    margin: 10px 20px 10px 20px;
     background-color:rgb(252, 235, 214);
 }
 
@@ -20,7 +25,6 @@ div.def> strong:first-child
 .theo
 {
     border-style: none;
-    margin: 10px 20px 10px 20px;
     background-color:rgb(196, 229, 250);
 }
 
