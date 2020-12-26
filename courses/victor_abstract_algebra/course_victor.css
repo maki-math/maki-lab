@@ -10,6 +10,11 @@ p.def> strong:first-child
     color:rgb(233, 172, 93)
 }
 
+div.def> strong:first-child
+{
+    color:rgb(233, 172, 93)
+}
+
 /*property, theorem, lemma, ...*/
 .theo
 {
@@ -18,6 +23,11 @@ p.def> strong:first-child
 }
 
 p.theo> strong:first-child
+{
+    color:rgb(39, 36, 214)
+}
+
+div.theo> strong:first-child
 {
     color:rgb(39, 36, 214)
 }
