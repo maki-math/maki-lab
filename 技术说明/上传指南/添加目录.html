@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- required meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maki_lab template</title>
+
+    <!-- katex调用 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+    
+    <!-- katex config 定义delimiters属性 -->
+    <script defer>
+        let katex_config = {
+            delimiters:
+                [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: true },
+                    { left: "\\[", right: "\\]", display: true }
+                ],
+            ignoredTags:
+                ["script", "noscript", "style", "textarea", "pre", "code", "option"]
+        }
+    </script>
+
+    <!-- katex config 自动渲染id为"contents"的DOM元素 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
+
+    <!-- 正文用的markdown主题 -->
+    <link rel="stylesheet" href="mdTheme/github-fix.css">
+</head>
+
+<body>
+    <!-- body elements -->
+    <nav class="mynav">Maki's Lab</nav>
+
+    
+    <!-- 菜单控制按钮 -->
+        <script>
+            function menutoggle(menuid) {
+                let target = document.getElementById(menuid);
+                if (target.style.display=="none") {
+                    target.style.display = "block"
+                } else {
+                    target.style.display = "none"
+                }
+            }
+        </script>
+
+
+    <!-- 菜单 -->
+        <div id="menubox">
+            <input type="button" value="menu" id="menubtn" onclick="menutoggle('menu')">
+            <div id="menu">
+                <div class="section">
+                    <p class="section_title">上传指南</p>
+                    <ul class="section_content">
+                        <ul><a href="./上传指南.html#开始">开始</a></ul>
+                        <ul><a href="./上传指南.html#Markdown主题">Markdown主题</a></ul>
+                        <ul><a href="./上传指南.html#使用typora转换">使用typora转换</a></ul>
+                        <ul><a href="./上传指南.html#解析LaTeX">解析LaTeX</a></ul>
+                        <ul><a href="./上传指南.html#如何使用">如何使用</a></ul>
+                        <ul><a href="./上传指南.html#KaTeX支持的规范">KaTeX支持的规范</a></ul>
+                    </ul>
+                </div>
+                <div class="section">
+                    <p class="section_title">添加目录步骤</p>
+                    <ul class="section_content">
+                        <ul><a href="#为目标段落添加唯一id">为目标段落添加唯一id</a></ul>
+                        <ul><a href="#编辑目录代码">编辑目录代码</a></ul>
+                        <ul><a href="#指向另一个小节的目录">指向另一个小节的目录</a></ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <!-- 正文在 #contents 内部 -->
+    <div id="contents">
+        <h1>添加目录步骤（手动）</h1>
+        <blockquote><p>目前添加目录的方法是通过手动修改.html文件的方法实现的，需要对html语法有基本的了解。比较繁琐，后期可能会有所改进，请关注后续的更新。</p>
+        </blockquote>
+        <h3 id="为目标段落添加唯一id">为目标段落添加唯一id</h3>
+        <p>	要让目录的链接指向某个特定的段落，首先要为这个段落命名(一般直接用段落标题即可)，使其作为<strong>链接锚</strong>（link anchor)。</p>
+        <p>	命名应当是唯一的，必须以大小写a-z字母或汉字开头，其后的字符可以是字母、汉字、数字、连字符、下划线、冒号和点号。</p>
+        <p>	例如，要将一个&lt;h3&gt; 标签的元素添加进目录，首先在html文件的正文中找到该元素，并用如下语法命名。</p>
+        <pre><code>&lt;h3 id=&quot;段落id&quot;&gt;目标段落&lt;/h3&gt;
+        </code></pre>
+        <h3 id="编辑目录代码">编辑目录代码</h3>
+        <p>	找到html文件中注释为 菜单 的位置，下面有一个id为“menu”的div，这就是目录元素本身。它由多个class=&quot;section&quot;的小节目录组成。</p>
+        <p>	每个小节目录包含2个子元素: </p>
+        <ol>
+        <li>class=&quot;section_title&quot;的p元素是小节标题。</li>
+        
+        </ol>
+        <ol start='2' >
+        <li><p>class=&quot;section_content&quot;的ul元素是小节目录的链接列表，其中有多个包含a元素的ul元素，每个a元素是指向目标段落（<strong>链接锚</strong>）的链接。</p>
+        <p>在a元素的标签内，添加<strong>链接锚</strong>的id（记得加#号）。并填写目标段落的标题。</p>
+        </li>
+        
+        </ol>
+        <pre><code>&lt;ul&gt;&lt;a href=&quot;#段落id&quot;&gt;目标段落的标题&lt;/a&gt;&lt;/ul&gt;
+        </code></pre>
+        <p>	现在在网页上点击链接，页面就会滚动到目标段落的位置。</p>
+        <h3 id="指向另一个小节的目录">指向另一个小节的目录</h3>
+        <p>	每一个小节是一个单独的页面，将同一章 的所有节页面放进同个文件夹。其余步骤同上，但在链接中需要指明目标段落所在的.html文件。</p>
+        <pre><code>&lt;!-- 指向另一个页面（页面2.html）的某个段落 --&gt;
+        &lt;ul&gt;&lt;a href=&quot;./index2.html#段落id&quot;&gt;目标段落的标题&lt;/a&gt;&lt;/ul&gt;
+        </code></pre>
+        <p>&nbsp;</p>
+    </div>
+
+        <!-- cascading style sheet -->
+        <style>
+            .mynav {
+                background-color: #071B44;
+                padding-left: 5em;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                color: #FFFFFF
+            }
+            ::-webkit-scrollbar {
+                display: none; /* Chrome Safari */
+            }
+            html, body { scroll-behavior:smooth; }
+            body {
+                background-image: linear-gradient(#071B44, #B9998E);
+            }
+            #contents {
+                width: 65%;
+                margin: 1.5em 1.5%;
+                border-radius: 1em;
+                padding: 2em 4em;
+                background-color: #FFFFFF;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+    
+            /* 目录的css */
+        
+            #menubox {
+                margin: 1.5em;
+                float: right;
+                position: fixed;
+                width: 20%;
+                right: 0;        
+            }
+            #menu {
+                display: block;
+            }
+            #menubtn {
+                outline: none;
+                border: 0.5em solid #FFFFFF;
+                border-radius: 1em;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 1em;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+
+            .section {
+                border: 0.5em solid #FFFFFF;
+                border-radius: 1em;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 1em;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+            #current_section {
+                background-color: #FFFFFF;
+            }
+            .section_title {
+                /* 消除mdtheme产生的p元素上间隙 */
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            .section_content {
+                /* 消除下间隙 */
+                margin: 0;
+                padding: 0;
+                padding-left: 2em;
+                overflow: hidden;
+                max-height: 0;
+                transition: 1.5s all;
+            }
+            .section:hover .section_content{
+                max-height: 10em;
+            }
+            .section_content ul{
+                /* 这里也要消除下间隙 */
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+        </style>
+
+</body>
+
+</html>

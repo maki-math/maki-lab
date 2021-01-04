@@ -1,41 +1,94 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>上传指南</title>
-<!--使用cdn的镜像-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
-<!--定义分界符delimiters属性-->
-<script defer>
-    let katex_config = {
-        delimiters: 
-        [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false},
-            {left: "\\(", right: "\\)", display: false},
-            {left: "\\[", right: "\\]", display: true}
-        ],
-        ignoredTags:
-        ["script", "noscript", "style", "textarea", "pre", "code", "option"]
-    }
-</script>
-<!--启用自动渲染,指定渲染id为contents的DOM元素-->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
-<!--引入markdown的css-->
-<link rel="stylesheet" href="mdTheme/github.css">
-<link rel="stylesheet" href="style.css">
+
+    <!-- required meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maki_lab template</title>
+
+    <!-- katex调用 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+    
+    <!-- katex config 定义delimiters属性 -->
+    <script defer>
+        let katex_config = {
+            delimiters:
+                [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: true },
+                    { left: "\\[", right: "\\]", display: true }
+                ],
+            ignoredTags:
+                ["script", "noscript", "style", "textarea", "pre", "code", "option"]
+        }
+    </script>
+
+    <!-- katex config 自动渲染id为"contents"的DOM元素 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
+
+    <!-- 正文用的markdown主题 -->
+    <link rel="stylesheet" href="mdTheme/github-fix.css">
 </head>
+
 <body>
+    <!-- body elements -->
+    <nav class="mynav">Maki's Lab</nav>
+
+    
+    <!-- 菜单控制按钮 -->
+        <script>
+            function menutoggle(menuid) {
+                let target = document.getElementById(menuid);
+                if (target.style.display=="none") {
+                    target.style.display = "block"
+                } else {
+                    target.style.display = "none"
+                }
+            }
+        </script>
+
+
+    <!-- 菜单 -->
+        <div id="menubox">
+            <input type="button" value="menu" id="menubtn" onclick="menutoggle('menu')">
+            <div id="menu">
+                <div class="section">
+                    <p class="section_title">上传指南</p>
+                    <ul class="section_content">
+                        <ul><a href="#开始">开始</a></ul>
+                        <ul><a href="#Markdown主题">Markdown主题</a></ul>
+                        <ul><a href="#使用typora转换">使用typora转换</a></ul>
+                        <ul><a href="#解析LaTeX">解析LaTeX</a></ul>
+                        <ul><a href="#如何使用">如何使用</a></ul>
+                        <ul><a href="#KaTeX支持的规范">KaTeX支持的规范</a></ul>
+                    </ul>
+                </div>
+                <div class="section">
+                    <p class="section_title">第3节</p>
+                    <ul class="section_content">
+                        <ul><a href="./添加目录.html#为目标段落添加唯一id">为目标段落添加唯一id</a></ul>
+                        <ul><a href="./添加目录.html#编辑目录代码">编辑目录代码</a></ul>
+                        <ul><a href="./添加目录.html#指向另一个小节的目录">指向另一个小节的目录</a></ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <!-- 正文在 #contents 内部 -->
     <div id="contents">
         <h1>上传指南</h1>
         <blockquote><p>这是一份用于maki_lab网站课程文本内容的后台上传，编辑与维护的技术文档。</p>
         <p>version <strong>0.1</strong>	by <strong>Revot_wyq  2020/12/4</strong>  </p>
         </blockquote>
-        <hr />
-        <h3>开始</h3>
+        <h3 id="开始">开始</h3>
         <p>	我们推荐使用<strong>typora</strong>进行写作。在typora中使用markdown和LaTeX两种标记语言，尽管它们不能被浏览器直接解析，但可以通过正则表达式<del>或者手动慢慢改</del>将markdown标签替换为浏览器使用的html标签，搭配LaTeX的渲染脚本，在web页面中展示开发组作者们写作的内容。</p>
-        <h3>Markdown主题</h3>
+        <h3 id="Markdown主题">Markdown主题</h3>
         <p>	Markdown拥有不同的主题，由一些css样式表所定义，因而可以更换或自定义。要使得在web的显示效果与编辑器中预览效果一致，只需在html中以外部样式表引用的方式引入相应的markdown主题。本文暂时使用typora默认主题<a href='http://theme.typora.io/'>typora_markdown主题库</a>之一的github_theme 。</p>
         <p>	因为我们的网站主要展示的是学术内容，与一般网页的markdown内容不同，相应适合的主题也会有差异。后期可以根据用户们的反馈，优化采用的主题，以实现更佳的阅读体验。还可以增添如定义/定理/证明之类markdown默认语法中不存在的标签。</p>
         <h3>MD转换HTML</h3>
@@ -45,7 +98,7 @@
         <tr><th>名称</th><th>markdown</th><th>html</th></tr></thead>
         <tbody><tr><td>标题</td><td>#</td><td>&lt;h1&gt;&lt;/h1&gt;</td></tr><tr><td>换行</td><td>双空格或回车</td><td>&lt;br/&gt;</td></tr><tr><td>分割线</td><td>***</td><td>&lt;hr/&gt;</td></tr><tr><td>删除线</td><td>~~内容~~</td><td>&lt;del&gt;&lt;/del&gt;</td></tr><tr><td>区块</td><td>&gt;</td><td>&lt;blockquote&gt;&lt;/blodckquote&gt;</td></tr><tr><td>代码</td><td>四个空格</td><td>&lt;code&gt;&lt;/code&gt;</td></tr><tr><td>超链接</td><td>[标题](地址)</td><td>&lt;a href=&quot;地址&quot;&gt;标题&lt;/a&gt;</td></tr><tr><td>表格</td><td>竖线和短横线</td><td>&lt;table&gt;&lt;/table&gt;</td></tr></tbody>
         </table></figure>
-        <h3>使用typora转换</h3>
+        <h3 id="使用typora转换">使用typora转换</h3>
         <p>	typora可以把写好的markdown文档导出成HTML。请按照以下步骤操作：</p>
         <ul>
         <li><p>找到选项	<strong>文件</strong>&gt;<strong>偏好设置</strong>&gt;<strong>markdown</strong>&gt;<strong>公式</strong>&gt;<strong>当复制或导出为无格式的HTML时</strong></p>
@@ -55,7 +108,7 @@
         </li>
         
         </ul>
-        <h3>解析LaTeX</h3>
+        <h3 id="解析LaTeX">解析LaTeX</h3>
         <p>	相比于在文本中插入公式图片，渲染LaTeX代码显然是更好的显示数学公式的方式。typora中内置的解析器是mathjax，是最早的应用于web端的LaTeX解析器。但是在一些浏览器中，其效果并不理想。使用mathjax解析速度较慢，会先显示LaTeX原始代码，卡顿一下之后才渲染成适合阅读的公式。这种卡顿在网页中包含大量数学公式时，尤为明显。所以我们决定采用更快更轻量的<strong>KaTeX</strong>作为解析器。</p>
         <p>	 目前我们使用的KaTeX配置如下：</p>
         <pre><code class='language-html' lang='html'>&lt;!--使用cdn的镜像--&gt;
@@ -78,7 +131,7 @@
             &lt;!--启用自动渲染,指定渲染id为contents的DOM元素--&gt;
             &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js&quot; integrity=&quot;sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa&quot; crossorigin=&quot;anonymous&quot; onload=&quot;renderMathInElement(document.getElementById(&#39;contents&#39;),katex_config);&quot;&gt;&lt;/script&gt;
         </code></pre>
-        <h3>如何使用</h3>
+        <h3 id="如何使用">如何使用</h3>
         <ul>
         <li><p>复制以上代码到HTML的头部</p>
         </li>
@@ -106,10 +159,93 @@
         </li>
         
         </ul>
-        <h3>KaTeX支持的规范</h3>
+        <h3 id="KaTeX支持的规范">KaTeX支持的规范</h3>
         <p>	LaTeX拥有大量的符号，经历了多个不同的细分版本，这使得不同的LaTeX解析器支持的写作规范都略有不同。在网页中，一旦检索到无法识别的LaTeX语法，解析器将会停止，接下来的所有LaTeX代码都将不会被渲染。所以，请尽量使用KaTeX支持的格式进行写作，在上传之前<strong>请务必确保使用的语法符合规范</strong>。</p>
         <p>	要查询KaTeX支持的规范，<a href='https://katex.org/docs/support_table.html#symbols'>点击这里</a></p>
     </div>
 
+        <!-- cascading style sheet -->
+        <style>
+            .mynav {
+                background-color: #071B44;
+                padding-left: 5em;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                color: #FFFFFF
+            }
+            ::-webkit-scrollbar {
+                display: none; /* Chrome Safari */
+            }
+            html, body { scroll-behavior:smooth; }
+            body {
+                background-image: linear-gradient(#071B44, #B9998E);
+            }
+            #contents {
+                width: 65%;
+                margin: 1.5em 1.5%;
+                border-radius: 1em;
+                padding: 2em 4em;
+                background-color: #FFFFFF;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+    
+            /* 目录的css */
+        
+            #menubox {
+                margin: 1.5em;
+                float: right;
+                position: fixed;
+                width: 20%;
+                right: 0;        
+            }
+            #menu {
+                display: block;
+            }
+            #menubtn {
+                outline: none;
+                border: 0.5em solid #FFFFFF;
+                border-radius: 1em;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 1em;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+
+            .section {
+                border: 0.5em solid #FFFFFF;
+                border-radius: 1em;
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 1em;
+                box-shadow: 0.25em 0.75em 0.5em #1b1b1b73;
+            }
+            #current_section {
+                background-color: #FFFFFF;
+            }
+            .section_title {
+                /* 消除mdtheme产生的p元素上间隙 */
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            .section_content {
+                /* 消除下间隙 */
+                margin: 0;
+                padding: 0;
+                padding-left: 2em;
+                overflow: hidden;
+                max-height: 0;
+                transition: 1.5s all;
+            }
+            .section:hover .section_content{
+                max-height: 10em;
+            }
+            .section_content ul{
+                /* 这里也要消除下间隙 */
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+        </style>
+
 </body>
+
 </html>
