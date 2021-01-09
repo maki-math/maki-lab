@@ -2,7 +2,7 @@
 
 
 
-**上传指南**文件夹中，打开 **上传指南.html** 以查看markdown和LaTeX转换后的效果
+打开 **上传指南.html** 以查看markdown和LaTeX转换后的效果
 
 
 
