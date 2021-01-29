@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+  <title>3.1</title>
+<body><h1>3.1 Case 1: The Infinite Well</h1>
+<center>
+	<img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Infinite_potential_well-en.svg" width="60%">
+	<p style="font-size: small;">An infinite well. Image from Wikipedia
+</p></center>
+<p>Inside the well, the potential is zero, so we have</p>
+<div>$$
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x)=E\psi(x),\text{ for }0\le x\le L.
+$$</div>
+<p>General solution</p>
+<div>$$
+\psi(x)=A\sin(kx),
+$$</div>
+<p>where we define $k\equiv\sqrt{{2mE}/{\hbar^2}}$. Applying <strong>boundary condition</strong> $\psi(L)=0$ gives</p>
+<div>$$
+A\sin(kL)=0.
+$$</div>
+<p>Therefore</p>
+<div>$$
+kL=n\pi,\forall n\in\Bbb{Z}.
+$$</div>
+<p>This result implies that</p>
+<div>$$
+\begin{cases}E=\frac{n^2\pi^2\hbar^2}{2mL^2},\\\\\psi(x)=A\sin(\frac{n\pi x}{L}).\end{cases}
+$$</div>
+<p>Applying <strong>normalization condition</strong> gives</p>
+<div>$$
+\int_{\text{all space}}|\Psi(x,t)|^2dx=\int_0^L\left(A\sin\frac{n\pi x}{L}\right)^2dx=1.
+$$</div>
+<p>The integral equals $A^2L/2$, so we have</p>
+<div>$$
+A=\sqrt{\frac{2}{L}}.
+$$</div>
+<p>And here is the final result</p>
+<div>$$
+\bbox[silver]{\psi_n(x)=\begin{cases}\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L},&amp;\text{ for }0\le x\le L\\\\0,&amp;\text{else}\end{cases}}
+$$</div>
+<p>and</p>
+<div>$$
+\bbox[silver]{E_n=\frac{n^2\pi^2\hbar^2}{2mL^2}.}
+$$</div>
+<hr />
+<h1>Practice Problems for 3.1</h1>
+<ol start='' >
+<li>Suppose now the infinite well is at $|x|&lt a/2$, determine the allowed energies and corresponding wave functions.</li>
+
+</ol>
+</body>
+</html>

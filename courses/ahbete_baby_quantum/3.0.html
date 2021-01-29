@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+  <title>3</title>
+<body><h1>3 Bound States</h1>
+<h2>Stationary States</h2>
+<p>From last time:</p>
+<div>$$
+\bbox[silver]{i\hbar\frac{\partial\Psi(x,t)}{\partial t}=\left(-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+U\right)\Psi(x,t).}
+$$</div>
+<p>To solve this equation, a standard technique is separation of variables. Let assume</p>
+<div>$$
+\Psi(x,t)=\psi(x)\phi(t).
+$$</div>
+<p>Then we have</p>
+<div>$$
+-\frac{\hbar^2}{2m}\frac{1}{\psi(x)}\frac{\partial^2}{\partial x^2}\psi(x)+U(x)=i\hbar\frac{1}{\phi(t)}\frac{\partial}{\partial t}\phi(t)=C.
+$$</div>
+<h3>The Temporal Part</h3>
+<div>$$
+i\hbar\frac{1}{\phi(t)}\frac{\partial}{\partial t}\phi(t)=C.
+$$</div>
+<p>General solution:</p>
+<div>$$
+\phi(t)=\mathrm{e}^{-i(C/\hbar)t}.
+$$</div>
+<p>It turned out that $C=E$, so</p>
+<div>$$
+\Psi(x,t)=\psi(x)\mathrm{e}^{-i(E/\hbar)t}.
+$$</div>
+<p>Notice:</p>
+<div>$$
+\Psi^*(x,t)\Psi(x,t)=\psi^*(x)\mathrm{e}^{i(E/\hbar)t}\psi(x)\mathrm{e}^{-i(E/\hbar)t}=\psi^*(x)\psi(x).
+$$</div>
+<p>The probably density function is time independent. That is why the phrase &quot;stationary state&quot; is used.</p>
+<h3>The Spatial Part</h3>
+<p>Since $C=E$, the spatial part reduces to the time-independent Schr&#246;dinger Equation,</p>
+<div>$$
+\bbox[silver]{E\Psi(x,t)=\left(-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+U\right)\Psi(x,t).}
+$$</div>
+<h2>Well-Behaved Function</h2>
+<ul>
+<li>Normalization</li>
+
+</ul>
+<div>$$
+\int_{\text{all space}}|\Psi(x,t)|^2dx=1.
+$$</div>
+<ul>
+<li>Smoothness - $C^2$</li>
+
+</ul>
+</body>
+</html>
