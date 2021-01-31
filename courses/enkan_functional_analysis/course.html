@@ -111,9 +111,11 @@
     <nav id="sidebar">
       <!--  Course Name  -->
       <div class="sidebar-header">
+        <h2>泛函分析</h2>
         <button type="button" id="sidebarExpand" class="btn btn-info">
           <i class="fas fa-align-left"></i>
-        </button><h2>泛函分析</h2>
+          <span>Back</span>
+        </button>
       </div>
 
       <ul class="list-unstyled components">
@@ -221,11 +223,13 @@
         $('.collapse.in').toggleClass('in');
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
       });
+
       $('#sidebarExpand').on('click', function () {
         $('#sidebar, #content').toggleClass('active');
         $('.collapse.in').toggleClass('in');
         $('a[aria-expanded=false]').attr('aria-expanded', 'false');
       });
+      
     });
   </script>
 
