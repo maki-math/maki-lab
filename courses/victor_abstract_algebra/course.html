@@ -20,29 +20,27 @@
 
   <script>
     function find_html(i, j) {
-    let html = '';
-    html = './'+String(i) + '.' + String(j) + '.html';
-    s=
-    $("#load-file").load(html);
-  }
+      let html = '';
+      html = './' + String(i) + '.' + String(j) + '.html';
+      s =
+        $("#load-file").load(html);
+    }
 
-  function html_id(i, j) {
-    let html = '';
-    html = './'+String(i) + '.' + String(j) + '.html';
-    return html;
-  }
+    function html_id(i, j) {
+      let html = '';
+      html = './' + String(i) + '.' + String(j) + '.html';
+      return html;
+    }
     $(document).ready(function () {
-      s=
-      $("#load-file").load("./1.1.html");
+      s =
+        $("#load-file").load("./1.1.html");
     });
   </script>
 
   <!--sidebar-->
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Collapsible sidebar using Bootstrap 4</title>
 
   <!-- Bootstrap CSS CDN -->
   <link rel="stylesheet" href="../../src/bootstrap.min.css"
@@ -50,8 +48,7 @@
   <!-- Our Custom CSS -->
   <link rel="stylesheet" href="../../src/style2.css">
   <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet"
-    href="../../src/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../../src/jquery.mCustomScrollbar.min.css">
 
   <!-- Font Awesome JS -->
   <script defer src="../../src/solid.js"
@@ -72,7 +69,7 @@
     integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
     crossorigin="anonymous"></script>
   <!--定义分界符delimiters属性-->
-  <script defer>
+  <script>
     let katex_config = {
       delimiters:
         [
@@ -94,11 +91,12 @@
   <script src="../../src/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-  
+
 
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
+      <!--  Course Name  -->
       <div class="sidebar-header">
         <h2>抽象代数</h2>
       </div>
@@ -120,47 +118,19 @@
         <li>
 
         <li>
-          <li>
-            <a href="#Chap2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chap. 2 Rings</a>
-            <ul class="collapse list-unstyled" id="Chap2">
-              <li><a onclick="find_html(2, 1)">2.1 Definition of Rings</a></li>
-            </ul>
-            </li>
-          <li>
-        </li>
-
-        <li>
-          <a href="#">About</a>
-        </li>
-
-        <li>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
-              <a href="#">Page 1</a>
-            </li>
-            <li>
-              <a href="#">Page 2</a>
-            </li>
-            <li>
-              <a href="#">Page 3</a>
-            </li>
+          <a href="#Chap2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chap. 2 Rings</a>
+          <ul class="collapse list-unstyled" id="Chap2">
+            <li><a onclick="find_html(2, 1)">2.1 Definition of Rings</a></li>
           </ul>
-        </li>
-        <li>
-          <a href="#">Portfolio</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
         </li>
       </ul>
 
       <ul class="list-unstyled CTAs">
         <li>
-          <a href="../../src/sidebar.zip" class="download">Download source</a>
+          <a href="mailto:VictorZhong@maki-math.com" class="contact">Contact the Author</a>
         </li>
         <li>
-          <a href="../../src/bootstrap-sidebar" class="article">Back to article</a>
+          <a href="../../index.html" class="back">Back to Homepage</a>
         </li>
       </ul>
     </nav>
@@ -173,14 +143,12 @@
         <span>Menu</span>
       </button>
 
-
       <div id="load-file"></div>
 
       <div class="container">
         <hr>
-        <p>(C) 2020, Maki & his friends</p>
+        <p>(C) 2020, Victor Zhong</p>
       </div>
-
     </div>
 
   </div>
@@ -198,7 +166,7 @@
   <!-- jQuery Custom Scroller CDN -->
   <script src="../../src/jquery.mCustomScrollbar.concat.min.js"></script>
 
-  <script type="text/javascript">
+  <script>
     $(document).ready(function () {
       $("#sidebar").mCustomScrollbar({
         theme: "minimal"
