@@ -1,6 +1,11 @@
 body {
     background: #ebf5df6e;
     color: #000000d6;
+    /* abt测试--> */position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;/* <--abt测试 */
 }
 
 p, .def, .theo{
@@ -180,6 +185,15 @@ a.back:hover {
 
 #content.active {
     width: 100%;
+}
+
+/* ---------------------------------------------------
+    VIDEO STYLE
+----------------------------------------------------- */
+
+.video iframe{
+    width: 100vw; 
+    height: 56.25vw; /* 100/56.25 = 560/315 = 1.778 */
 }
 
 /* ---------------------------------------------------
