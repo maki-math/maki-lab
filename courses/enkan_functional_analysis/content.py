@@ -14,20 +14,17 @@ for x in f:
         else:
             if "." not in x:
                 author=x
-                print(author)
             if  "." in x:
                 temp=x.split(".")
                 chapter_number=temp[0]
                 chapter_name=temp[1].strip()
                 s=s+"<li>\n"+"<li><a onclick=\"find_html_short(" + str(chapter_number) +")\">"+  x +"</a></li>\n"+"</li>\n"
-for item in l:
-    print item
-    
-f = open("myfile.txt", "w")
+
+f = open("content.txt", "w")
 f.write(s)
 f.close
 
-f = open("myfile.txt", "r")
+f = open("content.txt", "r")
 print(f.read())
     
 
