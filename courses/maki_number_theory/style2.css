@@ -1,20 +1,38 @@
-/*
-    DEMO STYLE
-*/
-/*
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}*/
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+    background: #ebf5df6e;
+    color: #000000d6;
 }
+
+p, .def, .theo{
+    color:#1f1a18;
+    line-height:2em;
+    font-weight: 300;
+    font-size: 1.1em;
+    font-family: sans-serif;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    display: block;
+    margin: 1.5rem;
+}
+
+h3{
+    /*color:#e8871e;*/
+    margin-top:3rem;
+    margin-bottom: 5rem;
+}
+
+h4{
+    color:#312c8aa1;
+    margin-top: 4rem;
+}
+table{
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
 
 a,
 a:hover,
@@ -44,7 +62,7 @@ a:focus {
     height: 1px;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
-}
+}*/
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
