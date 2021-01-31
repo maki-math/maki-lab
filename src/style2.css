@@ -75,7 +75,7 @@ a:focus {
 
 #sidebar {
     width: 200px;
-    position: absolute;/*fixed*/
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
@@ -196,9 +196,10 @@ a.back:hover {
     #content {
         width: 100%;
     }
-    /* #content.active {
-        width: calc(100% - 250px);
-    } */
+    #content.active {
+        /* width: calc(100% - 250px); */
+        margin-left: -250px;
+    }
     #sidebarCollapse span {
         display: none;
     }
