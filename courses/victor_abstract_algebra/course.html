@@ -25,9 +25,10 @@
       s =
         $("#load-file").load(html);
 
-        document.documentElement.scrollTop = 0;  //ie下
+        
         //document.body.scrollTop = 0;  //非ie
-        setTimeout(() => window.scrollTo(0,0), 120)
+        setTimeout(() => window.scrollTo(0,0), 100)
+        //document.documentElement.scrollTop = 0;  //ie下
 
 
     }
