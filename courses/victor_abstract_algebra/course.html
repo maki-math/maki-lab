@@ -24,7 +24,12 @@
       html = './' + String(i) + '.' + String(j) + '.html';
       s =
         $("#load-file").load(html);
+
+        setTimeout(() => window.scrollTo(0,0), 10)
+        //document.body.scrollTop = 0;
+
     }
+    
 
     function html_id(i, j) {
       let html = '';
