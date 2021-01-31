@@ -5,192 +5,207 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <title>抽象代数</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  <link rel="stylesheet" href="../../src/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+  <!-- Revot's Design  -->
+  <link rel="stylesheet" href="../../css/course-page.css">
+
+  <!-- Load File-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  -->
+  <script src="../../src/jquery-3.5.1.min.js"></script>
+
+  <script>
+    function find_html(i, j) {
+    let html = '';
+    html = './'+String(i) + '.' + String(j) + '.html';
+    s=
+    $("#load-file").load(html);
+  }
+
+  function html_id(i, j) {
+    let html = '';
+    html = './'+String(i) + '.' + String(j) + '.html';
+    return html;
+  }
+    $(document).ready(function () {
+      s=
+      $("#load-file").load("./1.1.html");
+    });
+  </script>
+
+  <!--sidebar-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Collapsible sidebar using Bootstrap 4</title>
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="../../src/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="../../src/style2.css">
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet"
+    href="../../src/jquery.mCustomScrollbar.min.css">
+
+  <!-- Font Awesome JS -->
+  <script defer src="../../src/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+  <script defer src="../../src/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+
+  <!--/sidebar-->
+
+
+
   <!--使用cdn的镜像-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+  <link rel="stylesheet" href="../../src/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+  <script defer src="../../src/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
   <!--定义分界符delimiters属性-->
   <script defer>
-      let katex_config = {
-          delimiters: 
-          [
-              {left: "$$", right: "$$", display: true},
-              {left: "$", right: "$", display: false},
-              {left: "\\(", right: "\\)", display: false},
-              {left: "\\[", right: "\\]", display: true}
-          ],
-          ignoredTags:
-          ["script", "noscript", "style", "textarea", "pre", "code", "option"]
-      }
+    let katex_config = {
+      delimiters:
+        [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ],
+      ignoredTags:
+        ["script", "noscript", "style", "textarea", "pre", "code", "option"]
+    }
   </script>
-  <!--启用自动渲染,指定渲染id为contents的DOM元素-->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-  onload="renderMathInElement(document.getElementById('contents'),katex_config);"></script>
-  
+
+
 </head>
 
 <body>
-  <!-- Optional JavaScript; choose one of the two! -->
-
-  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="./jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  <script src="../../src/jquery-3.2.1.min.js"></script>
+  <script src="../../src/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
+  
 
-  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h2>抽象代数</h2>
+      </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <div class="container">
-      <a class="navbar-brand" href="../../index.html">Maki's Lab</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#" onclick="find_html(1, 2)">教学大纲</a>
+        </li>
+
+        <li> <!--class="active"-->
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Home 1</a>
+            </li>
+            <li>
+              <a href="#">Home 2</a>
+            </li>
+            <li>
+              <a href="#">Home 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a href="#">Page 1</a>
+            </li>
+            <li>
+              <a href="#">Page 2</a>
+            </li>
+            <li>
+              <a href="#">Page 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Portfolio</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+        <li>
+          <a href="../../src/sidebar.zip" class="download">Download source</a>
+        </li>
+        <li>
+          <a href="../../src/bootstrap-sidebar" class="article">Back to article</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+      <button type="button" id="sidebarCollapse" class="btn btn-info">
+        <i class="fas fa-align-left"></i>
+        <span>Menu</span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../../index.html">首页 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html#00">数学</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html#01">物理</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html#02">化学</a>
-          </li>
 
+      <div id="load-file"></div>
+
+      <div class="container">
+        <hr>
+        <p>(C) 2020, Maki & his friends</p>
       </div>
+
     </div>
-  </nav>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="card">
-          <div class="card-body">
-            <iframe src="./1.1.html" id="iframe" onload="iframeLoad()" scrolling="auto"
-              width="100%" height="50" frameborder="0"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <h1>抽象代数</h1>
-        <p>作者：Victor</p>
-        <div id="accordion">
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 1. Groups (I)
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" onclick="sdafsd(1, 1)">1.1 Definition of Groups</li>
-                <li class="list-group-item" onclick="sdafsd(1, 2)">1.2 More Examples of Groups</li>
-                <li class="list-group-item" onclick="sdafsd(1, 3)">1.3 Subgroups and Cosets</li>
-                <li class="list-group-item" onclick="sdafsd(1, 4)">1.4 Normalizer and Centralizer</li>
-                <li class="list-group-item" onclick="sdafsd(1, 5)">1.5 Normal Subgroup and Quotient Group</li>
-                <li class="list-group-item" onclick="sdafsd(1, 6)">1.6 Homomorphisms</li>
-                <li class="list-group-item" onclick="sdafsd(1, 7)">1.7 The Fundamental Theorem of Homomorphisms</li>
-                <li class="list-group-item" onclick="sdafsd(1, 8)">1.8 Cyclic Groups</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 2. Rings
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" onclick="sdafsd(2, 1)">2.1 Definition of Rings</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 3. Fields (TBD, '21.3)
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 4. Modules and Vector Spaces (TBD, '21.5)
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 5. Group (II) (TBD, '21.3)
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
-                Chap 6. Galois Theory (TBD, '21.4)
-              </a>
-            </div>
-            <div id="collapseOne" class="collapse show" type = "button" data-parent="#accordion">
-            </div>
-          </div>
-           
-
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="container">
-    <hr>
-    <p>(C) 2020, Maki & his friends</p>
-  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+     "HTML-CSS": { linebreaks: { automatic: true } },
+             SVG: { linebreaks: { automatic: true } }
+    });
+    </script>
+
+  <script src="../../src/jquery.min.js"></script>
+
+
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="../../src/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+
 
 </body>
 
 </html>
-<script>
-  function iframeLoad(params) {
-    parent.document.getElementById("iframe").height = 0;
-
-    parent.document.getElementById("iframe").height = document.body.scrollHeight;
-  }
-
-  function sdafsd(i, j) {
-    let html = '';
-    html = './'+String(i) + '.' + String(j) + '.html';
-    $('#iframe').attr('src', html)
-  }
-
-
-
-</script>
