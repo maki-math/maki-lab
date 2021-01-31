@@ -1,20 +1,37 @@
-/*
-    DEMO STYLE
-*/
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #ebf5df6e;
+    color: #000000d6;
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
+p, .def, .theo{
+    color:#1f1a18;
+    line-height:2em;
     font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+    font-size: 1.1em;
+    font-family: sans-serif;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    display: block;
+    margin: 1.5rem;
 }
+
+h3{
+    margin-top:3rem;
+    margin-bottom: 5rem;
+}
+
+h4{
+    color:#312c8aa1;
+    margin-top: 4rem;
+}
+table{
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
 
 a,
 a:hover,
@@ -44,7 +61,7 @@ a:focus {
     height: 1px;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
-}
+}*/
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
@@ -53,31 +70,33 @@ a:focus {
 .wrapper {
     display: flex;
     width: 100%;
-    align-items: stretch;
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #7386D5;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #054993;
     color: #fff;
     transition: all 0.3s;
 }
 
+li{
+    background: #16569c;
+}
+
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -200px;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    padding-left: 15px;
+    /*background: #003d86;*/
 }
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
 #sidebar ul p {
     color: #fff;
     padding: 10px;
@@ -90,14 +109,16 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #16569c;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    /*color: rgb(224, 243, 227);
+    background: #1b5390;*/
+    color: #16569c;
+    background: #fff;
 }
 
 a[data-toggle="collapse"] {
@@ -115,7 +136,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #16569c;
 }
 
 ul.CTAs {
@@ -146,10 +167,17 @@ a.article:hover {
 ----------------------------------------------------- */
 
 #content {
-    width: 100%;
-    padding: 20px;
+    width: calc(100% - 200px);
+    padding: 40px;
     min-height: 100vh;
     transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
 }
 
 /* ---------------------------------------------------
@@ -162,6 +190,12 @@ a.article:hover {
     }
     #sidebar.active {
         margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
     }
     #sidebarCollapse span {
         display: none;
