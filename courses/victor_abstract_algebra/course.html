@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="../../css/course-page.css">
 
   <!-- Load File-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  -->
   <script src="../../src/jquery-3.5.1.min.js"></script>
 
   <script>
@@ -22,8 +24,11 @@
       html = './' + String(i) + '.' + String(j) + '.html';
       s =
         $("#load-file").load(html);
+
+        document.documentElement.scrollTop = 0;  //ie下
+        //document.body.scrollTop = 0;  //非ie
         setTimeout(() => window.scrollTo(0,0), 80)
-        document.body.scrollTop = 0;
+
 
     }
     
