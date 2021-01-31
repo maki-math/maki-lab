@@ -14,9 +14,7 @@ p, .def, .theo{
     display: block;
     margin: 1.5rem;
 }
-li{
-    cursor: pointer;
-}
+
 
 h3{
     margin-top:3rem;
@@ -87,8 +85,9 @@ a:focus {
     transition: all 0.3s;
 }
 
-li{
+#sidebar li{
     background: #16569c;
+    cursor: pointer;
 }
 
 #sidebar.active {
