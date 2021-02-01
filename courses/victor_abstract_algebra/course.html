@@ -32,9 +32,22 @@
 
     }
 
+    function find_html_short(i) {
+      let html = '';
+      html = './' + String(i) + '.html';
+      s =
+        $("#load-file").load(html);
+
+        
+        //document.body.scrollTop = 0;  //非ie
+        setTimeout(() => window.scrollTo(0,0), 150)
+        //document.documentElement.scrollTop = 0;  //ie下
+
+    }
+
     $(document).ready(function () {
       s =
-        $("#load-file").load("./1.1.html");
+        $("#load-file").load("./0.html");
     });
   </script>
 
@@ -107,6 +120,10 @@
       </div>
 
       <ul class="list-unstyled components">
+
+        <li>
+        <li><a onclick="find_html_short(0)">Syllabus</a></li>
+        </li>
 
         <li>
           <a href="#Chap1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chap. 1 Groups</a>
