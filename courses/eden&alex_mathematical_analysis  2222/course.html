@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>泛函分析</title>
+  <title>数学分析</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../../src/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -25,10 +25,10 @@
       s =
         $("#load-file").load(html);
 
-        
-        //document.body.scrollTop = 0;  //非ie
-        setTimeout(() => window.scrollTo(0,0), 150)
-        //document.documentElement.scrollTop = 0;  //ie下
+
+      //document.body.scrollTop = 0;  //非ie
+      setTimeout(() => window.scrollTo(0, 0), 150)
+      //document.documentElement.scrollTop = 0;  //ie下
 
     }
     function find_html_short(i) {
@@ -37,13 +37,13 @@
       s =
         $("#load-file").load(html);
 
-        
-        //document.body.scrollTop = 0;  //非ie
-        setTimeout(() => window.scrollTo(0,0), 150)
-        //document.documentElement.scrollTop = 0;  //ie下
+
+      //document.body.scrollTop = 0;  //非ie
+      setTimeout(() => window.scrollTo(0, 0), 150)
+      //document.documentElement.scrollTop = 0;  //ie下
 
     }
-    
+
     $(document).ready(function () {
       s =
         $("#load-file").load("./1.html");
@@ -111,7 +111,7 @@
     <nav id="sidebar">
       <!--  Course Name  -->
       <div class="sidebar-header">
-        <h2>泛函分析</h2>
+        <h2>数学分析</h2>
         <button type="button" id="sidebarExpand" class="btn btn-info">
           <i class="fas fa-align-left"></i>
           <span>Back</span>
@@ -119,7 +119,7 @@
       </div>
 
       <ul class="list-unstyled components">
-<!--
+        <!--
         <li>
           <a href="#Chap1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chap. 1 Groups</a>
           <ul class="collapse list-unstyled" id="Chap1">
@@ -142,31 +142,11 @@
         </li>
 -->
 <li>
-  <li><a onclick="find_html_short(1)">1. 距离空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(2)">2. 拓扑空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(3)">3. 赋范空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(4)">4. 赋范空间和距离空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(5)">5. 巴拿赫空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(6)">6. 希尔伯特空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(7)">7. 子空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(8)">8. 商空间</a></li>
-  </li>
-  <li>
-  <li><a onclick="find_html_short(9)">9. 线性算子</a></li>
+  <a href="Chap1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chap. 1. Introduction</a>
+  <ul class="collapse list-unstyled" id="Chap1">
+  <li><a onclick="find_html(1, 1)">1.1. 实数</a></li>
+  <li><a onclick="find_html(1, 2)">1.2. 函数</a></li>
+  </ul> 
   </li>
 
       </ul>
@@ -193,7 +173,7 @@
 
       <div class="container">
         <hr>
-        <p>(C) 2020, Enkan</p>
+        <p>(C) 2020, Eden & Alex</p>
       </div>
     </div>
 
@@ -229,7 +209,7 @@
         $('.collapse.in').toggleClass('in');
         $('a[aria-expanded=false]').attr('aria-expanded', 'false');
       });
-      
+
     });
   </script>
 

@@ -8,7 +8,7 @@ body {
     right: 0;/* <--abt测试 */
 }
 
-p, .def, .theo{
+p, .def, .theo, #content li{
     color:#1f1a18;
     line-height:2em;
     font-weight: 300;

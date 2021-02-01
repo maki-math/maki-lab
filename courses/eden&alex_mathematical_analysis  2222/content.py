@@ -35,7 +35,7 @@ for x in f:
                         temp=x.split(".")
                         chapter_number=temp[0]
                         chapter_name=temp[1].strip()
-                        s=s+"<li>\n<a href=\"#Chap"+chapter_number+"\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Chap. "+x+"</a>\n<ul class=\"collapse list-unstyled\" id=\"Chap"+chapter_number+"\">\n"
+                        s=s+"<li>\n<a href=\"Chap"+chapter_number+"\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Chap. "+x+"</a>\n<ul class=\"collapse list-unstyled\" id=\"Chap"+chapter_number+"\">\n"
                     else:
                         x=x.strip()
                         temp=x.split(".")
