@@ -17,7 +17,13 @@
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   -->
   <script src="../../src/jquery-3.5.1.min.js"></script>
-
+  
+  <div id="header"></div>
+  <script>
+    $(document).ready(function () {
+      $('#header').load('../../src/header.html');
+    });
+  </script>
   <script>
     $(document).ready(function () {
       $("#load-file").load("./1.2.html");

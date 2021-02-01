@@ -14,8 +14,12 @@
   <link rel="stylesheet" href="css/home-page.css">-->
 
   <title>Maki's Lab</title>
-  <script type="text/javascript">
-    $('#head').load('./src/header.html')
+  <div id="header"></div>
+
+  <script>
+    $(document).ready(function () {
+      $('#header').load('./src/header.html');
+    });
   </script>
 </head>
 
@@ -116,7 +120,7 @@
         </div>
       </div>
 
-<!--
+      <!--
       <div class="col-sm-4 mb-4">
         <div class="card">
           <div class="card-body">
@@ -130,7 +134,7 @@
         </div>
       </div>
       -->
-<!--
+      <!--
       <div class="col-sm-4 mb-4">
         <div class="card">
           <div class="card-body">
@@ -177,7 +181,7 @@
 
     </div>
   </div>
-<!--
+  <!--
   <div class="container">
     <h1 class="font-weight-lighter text-center mb-4">化学 CHEMISTRY<a id="02"></a></h1>
 
