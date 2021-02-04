@@ -200,18 +200,16 @@ a.back:hover {
     IMAGE STYLE
 ----------------------------------------------------- */
 
-.img-box{
-    padding-bottom:40%;
-}
-
-.img-box img{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    margin: auto;
-}
+img{
+    max-width: 300px;
+    max-height: 300px;
+    height:auto;
+    zoom:expression( function(e) {
+    if(e.width>e.height) {if (e.width>300) { e.height = e.height*(300 /e.width); e.width=300; }}
+    else {if (e.height>300) { e.width = e.width*(300 /e.height); e.height=300; }}
+    e.style.zoom = '1';     }(this));
+        overflow:hidden; 
+   }
 
 /* ---------------------------------------------------
     MEDIAQUERIES
