@@ -201,12 +201,12 @@ a.back:hover {
 ----------------------------------------------------- */
 
 img{
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 600px;
+    max-height: 600px;
     height:auto;
     zoom:expression( function(e) {
-    if(e.width>e.height) {if (e.width>300) { e.height = e.height*(300 /e.width); e.width=300; }}
-    else {if (e.height>300) { e.width = e.width*(300 /e.height); e.height=300; }}
+    if(e.width>e.height) {if (e.width>600) { e.height = e.height*(600 /e.width); e.width=600; }}
+    else {if (e.height>600) { e.width = e.width*(600 /e.height); e.height=600; }}
     e.style.zoom = '1';     }(this));
         overflow:hidden; 
    }
@@ -234,7 +234,14 @@ img{
         display: none;
     }
 
-    .img-box{
-        padding-bottom: 80%;
-    }
+    img{
+        max-width: 300px;
+        max-height: 300px;
+        height:auto;
+        zoom:expression( function(e) {
+        if(e.width>e.height) {if (e.width>300) { e.height = e.height*(300 /e.width); e.width=300; }}
+        else {if (e.height>300) { e.width = e.width*(300 /e.height); e.height=300; }}
+        e.style.zoom = '1';     }(this));
+            overflow:hidden; 
+       }    
 }
