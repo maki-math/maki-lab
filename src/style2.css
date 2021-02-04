@@ -187,6 +187,16 @@ a.back:hover {
     width: 100%;
 }
 
+/* abt 2/4/2021 ↓ */
+#content.ul {
+    list-style-type: disc;
+}
+
+#content.ol {
+    list-style-type: decimal;
+}
+/* abt 2/4/2021 ↑ */
+
 /* ---------------------------------------------------
     VIDEO STYLE
 ----------------------------------------------------- */
@@ -197,7 +207,7 @@ a.back:hover {
 }
 
 /* ---------------------------------------------------
-    IMAGE STYLE
+    IMAGE STYLE (ABT 2/4/2021
 ----------------------------------------------------- */
 
 img{
@@ -234,7 +244,8 @@ img{
         display: none;
     }
 
-    img{
+    /* abt 2/4/2021 ↓ */
+    img {
         max-width: 300px;
         max-height: 300px;
         height:auto;
@@ -244,4 +255,9 @@ img{
         e.style.zoom = '1';     }(this));
             overflow:hidden; 
        }    
-}
+    }
+
+    p {
+        margin: 0;
+    }
+    /* abt 2/4/2021 ↑ */
