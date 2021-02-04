@@ -188,11 +188,11 @@ a.back:hover {
 }
 
 /* abt 2/4/2021 ↓ */
-#content.ul {
+ul {
     list-style-type: disc;
 }
 
-#content.ol {
+ol {
     list-style-type: decimal;
 }
 /* abt 2/4/2021 ↑ */
@@ -254,10 +254,10 @@ img{
         else {if (e.height>300) { e.width = e.width*(300 /e.height); e.height=300; }}
         e.style.zoom = '1';     }(this));
             overflow:hidden; 
-       }    
-    }
+       }
 
     p {
         margin: 0;
     }
     /* abt 2/4/2021 ↑ */
+}
