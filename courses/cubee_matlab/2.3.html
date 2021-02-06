@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>2.3</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+<body>
+
+    <h1>逻辑与控制语句</h1>
+    <ul>
+        <li><p>选择结构</p>
+            <ul>
+                <li>if, elseif, else</li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <pre><code class='language-matlab' lang='matlab'>if expression1
+        statements1
+        elseif expression2
+        statements2
+        else
+        statements3
+        end
+    </code></pre>
+    <ul>
+        <li><p>switch</p>
+            <pre><code class='language-matlab' lang='matlab'>switch switch_expression
+                case case_expression
+                statements
+                case case_expression
+                statements
+                ...
+                otherwise
+                statements
+                end
+            </code></pre>
+        </li>
+        <li><p>循环结构</p>
+            <ul>
+                <li>for    </li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+    <pre><code class='language-matlab' lang='matlab'>for index = values
+        statements
+        end
+    </code></pre>
+    <p>作为指标集的<code>values</code>，有以下几种形式</p>
+    <ul>
+        <li><p><code>initVal:endVal</code> 指标index将从<code>initVal</code>按步长为1增加至<code>endVal</code>，并且重复执行<code>statements</code>直至<code>index</code>大于<code>endVal</code>（即包含首尾）</p>
+        </li>
+        <li><p><code>initVal:step:endVal</code> 指标index按步长<code>step</code>增加（或减少，当步长为负数时）至大于（或小于）<code>endVal</code>				</p>
+            <p>&nbsp;</p>
+            <ul>
+                <li>while</li>
+                
+            </ul>
+            <pre><code class='language-matlab' lang='matlab'>while expression
+                statements
+                end
+            </code></pre>
+        </li>
+        <li><p><code>break</code> 和 <code>continue</code></p>
+        </li>
+        
+    </ul>
+    <p><code>break</code> 与 <code>continue</code> 一般需要与判断结构结合使用, 用于跳过当次循环</p>
+    <p>不同之处在于 <code>break</code> 会结束整个循环结构, 但<code>continue</code> 会进入下一次循环</p>
+    <p>例如</p>
+    <pre><code class='language-matlab' lang='matlab'>for i=1:5
+        if i==3
+        break;
+        end
+        disp(i)
+        end
+        
+        1 2
+    </code></pre>
+    <pre><code class='language-matlab' lang='matlab'>for i=1:5
+        if i==3
+        continue;
+        end
+        disp(i)
+        end
+        
+        1 2 4 5
+    </code></pre>
+    <p>&nbsp;</p>
+</body>   

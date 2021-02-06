@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>1.4</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+<body>
+    <h1>基本使用方式</h1>
+    <ol start='' >
+        <li>命令行窗口逐条命令输入
+            在命令行窗口输入一条命令，结果就会输出在命令行中，如果有指定输出变量，那么结果会保存在这个变量中；如果没有指定输出变量，那么结果会保存在变量<code>ans</code>中，例如</li>
+        
+    </ol>
+    <pre><code class='language-c++' lang='c++'>&gt;&gt; a = 1+1
+        a =
+        2
+        
+        &gt;&gt; 1+1
+        ans =
+        2
+    </code></pre>
+    <p>在使用过程中产生的每一个变量都会显示在工作区内（函数内部的变量除外）。
+        每一条语句，无论是否指定了输出变量，结果都会显示在命令行窗口。但在语句的末尾加上<code>;</code>后，结果就不再显示在窗口中（同样，在使用脚本文件时去掉<code>;</code>是查看变量非常便捷的方法）。</p>
+    <ol start='2' >
+        <li><p>运行脚本文件
+            命令行窗口使用简单，但在修改语句，使用多行命令的结构型语句，保存命令多次使用、自定义函数都等方面都比较困难，所以应当学习并多使用脚本文件进行编程，使用脚本文件才是将MATLAB作为编程语言学习的正确方式。
+            在工具栏中点击<code>New script</code>会弹出一个脚本窗口，在写代码前，点击<code>save</code>，修改文件名并将文件保存在当前文件夹下。文件名的命令应当符合以下几条规则</p>
+            <ul>
+                <li>文件名可以由英文、数字、下划线组成，且对大小写敏感，扩展名为<code>.m</code></li>
+                <li>文件名的首字母只能是英文</li>
+                <li>文件名不能与MATLAB的内部函数名相同（若冲突，编译器默认先使用当前文件夹下的，内部函数将失效）</li>
+                
+            </ul>
+            <p>这里顺带给出变量名的命令规则</p>
+            <ul>
+                <li>变量名可以包含英文、数字、下划线，大小写敏感，最多包含19个字符</li>
+                <li>变量名的首字母只能是英文</li>
+                <li>变量名不能与预定义的变量或关键词（如<code>if,while</code>等）相同</li>
+                
+            </ul>
+        </li>
+        
+    </ol>
+    <p>这里给出一些常见预定义的变量</p>
+    <figure><table>
+        <thead>
+            <tr><th>预定义变量名</th><th>含义</th></tr></thead>
+        <tbody><tr><td>ans</td><td>默认输出变量</td></tr><tr><td>eps</td><td>正数的极小值</td></tr><tr><td>pi</td><td>圆周率</td></tr><tr><td>inf</td><td>无穷大</td></tr><tr><td>NaN</td><td>无法定义的一个数</td></tr><tr><td>i或j</td><td>虚数单位</td></tr><tr><td>nargin</td><td>函数输入参数个数</td></tr><tr><td>nargout</td><td>函数输出参数个数</td></tr></tbody>
+    </table></figure>
+    <p>&nbsp;</p>
+   
+</body>   

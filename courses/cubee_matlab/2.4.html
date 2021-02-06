@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>2.4</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script> 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+<body>
+
+    <h1>自定义函数</h1>
+    <pre><code class='language-matlab' lang='matlab'>function [y1,...,yN] = myfun(x1,...,xM)
+        ...
+        end
+    </code></pre>
+    <p>上式声明了一个名为‘myfun’ 的函数, x1,...,xM 是输入变量, y1,...,yN 是输出变量.</p>
+    <p>一个函数可以保存在一个单独的 .m 文件中, 文件名必须与函数名完全相同, 且放置在目前的搜索路径下, 才可以正常调用.</p>
+    <p>一个函数也可以放置在主程序的最后, 此时用于区分边界的 <code>end</code> 是不可以省略的. (此种方式只能在R2016b或更高版本中使用)</p>
+</body>
+ 
