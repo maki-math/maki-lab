@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <script type="text/javascript">
+        window.MathJax = {
+        tex: {
+            tags: 'ams'
+        }
+        };
+        window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+        };
+      </script>
+<title>3.2</title></head>
+<body><h1>3.2 Case 2 The Finite Well</h1>
+    <div class="video">
+        <iframe src="//player.bilibili.com/player.html?aid=671387052&bvid=BV1aU4y1s7fe&cid=291844540&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </div>
+<p>This time, let&#39;s consider a potential</p>
+<div>$$
+U(x)=\begin{cases}0&amp;0\le x\le L,\\
+U_0&amp;x\le0\ \text{or}\ x\ge L.\end{cases}
+$$</div>
+<p>Now the time-independent Schr&#246;dinger equation can be expressed as</p>
+<div>$$
+\frac{d^2}{dx^2}\psi(x)=\frac{2m\left(U(x)-E\right)}{\hbar^2}\psi(x).
+$$</div>
+<p>For simplicity, let us divide the whole space into three region: region (I) $x\le 0$, region (II) $0\le x\le L$ , and region (III) $x\ge L$, and also name the wave equations inside those three regions $\psi_\text{I}(x)$, $\psi_\text{II}(x)$, and $\psi_\text{III}(x)$ respectively.</p>
+<h2>Region II</h2>
+<p>As $U(x)=0$ for $0\le x\le L$, the equation becomes</p>
+<div>$$
+\frac{d^2}{dx^2}\psi(x)=-k^2\psi(x),
+$$</div>
+<p>where $k=\sqrt{{2mE}/{\hbar^2}}$. As the differential equation is same as that of the infinite well, we have the same general solution</p>
+<div>$$
+\bbox[silver]{\begin{align}
+\psi_\text{II}=&amp;A&#39;\mathrm{e}^{ikx}+B&#39;\mathrm{e}^{-ikx}\\
+=&amp;A\sin(kx)+B\cos(kx).
+\end{align}}
+$$</div>
+<h2>Region I and Region III</h2>
+<p>The differential equation can be rewritten as</p>
+<div>$$
+\frac{d^2}{dx^2}\psi(x)=\alpha^2\psi(x),
+$$</div>
+<p>where $\alpha=\sqrt{2m(U_0-E)/\hbar^2}$. Consider the waves inside the well, i.e. $E<U_0$, so that $\alpha$ is real. The general solution is</p>
+<div>$$
+\psi=C\mathrm{e}^{\alpha x}+D\mathrm{e}^{-\alpha x}.
+$$</div>
+<p>The wave function should not diverge, i.e. $\psi(x)\rightarrow0$ as $x\rightarrow\pm\infty$. Therefore we have</p>
+<div>$$
+\bbox[silver]{\psi_\text{I}=C\mathrm{e}^{\alpha x},}
+$$</div>
+<div>$$
+\bbox[silver]{\psi_\text{III}=D\mathrm{e}^{-\alpha x}.}
+$$</div>
+<h2>Boundary Conditions</h2>
+<p>As stated before, wave equations should be $C^2$ functions. Therefore, wave functions and their derivatives should match at $x=0$ and $x=L$.</p>
+<h3>x=0</h3>
+<ul>
+<li><p>$\psi(x)$ continuous</p>
+<div>$$
+\psi_\text{I}(0)=\psi_\text{II}(0)\Rightarrow \bbox[silver]{C=B}.
+$$</div>
+</li>
+<li><p>$d\psi(x)/dx$ continuous</p>
+<div>$$
+\frac{d}{dx}\psi_\text{I}(0)=\frac{d}{dx}\psi_\text{II}(0)\Rightarrow\bbox[silver]{\alpha C=kA}.
+$$</div>
+</li>
+
+</ul>
+<h3>x=L</h3>
+<ul>
+<li><p>$\psi(x)$ continuous</p>
+<div>$$
+\psi_\text{II}(L)=\psi_\text{III}(L)\Rightarrow \bbox[silver]{A\sin(kL)+B\cos(kL)=D\mathrm{e}^{-\alpha L}}.
+$$</div>
+</li>
+<li><p>$d\psi(x)/dx$ continuous</p>
+<div>$$
+\frac{d}{dx}\psi_\text{II}(L)=\frac{d}{dx}\psi_\text{III}(L)\Rightarrow\bbox[silver]{kA\cos(kL)-kB\sin(kL)=-\alpha D\mathrm{e}^{-\alpha L}}.
+$$</div>
+</li>
+
+</ul>
+<p>Pugging first two conditions into last two equations yields</p>
+<div>$$
+\begin{cases}\frac{\alpha}{k}C\sin(kL)+C\cos(kL)=D\mathrm{e}^{-\alpha L},\\
+k\frac{\alpha}{k}C\cos(kL)-kC\sin(kL)=-\alpha D\mathrm{e}^{-\alpha L},
+\end{cases}
+$$</div>
+<p>which can be further simplified to</p>
+<div>$$
+\bbox[silver]{2\cot(kL)=\frac{k}{\alpha}-\frac{\alpha}{k}.}
+$$</div>
+<p>The distance at which the amplitude of the wave become $1/\mathrm{e}$ of its original value (the amplitude at the boundary) is called the <strong>penetration depth</strong>. It is given by</p>
+<div>$$
+\delta=\frac{1}{\alpha}=\frac{\hbar}{\sqrt{2m(U_0-E)}}.
+$$</div>
+<hr />
+<h1>Practice Problem for 3.2</h1>
+<ol start='' >
+<li><p>Study the case when potential energy is given by</p>
+<div>$$
+U(x)=\begin{cases}\infty&amp;x\le0\\
+0&amp;0&lt;x&lt;L\\
+U_0&amp;x\ge L.
+\end{cases}
+$$</div>
+</li>
+
+</ol>
+</body>
+</html>
