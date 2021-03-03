@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1 Harmonic Oscillators 谐振子</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+        </script>
+</head>
+<body><h1>1 Harmonic Oscillators 谐振子</h1>
+<div class="video">
+    <iframe src="//player.bilibili.com/player.html?aid=543876335&bvid=BV1rv4y1f7qP&cid=291114677&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+<p>犹如宏观物体都遵循牛顿第二定律一样, 根据量子力学的基本公设, 任意量子系统的运动都遵循薛定谔方程: </p>
+<div>$$
+\hat{H}(t) \Psi(t) = \mathrm{i} \hbar \frac{\partial}{\partial t} \Psi(t).\tag{1.1}
+$$</div>
+<p>其中哈密顿算子(Hamiltonian)$\hat{H}(t)$ 由系统的动能和势能部分组成: </p>
+<div>$$
+\hat{H}(t) = \hat{T} + \hat{V}(t).\tag{1.2}
+$$</div>
+<p>其中动能项的详细形式为: </p>
+<div>$$
+\hat{T} = \frac{\hat{p}^2}{2m} \quad \text{or} \quad \hat{T} = -\frac{\hbar^2}{2m}\nabla^2.\tag{1.3}
+$$</div>
+<p>当势能$\hat{V}(t)$不显性随着时间改变时, 薛定谔方程有稳态解, 且可以变为不含时的形式: </p>
+<div>$$
+\hat{H}\Psi = E \Psi\tag{1.4}
+$$</div>
+<p>所有量子系统的薛定谔方程都有一致的形式, 而不同系统的区分点在于势能$\hat{V}$的不同. 在本章节中我们从量子谐振子入手, 研究谐振子的代数解法, 并从中获得如何求解更多复杂量子系统的启发. </p>
+<h1>1.1 谐振子代数解法</h1>
+<p>一维量子谐振子的势能表达式为: </p>
+<div>$$
+\hat{V} = \frac{1}{2}m \omega^2 \hat{x}^2.\tag{1.5}
+$$</div>
+<p>其薛定谔方程为: </p>
+<div>$$
+\frac{\hat{p}^2}{2m}| \Psi \rangle + \frac{1}{2} m \omega^2 \hat{x}^2 | \Psi \rangle = E | \Psi \rangle.\tag{1.6}
+$$</div>
+<p>上述偏微分方程的传统求解过程非常复杂, 如果对其过程感兴趣的话可以查看<sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup>中的Further Information部分. 在这里直接给出其能量本征值和本征波函数, 并给出对应的图像fig.1.1:</p>
+<div>$$
+\begin{cases}
+    &amp; E_n = \left(  n + \frac{1}{2}  \right) \hbar \omega \\
+    &amp; \Psi_n(\xi) = \frac{1}{\sqrt{2^n n!}} \left( \frac{m \omega}{\pi \hbar} \right)^{1/4} H_n(\xi)\mathrm{e}^{-\xi^2/2} \qquad n \in \mathbb{Z} \text{,} \quad n \geq 0.
+\end{cases}\tag{1.7}
+$$</div>
+<p>&nbsp;</p>
+<p>其中的$H_n(\xi)$为<strong>埃尔米特多项式</strong>(<strong>Hermite polynomials</strong>), 其形式非常的复杂, 而其中的$\xi = \sqrt{m\omega / \hbar x}$.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/HarmOsziFunktionen.png"></p>
+<p style="text-align:center; font-size:small">Fig. 1.1: Wavefunction representations for the first eight bound eigenstates. Adapted from AllenMcC. - File:HarmOsziFunktionen.jpg, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=11623546</p>
+<p>细品eq. (1.7)中的能量部分, 以及fig 1.1中的能级位置, 我们不难发现, 从基态能量$E_0$开始, 更高能级之间的间隔均为$\hbar \omega$, 也就是特定频率下的“一份”能量单元. 这似乎意味着, 当体系能量上升一个能级时, 有某种“粒子”在体系中“产生了”, 其能量值$\hbar \omega$；也似乎暗示, 这么简洁的解, 应该会有更优雅的解法才对. </p>
+<p>如果我们只考察能级分布的话, 的确会有更简单的解法. 我们回顾一下eq. (1.6), 并将其移项可得: </p>
+<div>$$
+\frac{1}{2m} \left[ \hat{p}^2 + (m \omega \hat{x})^2 \right] | \Psi \rangle = E | \Psi \rangle.\tag{1.8}
+$$</div>
+<p>其中中括号内的平方和可以看作含有纯虚数$\mathrm{i}$的平方差, 顺着这个思路我们构建一个算子: </p>
+<div>$$
+\hat{a} = \frac{1}{\sqrt{2m\hbar\omega}}(m\omega\hat{x} + \mathrm{i} \hat{p}).\tag{1.9}
+$$</div>
+<p>由于位置算符$\hat{x}$和动量算符$\hat{p}$都是可观测量, 也就是厄米算符, 即</p>
+<div>$$
+\begin{aligned}
+    \hat{x} = \hat{x}^\dagger, \\
+    \hat{p} = \hat{p}^\dagger.
+\end{aligned}\tag{1.10}
+$$</div>
+<p>则$\hat{a}$对应的共轭算符为</p>
+<div>$$
+\hat{a} = \frac{1}{\sqrt{2m\hbar\omega}}(m\omega\hat{x} - \mathrm{i} \hat{p}).\tag{1.11}
+$$</div>
+<p>将两个算子相乘, 虽然并不等于上述的平方和, 但是与之非常相似: </p>
+<div>$$
+\begin{aligned}
+    \hat{a} \hat{a}^\dagger &amp; = \frac{1}{2m\hbar\omega} \left[ \hat{p}^2 + (m \omega \hat{x})^2 + \mathrm{i}m\omega \hat{x} \hat{p} - \mathrm{i}m\omega \hat{p} \hat{x} \right] \\
+    &amp; = \frac{1}{2m\hbar\omega} \left[ \hat{p}^2 + (m \omega \hat{x})^2 - \mathrm{i}m\omega [\hat{x},\hat{p}] \right].
+\end{aligned}\tag{1.12}
+$$</div>
+<p>由于$\hat{x}$和$\hat{p}$的对易关系: </p>
+<div>$$
+[\hat{x},\hat{p}] = \mathrm{i} \hbar,\tag{1.13}
+$$</div>
+<blockquote><p>$\hat{x}$和$\hat{p}$的对易关系<sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup></p>
+<p>设$\Psi(x)$为任意函数, 将$\hat{p}_x$作用于函数$x\Psi(x)$上, 可得</p>
+<div>$$
+\begin{aligned}
+    \hat{p}_x \left( x \Psi(x)  \right) &amp; = - \mathrm{i} \hbar \frac{\partial}{\partial x} \left( x \Psi(x)  \right) = - \mathrm{i} \hbar \left( \Psi(x) + x \frac{\partial \Psi(x)}{\partial x} \right) \\
+    &amp; = - \mathrm{i} \hbar  \left( 1 + x \frac{\partial}{\partial x} \right) \Psi(x).
+\end{aligned}\tag{1.14}
+$$</div>
+<p>移项可得</p>
+<div>$$
+\left( \hat{p}_x x - x \hat{p}_x \right) \Psi(x) = - \mathrm{i} \hbar \Psi(x).\tag{1.15}
+$$</div>
+<p style="text-align:right">□</p><p></p>
+</blockquote>
+<p>所以其乘积为</p>
+<div>$$
+\hat{a} \hat{a}^\dagger = \frac{1}{\hbar \omega} \hat{H} + \frac{1}{2} .\tag{1.16}
+$$</div>
+<p>同理可得</p>
+<div>$$
+\hat{a}^\dagger \hat{a} = \frac{1}{\hbar \omega} \hat{H} - \frac{1}{2} .\tag{1.17}
+$$</div>
+<p>移项可得哈密顿量的表达式: </p>
+<div>$$
+\begin{aligned}
+    \hat{H} = \hbar \omega \left( \hat{a} \hat{a}^\dagger - \frac{1}{2} \right), \\
+    \hat{H} = \hbar \omega \left( \hat{a}^\dagger \hat{a}  + \frac{1}{2} \right).
+\end{aligned}\tag{1.18}
+$$</div>
+<p>从此处也可以得到$\hat{a}^\dagger$和$\hat{a}$之间的对易关系: </p>
+<div>$$
+[\hat{a}, \hat{a}^\dagger] = 1.\tag{1.19}
+$$</div>
+<p>我们来详细讨论一下eq. (1.18)中的第二个式子: 若$|\Psi_n\rangle$是薛定谔方程eq. (1.6)的其中一个本征波函数, 那么它也是组合算子$\hat{a}^\dagger a$的一个本征波函数. 假设其本征值为$n$(注意这里的$n$我们没有做任何限制, 只知道它是一个实数), 我们有: </p>
+<div>$$
+\hat{a}^\dagger \hat{a} | \Psi_n\rangle = n | \Psi_n\rangle.\tag{1.20}
+$$</div>
+<p>为了书写简便, 我们定义$\hat{n} = \hat{a}^\dagger a$, 并且将$| \Psi_n\rangle$简写为$| n\rangle$, 则上式变为:</p>
+<div>$$
+\hat{n} | n\rangle = n | n\rangle.\tag{1.21}
+$$</div>
+<p>对于$n$以及$|n\rangle$我们有下面几个引理<sup class='md-footnote'><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup>: </p>
+<p><strong><em>Lemma I.</em></strong> $\hat{n}$的本征值$n$总是非负的. </p>
+<blockquote><p>Property of the eigenvalues of $\hat{n}$</p>
+<p>对于$\hat{n}$任意的本征矢$| n \rangle$, 将$\hat{a}$作用于其上可以得到一个新的矢量$\hat{a} | n \rangle$, 它的范数的平方必定是一个非负实数: </p>
+<div>$$
+\begin{aligned}
+    \left| \hat{a} | n \rangle \right|^2 &amp; = \langle n | \hat{a}^\dagger \hat{a} | n \rangle \\
+    &amp; = n \langle n | n \rangle \geq 0.
+\end{aligned}\tag{1.22}
+$$</div>
+<p>又因为矢量的归一化条件</p>
+<div>$$
+\langle n | n \rangle = 1.\tag{1.23}
+$$</div>
+<p>所以$n \geq 0$.</p>
+<p style="text-align:right">□</p><p></p>
+</blockquote>
+<p><strong><em>Lemma II.</em></strong> 假设$| n \rangle$是一个本征值为$n$的非零本征向量, 有下面两点:</p>
+<p>(i)	“$n = 0$”是“$\hat{a} | n \rangle$是零向量”的充要条件. </p>
+<p>(ii)	当$n \geq 0$时, $\hat{a} | n \rangle$必定是$\hat{n}$的一个非零本征向量, 且本征值为$(n - 1)$. </p>
+<blockquote><p>Property of the vecter $\hat{a} | n \rangle$
+(i)	当$n = 0$时, $\hat{a} | n \rangle$范数的平方也为0, 则$\hat{a} | n \rangle$必为零向量；当$\hat{a} | n \rangle$为零向量时, 我们在等式两端左乘$\hat{a}^\dagger$, 得到: </p>
+<div>$$
+\hat{a}^\dagger \hat{a} | n \rangle = \hat{n} | n \rangle = 0.\tag{1.24}
+$$</div>
+<p>上式说明, 如果经过$a$作用过后的向量$| n \rangle$变成了零向量的话, 那$| n \rangle$对应的本征值为$0$.</p>
+<p>(ii)	当$n$严格大于$0$时, 根据(i)的结论, $\hat{a} | n \rangle$也必为非零向量. 下面将证明$\hat{a} | n \rangle$是$\hat{n}$的本征向量, 且本征值为$n - 1$. 我们将对易子$[\hat{n}, \hat{a}]$作用于$| n \rangle$上, 有</p>
+<div>$$
+    [\hat{n}, \hat{a}] | n \rangle = \hat{a}^\dagger \hat{a} \hat{a} | n \rangle - \hat{a} \hat{a}^\dagger \hat{a} | n \rangle = - \hat{a} | n \rangle.\tag{1.25}
+$$</div>
+<p>移项可得</p>
+<div>$$
+\begin{aligned}
+    \hat{n} \hat{a} | n \rangle &amp; = \hat{a} \hat{n} | n\rangle - \hat{a} | n \rangle \\
+    &amp; = \hat{a} n | n\rangle - \hat{a} | n \rangle \\
+    &amp; = (n - 1) \hat{a} | n \rangle.
+\end{aligned}\tag{1.26}
+$$</div>
+<p style="text-align:right">□</p><p></p>
+<p>并且我们也留意到, $n = 0$也是满足eq. (1.26), 因为$\hat{a} | 0 \rangle = \vec{0}$.</p>
+</blockquote>
+<p><strong><em>Lemma III.</em></strong> 若 $| n \rangle$是非零向量, 则$ \hat{a}^\dagger | n \rangle$也是非零向量, 且对应本征值为$n + 1$. </p>
+<blockquote><p>证明方法和<strong><em>Lemma II</em></strong>类似, 这里只简要证明其对应本征值为$n + 1$: </p>
+<div>$$
+\begin{aligned}
+    &amp; [\hat{n}, \hat{a}^\dagger] | n \rangle = \hat{a}^\dagger | n \rangle \\
+    &amp; \hat{n} \hat{a} | n \rangle = \hat{a}^\dagger \hat{n} | n \rangle + \hat{a}^\dagger | n \rangle = (n + 1) \hat{a}^\dagger |n \rangle.
+\end{aligned}\tag{1.27}
+$$</div>
+<p style="text-align:right">□</p><p></p>
+</blockquote>
+<p>根据引理<strong><em>II</em></strong>, 我们知道$n$可以取值为$0$或大于$0$；若我们假设$0 < n < 1$, 则根据引理<strong><em>II</em></strong>可以构造$\hat{n}$的一个新本征矢$a | n \rangle$, 其本征值$n-1$满足$ -1 < n -1 < 0$, 违背了引理<strong><em>I</em></strong>, 所以$n$不能取$0$到$1$之间的小数. 再结合引理<strong><em>III</em></strong>, 从$0$开始不断增加$1$, 所得的整数都是$\hat{n}$本征值,因此$n$的取值范围是非负整数, 与现实生活中的某样东西的“数量”具有相同的取值范围, 因此$\hat{n}$也被称为粒子数算符. </p>
+<p>得知了$\hat{n}$的意义后, 我们再重新考察$\hat{a}^\dagger$和$\hat{a}$的意义. 将哈密顿算子作用在$ \hat{a}^\dagger | n \rangle$上, 结合对易关系eq. (1.19), 可得: </p>
+<div>$$
+\begin{aligned}
+    \hat{H} \hat{a}^\dagger | n \rangle &amp; = \hbar \omega \left( \hat{a}^\dagger \hat{a} + \frac{1}{2} \right) \hat{a}^\dagger | n \rangle \\
+    &amp; = \hbar \omega \hat{a}^\dagger \left( \hat{a} \hat{a}^\dagger - \frac{1}{2} + 1 \right) | n \rangle \\
+    &amp; = \left( E_n + \hbar \omega \right) \hat{a}^\dagger  | n \rangle.
+\end{aligned}\tag{1.28}
+$$</div>
+<p>我们可以留意到$E_n + \hbar \omega$其实就是更高一个能级的本征能量值, 即</p>
+<div>$$
+\hat{H} | n+1 \rangle = E_{n+1} | n+1 \rangle = (E_n + \hbar \omega) | n+1 \rangle.\tag{1.29}
+$$</div>
+<p>所以将$\hat{a}^\dagger | n \rangle$与$|n+1 \rangle$相差一个系数, 即</p>
+<div>$$
+\hat{a}^\dagger | n \rangle = \alpha | n+1 \rangle.\tag{1.30}
+$$</div>
+<p>据此$\hat{a}^\dagger$也被称为<strong>升算符</strong>(<strong>raising operator</strong>), 因为它将系统的能级从$n$提高到$n+1$. 同理, 把$\hat{H}$作用在$ \hat{a} | n \rangle$上, 有</p>
+<div>$$
+\hat{a} | n\rangle = \left( E_n + \hbar \omega \right) \hat{a} | n \rangle.\tag{1.31}
+$$</div>
+<p>即$\hat{a}$将系统的能级从$n$提高到$n-1$, 故被称为<strong>降算符</strong>(<strong>lowering operator</strong>). 而从“粒子数”的角度来看待这个问题的话, 我们有: </p>
+<div>$$
+\begin{aligned}
+    \hat{n} \hat{a}^\dagger | n \rangle &amp; = (n + 1) \hat{a}^\dagger | n \rangle, \\
+    \hat{n} \hat{a} | n \rangle &amp; = (n - 1) \hat{a} | n \rangle.
+\end{aligned}\tag{1.32}
+$$</div>
+<p>就好似这个体系内的某种“粒子”的数量增加了$1$和减少了$1$. 所以从这个角度来看$\hat{a}^\dagger$和$\hat{a}$也被称为<strong>产生算符</strong>(<strong>creation operator</strong>)和<strong>湮灭算符</strong>(annihilation operator). </p>
+<p>我们再来考察一下系数$\alpha$ 和$\beta$的值: 考虑$\hat{a}^\dagger | n \rangle$的范数的平方, 结合对易关系eq. (1.19), 我们有: </p>
+<div>$$
+\begin{aligned}
+    \left| \hat{a}^\dagger | n \rangle \right|^2 &amp; = \langle n | \hat{a} \hat{a}^\dagger | n \rangle \\
+    &amp; = \langle n | \hat{n} + 1 | n \rangle \\
+    &amp; = n + 1.
+\end{aligned}\tag{1.33}
+$$</div>
+<p>另一方面, 由于归一化条件$\langle n | n \rangle = \langle n + 1 | n + 1 \rangle = ... = 1$</p>
+<div>$$
+\left| \hat{a}^\dagger | n \rangle \right|^2 = \left| \alpha | n+1 \rangle \right|^2 = \alpha^2.\tag{1.34}
+$$</div>
+<p>对比eq. (1.33)和eq. (1.34)两式可得: </p>
+<div>$$
+\alpha = \sqrt{n +1}.\tag{1.35}
+$$</div>
+<p>同样的</p>
+<div>$$
+\beta = \sqrt{n}.\tag{1.36}
+$$</div>
+<p>最终升降算符作用在对应的态矢量上得到的结果为: </p>
+<div>$$
+\begin{aligned}
+    \hat{a} | n \rangle &amp; = \sqrt{n} | n-1 \rangle, \\
+    \hat{a}^\dagger | n \rangle &amp; = \sqrt{n+1} | n+1 \rangle. 
+\end{aligned}\tag{1.37}
+$$</div>
+<p>用$n$个升算符$\hat{a}^\dagger$作用在基态$| 0 \rangle$上, 可以得到一个<u>未归一化</u>的第$n$个能级的本征矢$| \widetilde{n} \rangle$: </p>
+<div>$$
+(\hat{a}^\dagger)^n | 0 \rangle = | \widetilde{n} \rangle = \eta | n \rangle.\tag{1.38}
+$$</div>
+<p>它与自身的内积为: </p>
+<div>$$
+\begin{aligned}
+    \langle \widetilde{n} | \widetilde{n} \rangle &amp; = \langle 0 | \hat{a}^n (\hat{a}^\dagger)^n | 0 \rangle \\[8pt]
+    &amp; = \langle \widetilde{n - 1} | \hat{a} \hat{a}^\dagger  | \widetilde{n - 1} \rangle \\[8pt]
+    &amp; = \langle \widetilde{n - 1} | \hat{a}^\dagger \hat{a} + [\hat{a}, \hat{a}^\dagger]  | \widetilde{n - 1} \rangle \\[8pt]
+    &amp; = (n - 1) \langle \widetilde{n - 1} | \widetilde{n - 1} \rangle + \langle \widetilde{n - 1} | \widetilde{n - 1} \rangle \\[8pt]
+    &amp; = n \langle \widetilde{n - 1} | \widetilde{n - 1} \rangle \\[8pt]
+    &amp; = n (n-1) (n-2) ... 1 \cdot \langle \widetilde{0} | \widetilde{0} \rangle.
+\end{aligned}\tag{1.39}
+$$</div>
+<p>上式末端已经降到基态了$| \widetilde{0} \rangle$, 不妨将其定义为</p>
+<div>$$
+\langle \widetilde{0} | \widetilde{0} \rangle = \langle 0 | 0 \rangle = \langle n | n \rangle = 1.\tag{1.40}
+$$</div>
+<p>联立eq. (1.38), eq. (1.39)和eq. (1.40)可得</p>
+<div>$$
+\begin{aligned}
+    \eta &amp; = \sqrt{n!} \\
+    | n \rangle &amp; = \frac{(\hat{a}^\dagger)^n}{\sqrt{n!}} | 0 \rangle.
+\end{aligned}\tag{1.40}
+$$</div>
+<hr />
+
+
+
+<div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> Atkins, P. and Friedman, R. (1997). <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> 赵凯华and 罗蔚茵. 新概念物理教程——力学(第二版). 北京: 高等教育出版社, (2004). <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>3</span> Cohen-Tannoudji, C., Diu, B., and Laloe, F. (2009). <a name='dfref-footnote-3' href='#ref-footnote-3' title='back to document' class='reversefootnote' >↩</a></div></div></body>
+</html>
