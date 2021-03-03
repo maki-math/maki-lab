@@ -192,6 +192,10 @@ ul {
 ol {
     list-style-type: decimal;
 }
+
+blockquote {
+    border-style: groove;
+}
 /* abt 2/4/2021 ↑ */
 
 /* ---------------------------------------------------
