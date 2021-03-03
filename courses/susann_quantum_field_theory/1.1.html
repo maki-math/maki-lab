@@ -15,7 +15,12 @@
                 tags: 'ams'
             }
             };
-        </script>
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
 </head>
 <body><h1>1 Harmonic Oscillators 谐振子</h1>
 <div class="video">
@@ -56,7 +61,7 @@ $$</div>
 $$</div>
 <p>&nbsp;</p>
 <p>其中的$H_n(\xi)$为<strong>埃尔米特多项式</strong>(<strong>Hermite polynomials</strong>), 其形式非常的复杂, 而其中的$\xi = \sqrt{m\omega / \hbar x}$.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/HarmOsziFunktionen.png"></p>
+<center><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/HarmOsziFunktionen.png"></center>
 <p style="text-align:center; font-size:small">Fig. 1.1: Wavefunction representations for the first eight bound eigenstates. Adapted from AllenMcC. - File:HarmOsziFunktionen.jpg, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=11623546</p>
 <p>细品eq. (1.7)中的能量部分, 以及fig 1.1中的能级位置, 我们不难发现, 从基态能量$E_0$开始, 更高能级之间的间隔均为$\hbar \omega$, 也就是特定频率下的“一份”能量单元. 这似乎意味着, 当体系能量上升一个能级时, 有某种“粒子”在体系中“产生了”, 其能量值$\hbar \omega$；也似乎暗示, 这么简洁的解, 应该会有更优雅的解法才对. </p>
 <p>如果我们只考察能级分布的话, 的确会有更简单的解法. 我们回顾一下eq. (1.6), 并将其移项可得: </p>
