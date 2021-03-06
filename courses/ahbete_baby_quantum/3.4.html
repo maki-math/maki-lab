@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
+    <title>3.4</title></head>
+<body><h1>3.4 Expectation Values, and Uncertainties</h1>
+<h2>3.4.1 Expectation Values</h2>
+<p>As discussed before, $|\psi(x)|^2$ can be treat as probability density. Thus the probability of finding the particle at an interval $(a,b)$ is given by a integration</p>
+<div>$$
+P=\int_a^b|\psi(x)|^2dx.
+$$</div>
+<p>We may also find the expectation value of quantity with position dependence via</p>
+<div>$$
+\overline{f(x)}=\int_{\text{all space}}f(x)|\psi(x)|^2dx.
+$$</div>
+<p>Or more precisely, </p>
+<div>$$
+\overline{O}=\int_{\text{all space}}\psi^*(x)\hat{O}\psi(x)dx,
+$$</div>
+<p>if the observable is described by an operator.</p>
+<h2>3.4.2 Uncertainties</h2>
+<p>Uncertainty $\Delta O$ can be defined as</p>
+<div>$$
+(\Delta O)^2=\overline{(O-\overline{O})^2},
+$$</div>
+<p>which can be simplified to be</p>
+<div>$$
+\begin{align}
+\overline{(O-\overline{O})^2}&amp;=\overline{(O^2+\overline{O}^2-2O\overline{O})}\\
+&amp;=\overline{O^2}+\overline{O}^2-2\overline{O}^2\\
+&amp;=\overline{O^2}-\overline{O}^2.
+\end{align}
+$$</div>
+<p>Thus to find uncertainties, we normally find $\overline{O}$ and $\overline{O^2}$ first using</p>
+<div>$$
+\overline{O}=\int_{\text{all space}}\psi^*(x)\hat{O}\psi(x)dx,
+$$</div>
+<div>$$
+\overline{O^2}=\int_{\text{all space}}\psi^*(x)\hat{O}^2\psi(x)dx.
+$$</div>
+<h2>3.4.3 The Uncertainty Principle</h2>
+<p>In short, the uncertainty principle can be expressed as</p>
+<div>$$
+\Delta x\Delta p\ge\frac{\hbar}{2}.
+$$</div>
+<p>Detailed derivation can be found in the <a href="Appx1.html">Appendix I<a>.</p>
+</body>
+</html>

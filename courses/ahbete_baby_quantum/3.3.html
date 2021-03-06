@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
+    <title>3.3</title></head>
+<body>
+<h1>3.3 Case 3 The Simple Harmonic Oscillator</h1>
+<p> Let&#39;s consider the case of a simple harmonic oscillator.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/HarmOsziFunktionen.png"></p>
+<p>For a spring-mass system, we have the potential energy $U(x)=1/2\kappa x^2$, where $\kappa$ is the spring constant. Insert the potential energy into the time-independent Schr&#246;dinger equation, we have</p>
+<div>$$
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x)+\frac{1}{2}\kappa x^2\psi(x)=E\psi(x).
+$$</div>
+<p>Solving this differential equation is beyond the scope of this series. However, we can still guess and check the simplest solution, a Gaussian. Actually, a Gaussian do satisfy the above differential equation. Start with $\psi(x)=A\exp(-ax^2)$, and plug back into the differential equation. The result is that $a=\sqrt{m\kappa}/2\hbar$. Then applying normalization condition gives $A=(m\kappa/\pi^2\hbar^2)^{1/8}$.</p>
+<p>Actually this Gaussian is the first eigen equation $\psi_0(x)=(m\kappa/\pi^2\hbar^2)^{1/8}\exp(-(\sqrt{m\kappa}/2\hbar)x^2)$, and its corresponding eigen energy is $E_0=\hbar/2\sqrt{\kappa/m}$. It turned out that the complete eigen equations and eigen energies are</p>
+<div>$$
+\psi_n(x)=\frac{1}{\sqrt{2^nn!}}\left(\frac{m\omega_0}{\pi\hbar}\right)^{1/4}\exp(-m\omega_0x^2/2\hbar)H_n\left(\sqrt{\frac{m\omega_0}{\hbar}x}\right),
+$$</div>
+<div>$$
+E_n=\left(n+\frac{1}{2}\right)\hbar\omega_0.
+$$</div>
+<p>Here $\omega_0=\sqrt{\kappa/m}$ is the natural frequency, and $H_n$ is the Hermite functions (physics) which is defined as</p>
+<div>$$
+H_n(z)=(-1)^n\mathrm{e}^{z^2}\frac{d^n}{dz^n}\left(\mathrm{e}^{-z^2}\right).
+$$</div>
+<hr />
+<h2>*Ladder Operator Method</h2>
+<p>Notice that the eigen energies are equally separated by $\hbar\omega_0$, Thus it is convenient to work in the energy basis, instead of using real space wave functions. Introducing the energy eigenstates $\ket{n}$, and define following operators:</p>
+<div>$$
+\begin{gather}
+a=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right),\\
+a^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{i}{m\omega}\hat{p}\right).
+\end{gather}
+$$</div>
+<p>Here the subscription under $\omega$ is omitted for simplicity. Pay attention that here $\hat{x}$ and $\hat{p}$ are operators as well, and if were applied to wave functions, they could be expressed as $\hat{x}=x$, and $\hat{p}=-i\hbar\frac{\partial}{\partial x}$.</p>
+<p>One can check the effect of applying $a$ or $a^\dagger$ to an eigen wave equation is to turn it into another eigen wave equation with eigen energy either increased or decreased by $\hbar\omega$ .  Thus, in energy basis, we have</p>
+<div>$$
+\begin{gather}
+a^\dagger\ket{n}=\sqrt{n+1}\ket{n+1},\\
+a\ket{n}=\sqrt{n}\ket{n-1}.
+\end{gather}
+$$</div>
+<p>Notice that</p>
+<div>$$
+a^\dagger a\ket{n}=a^\dagger\sqrt{n}\ket{n-1}=n\ket{n}.
+$$</div>
+<p>Therefore, we can define <strong>number operator</strong> as $N=a^\dagger a$. Then, the Hamiltonian can be expressed as</p>
+<div>$$
+H=\hbar\omega\left(a^\dagger a+\frac{1}{2}\right).
+$$</div>
+</body>
+</html>
