@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
+    <title>4.1/title></head>
+<body><h1>4.1 The Potential Step</h1>
+<p>Supposed we have a potential step</p>
+<div>$$
+U(x)=\begin{cases}
+0 &amp; x&lt;0,\\
+U_0 &amp; x&gt;0.
+\end{cases}
+$$</div>
+<p>If there is a wave traveling from left to right, we need to consider following two scenarios (i)  $E>U_0$, and (ii) $E<U_0$.</p>
+<h3>(i) $E>U_0$</h3>
+<p>Similar to the finite well case, let the wavefunction at where $U(x)=0$ be $\psi_I(x)$, and the wavefunction at where $U(x)=U_0$ be $\psi_{II}(x)$. To solve the wavefunction, we start with time-independent Schr&#246;dinger Equation as usual. For $\psi_I(x)$ we have</p>
+<div>$$
+\frac{d^2}{dx^2}\psi_I(x)=-\frac{2mE}{2\hbar}\psi_I(x).
+$$</div>
+<p>Let $k^2={2mE}/{2\hbar}$, and then we have a general solution</p>
+<div>$$
+\psi_I(x)=A\mathrm{e}^{ikx}+B\mathrm{e}^{-ikx}.
+$$</div>
+<p>For $\psi_{II}(x)$, we have</p>
+<div>$$
+\frac{d^2}{dx^2}\psi_{II}(x)=-\frac{2m(E-U_0)}{2\hbar}\psi_{II}(x).
+$$</div>
+<p>Let $k'^2={2m(E-U_0)}/{2\hbar}$, and a solution can be</p>
+<div>$$
+\psi_{II}(x)=C\mathrm{e}^{ik&#39;x}.
+$$</div>
+<p>We can treat terms in the form $\exp(+ikx)$ as waves propagating to the right, and terms in the form $\exp(-ikx)$ as waves propagating to the left. The reason there are two terms in $\psi_I(x)$ but only one term in $\psi_{II}(x)$ is as follow:</p>
+<ul>
+<li>Force and potential are related by $F=-\nabla U$. Thus the abrupt change of potential at $x=0$, cause a force that behaves like a Dirac-delta function.</li>
+<li>This force can change the propagation direction of the wave which is initially traveling to the right, or let it pass through but changes its other properties.</li>
+<li>Thus in the region $x<0$, there is a &quot;reflected&quot; wave traveling to the left.</li>
+<li>In the region $x>0$, $U(x)$ again is a constant, so there is no additional force that can reflect the &quot;transmitted&quot; wave.</li>
+
+</ul>
+<p>With reasoning above, we can denote terms of wavefunctions as incident wave, reflected wave, and transmitted wave</p>
+<div>$$
+\psi_{inc}=A\mathrm{e}^{ikx},\ \psi_{ref}=B\mathrm{e}^{-ikx},\psi_{trans}=C\mathrm{e}^{ik&#39;x}.
+$$</div>
+<p>Applying boundary conditions</p>
+<div>$$
+\begin{cases}
+\psi_I(0)=\psi_{II}(0),\\
+\psi&#39;_I|_{x=0}=\psi&#39;_{II}|_{x=0},
+\end{cases}
+$$</div>
+<p>gives following relationship between amplitudes</p>
+<div>$$
+\begin{cases}
+A+B=C,\\
+k(A-B)=k&#39;C.
+\end{cases}
+$$</div>
+<p>We can define two physical quantities: transmission probability $T$ and reflection probability $R$ as</p>
+<div>$$
+T=\frac{\text{transmition per time}}{\text{reflection per time}},
+$$</div>
+<div>$$
+R=\frac{\text{reflection per time}}{\text{reflection per time}}.
+$$</div>
+<p>Here we can multiply velocities to numerator and denominator to ensure those terms are &quot;per time&quot;. Then, as $v=p/m=\hbar k/m$, we are able to use wavevector $k$ to force those terms are &quot;per time&quot; as desired. Thus, $T$ and $R$ can be expressed as</p>
+<div>$$
+T=\frac{|\psi_{trans}|^2k&#39;}{|\psi_{inc}|^2k}=\frac{C^*Ck&#39;}{A^*Ak},
+$$</div>
+<div>$$
+R=\frac{|\psi_{ref}|^2k}{|\psi_{inc}|^2k}=\frac{B^*B}{A^*A}.
+$$</div>
+<p>With the relationship between amplitudes, above relation becomes</p>
+<div>$$
+T=\frac{4kk&#39;}{(k+k&#39;)^2},
+$$</div>
+<div>$$
+R=\frac{(k-k&#39;)^2}{(k+k&#39;)^2}.
+$$</div>
+<p>In terms of $U_0$ and $E$,</p>
+<div>$$
+\begin{gather}
+\bbox[silver]{
+T=4\frac{\sqrt{E(E-U_0)}}{(\sqrt{E}+\sqrt{E-U_0})^2},\\
+R=4\frac{(\sqrt{E}-\sqrt{E-U_0})^2}{(\sqrt{E}+\sqrt{E-U_0})^2}.
+}\end{gather}
+$$</div>
+<h3>(ii) $E<U_0$</h3>
+<p>When $E<U_0$, the wave equation $\psi_{II}$ becomes</p>
+<div>$$
+\psi_{II}(x)=C\mathrm{e}^{-\alpha x},
+$$</div>
+<p>where</p>
+<div>$$
+\alpha=\sqrt{\frac{2m(U_0-E)}{\hbar^2}},
+$$</div>
+<p>and the term with positive exponent ignored. This is because as a well behaved function, the function should converge as $x\rightarrow+\infty$. Again applying boundary conditions gives</p>
+<div>$$
+\begin{cases}
+A+B=C,\\
+k(A-B)=-\alpha C.
+\end{cases}
+$$</div>
+<p>It turned out that in this case $R=1$ and $T=0$. However this does not imply that there is no possibility to find a particle at $x>0$, as $|\psi_{II}|$ still has value greater than 0.</p>
+<p>&nbsp;</p>
+</body>
+</html>

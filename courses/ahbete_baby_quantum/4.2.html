@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
+    <title>4.2</title></head>
+<body><h1>4.2 The Potential Barrier</h1>
+<p>Consider a potential barrier:</p>
+<div>$$
+U=\begin{cases}
+0 &amp; x&lt;0\ \text{or}\ x&gt;L\\
+U_0 &amp; 0&lt;x&lt;L.
+\end{cases}
+$$</div>
+<p>As discussed in section 4.1, we can see that the wavefunction propagates in both direction in regions where $x<0$, and $0<x<L$, but it only travels to the right in the region where $x>L$.</p>
+<h3>(i) $E>U_0$</h3>
+<p>Let the $\psi_I(x)$ be the wavefunction to the left of the barrier, $\psi_{II}$ be the wavefunction inside the barrier, and $\psi_{III}$ be the wavefunction to the right of the barrier. Using the result from section 4.1 directly, we have</p>
+<div>$$
+\begin{cases}
+\psi_I(x)=A\mathrm{e}^{ikx}+B\mathrm{e}^{-ikx},\\
+\psi_{II}(x)=C\mathrm{e}^{ik&#39;x}+D\mathrm{e}^{-ik&#39;x},\\
+\psi_{III}(x)=F\mathrm{e}^{ikx},
+\end{cases}
+$$</div>
+<p>where</p>
+<div>$$
+k=\sqrt{\frac{2mE}{\hbar^2}},\ \text{and}\ k&#39;=\sqrt{\frac{2m(E-U_0)}{\hbar^2}}.
+$$</div>
+<p>Applying boundary conditions</p>
+<div>$$
+\begin{cases}
+\psi_I(0)=\psi_{II}(0),\\
+\psi_I&#39;|_{x=0}=\psi_{II}&#39;|_{x=0},\\
+\psi_{II}(L)=\psi_{III}(L),\\
+\psi_{II}&#39;|_{x=L}=\psi_{III}&#39;|_{x=L},
+\end{cases}
+$$</div>
+<p>gives</p>
+<div>$$
+\begin{cases}
+A+B=C+D,\\
+k(A-B)=k&#39;(C-D),\\
+C\mathrm{e}^{ik&#39;L}+D\mathrm{e}^{-ik&#39;L}=F\mathrm{e}^{ikL},\\
+ik&#39;(C\mathrm{e}^{ik&#39;L}+D\mathrm{e}^{-ik&#39;L})=ikF\mathrm{e}^{ikL}.
+\end{cases}
+$$</div>
+<p>Similar to section 4.1, we can find the reflection and transmission probabilities as following</p>
+<div>$$
+R=\frac{\sin^2(k&#39;L)}{\sin^2(k&#39;L)+4{k&#39;^2k^2}/{(k^2-k&#39;^2)^2}},
+$$</div>
+<div>$$
+T=\frac{4{k&#39;^2k^2}/{(k^2-k&#39;^2)^2}}{\sin^2(k&#39;L)+4{k&#39;^2k^2}/{(k^2-k&#39;^2)^2}}.
+$$</div>
+<p>&nbsp;</p>
+<p>Or in terms of $E$ and $U_0$</p>
+<div>$$
+\bbox[silver]{R=\frac{\sin^2[\sqrt{2m(E-U_0)}L/\hbar]}{\sin^2[\sqrt{2m(E-U_0)}L/\hbar]+4{(E/U_0)}/{[(E/U_0)-1]}},}
+$$</div>
+<div>$$
+\bbox[silver]{T=\frac{4{(E/U_0)}/{[(E/U_0)-1]}}{\sin^2[\sqrt{2m(E-U_0)}L/\hbar]+4{(E/U_0)}/{[(E/U_0)-1]}}.}
+$$</div>
+<p>Notice the reflection probability can be 0, when</p>
+<div>$$
+\frac{\sqrt{2m(E-U_0)}}{\hbar}L=n\pi.
+$$</div>
+<p>This occurs when the waves that are reflected at $x=0$ and at $x=L$ destructively interfere in the region where $x<0$. A classical analogy can be thin-film interference.</p>
+<h3>(ii) $E<U_0$</h3>
+<p>In side the barrier, the wavefunction now becomes</p>
+<div>$$
+\psi_{II}(x)=C\mathrm{e}^{\alpha x}+D\mathrm{e}^{-\alpha x},
+$$</div>
+<p>where $\alpha=\sqrt{2m(U_0-E)/\hbar^2}$.</p>
+<p>With procedures similar as case (i), the reflection and transmission probabilities in this case are</p>
+<div>$$
+\bbox[silver]{R=\frac{\sinh^2[\sqrt{2m(E-U_0)}L/\hbar]}{\sinh^2[\sqrt{2m(E-U_0)}L/\hbar]+4{(E/U_0)}/{[(E/U_0)-1]}},}
+$$</div>
+<div>$$
+\bbox[silver]{T=\frac{4{(E/U_0)}/{[(E/U_0)-1]}}{\sinh^2[\sqrt{2m(E-U_0)}L/\hbar]+4{(E/U_0)}/{[(E/U_0)-1]}}.}
+$$</div>
+<p>Notice that even when particle have insufficient energy to overcome the potential barrier, it still has probability to transmit through. This is referred to as <strong>tunneling</strong>.</p>
+</body>
+</html>
