@@ -203,6 +203,7 @@ blockquote {
 ----------------------------------------------------- */
 
 .video iframe{
+    margin: auto;
     width: 64vw; 
     height: 36vw; /* 16:9 */
 }

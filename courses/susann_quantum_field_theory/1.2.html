@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1 Harmonic Oscillators 谐振子</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <script type="text/javascript">
+            window.MathJax = {
+            tex: {
+                tags: 'ams'
+            }
+            };
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+            };
+          </script>
+</head>
+<title>1.2 多谐振子的推广</title></head>
+<body><h1>1.2 多谐振子的推广</h1>
+    <div class="video">
+        <iframe src="//player.bilibili.com/player.html?aid=543876335&bvid=BV1rv4y1f7qP&cid=291114677&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </div>
+<p>上面一小节使用了升降算符来研究单个谐振子的系统, 接下来我们将这种研究思路推广到更加常见的系统, 即多粒子组成的系统中. </p>
+<h2>1.2.1 简单情形</h2>
+<p>考虑$N$个无关联的独立谐振子(这里用“隔得很远”来表示它们是非耦合的), 它们的状态自然可以通过各自独立的态矢量$| n_1 \rangle$, $n_2 \rangle$ ... $n_N \rangle$进行描述, 但物理学家很喜欢干的一件事情就是用一条表达式, 去将所有的东西都囊括起来. 例如此处, 我们可以构思一个大的态矢量, 能够记录每个谐振子的状态. 一般我们会用张量积来构建这样的大矢量: </p>
+<div>$$
+| n_1 n_2 ... n_N \rangle = | n_1 \otimes n_2 \otimes ... \otimes n_N \rangle = | n_1 \rangle \otimes | n_2 \rangle  \otimes ... \otimes | n_N \rangle.\tag{1.42}
+$$</div>
+<p>其中第$i$个系统处于第“$n_i$”个能级. 此外, 系统的总哈密顿算符由各自子系统的哈密顿算符叠加而成: </p>
+<div>$$
+\hat{H} = \sum^N_{i=1} \frac{\hat{p}_i^2}{2m_i} + \frac{1}{2} m_i \omega_i^2 \hat{x}_i^2.\tag{1.43}
+$$</div>
+<p>给升降算符添加下标, 用于指明其作用的子系统, 例如: </p>
+<div>$$
+\begin{aligned}
+    \hat{a}_i^\dagger | n_1 n_2 ... n_i ... n_N \rangle &amp; \propto  | n_1 n_2 ... n_i + 1 ... n_N \rangle, \\
+    \hat{a}_i | n_1 n_2 ... n_i ... n_N \rangle &amp; \propto  | n_1 n_2 ... n_i - 1 ... n_N. \rangle
+\end{aligned}\tag{1.44}
+$$</div>
+<p>不同升降算符之间有如下性质(证明过程简单, 略): </p>
+<div>$$
+\begin{aligned}
+    \left[ \hat{a}_i, \hat{a}_j \right] &amp; = 0, \\
+    \left[ \hat{a}_i^\dagger, \hat{a}_j^\dagger \right] &amp; = 0, \\
+    \left[ \hat{a}_i, \hat{a}_j^\dagger \right] &amp; = \delta_{ij}.
+\end{aligned}\tag{1.45}
+$$</div>
+<p>上述对易关系说明, 不同子系统之间的升降算符是对易的, 一个子系统的算符不会影响到另外一个子系统(当然是“无耦合”可以带来的直观结果). 另外一方面我们也容易得到哈密顿量关于升降算符的表达式: </p>
+<div>$$
+\hat{H} = \sum^N_{i=1} \hbar \omega_i \left( \hat{a}_i^\dagger \hat{a}_i + \frac{1}{2} \right).\tag{1.46}
+$$</div>
+<p>以及对于任意的态$|n_1 n_2 ... n_N \rangle$, 我们都可以从“基态”$| 0 0 ... 0 \rangle$ 开始建立: </p>
+<div>$$
+|n_1 n_2 ... n_N \rangle = \frac{1}{\sqrt{n_1! n_2! ... n_N!}} (\hat{a}_1^\dagger)^{n_1} (\hat{a}_2^\dagger)^{n_2} ... (\hat{a}_N^\dagger)^{n_N} | 0 0 ... 0 \rangle.\tag{1.47}
+$$</div>
+<p>简记为: </p>
+<div>$$
+| \lbrace n_i \rbrace \rangle = \prod_i \frac{1}{\sqrt{n_i!}} (\hat{a}_i^\dagger)^{n_i} | 0 \rangle.\tag{1.48}
+$$</div>
+<h3>一维弹簧小球链</h3>
+<p>然而相互作用或耦合作用广泛存在于不同系统之间, 在这里再介绍一个稍微进阶一点的系统--一维弹簧小球链. 此时由于小球之间的相互作用, 哈密顿量变为: </p>
+<div>$$
+\begin{aligned}
+    \hat{H} &amp; = \sum_j \frac{\hat{p}_j^2}{2m} + \frac{1}{2}m \omega_0^2(\hat{x}_{j+1} - \hat{x}_j)^2 \\
+    &amp; = \sum_j \frac{\hat{p}_j^2}{2m} + {\color{red} \frac{1}{2}} \sum_{ij}^{N} V(x_i, x_j)
+\end{aligned}\tag{1.49}
+$$</div>
+<p>其中$\hat{V}(x_i, x_j) = 1 /2 m \omega_0^2(\hat{x}_{j+1} - \hat{x}_j)^2$, 而由于第二个等号中我们对$i ,j$两次求和, 会导致重复计算, 所以最终还需要再将这一项乘上$1 / 2$. 而每一项的$V(x_i, x_j)$都可在其平衡位置附近进行泰勒展开, 直到第二项: </p>
+<div>$$
+\begin{aligned}
+    V(x_i, x_j) = V(0, 0) + \frac{1}{1!} \left( \frac{\partial V}{\partial x_i}x_i + \frac{\partial V}{\partial x_j}x_j \right) + \frac{1}{2!}\left( \frac{\partial^2 V}{\partial x_i^2} + 2\frac{\partial^2 V}{\partial x_i x_j} + \frac{\partial^2 V}{\partial x_j^2}  \right) + \mathcal{O}^n
+\end{aligned}\tag{1.50}
+$$</div>
+<p>由于处于平衡位置, 故一阶偏导数为$0$. 另外我们再取势能零点值$V(0, 0)$为$0$, 则上式的势能变为: </p>
+<div>$$
+V(x_i, x_j) = \frac{1}{2!}\left( \frac{\partial^2 V}{\partial x_i^2} + 2\frac{\partial^2 V}{\partial x_i x_j} + \frac{\partial^2 V}{\partial x_j^2}  \right)\tag{1.51}
+$$</div>
+<p>于是总势能每一项二阶偏导可以组成一个对称矩阵, 且除了对角线和对角线相邻的元以外, 其他矩阵元均为$0$, 即: </p>
+<div>$$
+\begin{aligned}
+    \frac{1}{2} \sum_{ij}^{N} V(x_i, x_j) &amp; = \frac{1}{2} \sum_{ij} \left( \frac{\partial^2 V}{\partial x_i \partial x_j} \right) x_i x_j \\
+    &amp; = \frac{1}{2} \left(\def\arraystretch{1.1}\begin{array}{cccc}
+        x_1 &amp; x_2 &amp; \cdots &amp; x_N
+    \end{array}\right) 
+    \left(\def\arraystretch{1.4}\begin{array}{cccc}
+         \partial^2 V_{11} &amp;  \partial^2 V_{12} &amp; \cdots &amp; 0  \\
+         \partial^2 V_{21} &amp;  \partial^2 V_{22} &amp; \cdots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; \cdots &amp;  \partial^2 V_{NN}
+    \end{array}\right)
+    \left(\def\arraystretch{1.4}\begin{array}{c}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_N
+    \end{array}\right)
+\end{aligned}\tag{1.52}
+$$</div>
+<p>其中$\partial^2 V_{ij}$为$\partial^2 V/( \partial x_i \partial x_j)$的缩略形式. 而对称矩阵是必定可以对角化的, 这意味着我们可以找到一系列“协同”的运动模式$\lbrace \widetilde{x}_k \rbrace$, 它们之间不会相互影响, 从而使得整个系统能够按照无耦合系统来处理: </p>
+<div>$$
+(1.52)= \frac{1}{2} \sum^N_{k=1} m\omega_k \widetilde{x}^*_k\widetilde{x}_k\tag{1.53}
+$$</div>
+<p>这种“协同”运动被称为<strong>简正模*</strong>*normal mode**, 它可以通过将正空间的运动$\lbrace x_i \rbrace$变换到倒空间$\lbrace \tilde{x}_i \rbrace$中来得到, 简易推导如下<sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup>, 更深层次的讨论见<sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup><sup class='md-footnote'><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup>.
+通过傅里叶变换我们可以将正空间的位置和动量转换到倒空间中: </p>
+<div>$$
+x_i = \frac{1}{\sqrt{N}} \sum_k \widetilde{x}_k \mathrm{e}^{\mathrm{i} k i \mathcal{l} }\tag{1.54}
+$$</div>
+<div>$$
+p_i = \frac{1}{\sqrt{N}} \sum_k \widetilde{p}_k \mathrm{e}^{\mathrm{i} k i \mathcal{l} }\tag{1.55}
+$$</div>
+<p>同理, 从倒易空间也可以转变回正空间: </p>
+<div>$$
+\widetilde{x}_k = \frac{1}{\sqrt{N}} \sum_i x_i \mathrm{e}^{\mathrm{i} k i \mathcal{l} }\tag{1.56}
+$$</div>
+<div>$$
+\widetilde{p}_k = \frac{1}{\sqrt{N}} \sum_i p_i \mathrm{e}^{\mathrm{i} k i \mathcal{l} }\tag{1.57}
+$$</div>
+<p>由于$\hat{x}_i$和$\hat{p}_i$都是厄米算符, 那么根据这个定义, 我们有: </p>
+<div>$$
+\widetilde{x}_k^\dagger = \widetilde{x}_{-k}\tag{1.58}
+$$</div>
+<div>$$
+\widetilde{p}_k^\dagger = \widetilde{p}_{-k}\tag{1.59}
+$$</div>
+<p>可见倒易空间中的$\widetilde{x}_k$和$\widetilde{p}_k$都不是厄米算符, 都不可被实验观察. 接下来为了更好地解出一些特定解, 我们“强行”引入周期性边界条件<strong>波恩-卡曼条件</strong>(<strong>Born-Von Karman condition</strong>), 相当于一维弹簧小球形成了一个环, 小球的坐标每增加$N$, 它运动的解就必须复原, 即: </p>
+<div>$$
+\mathrm{e}^{\mathrm{i} k i \mathcal{l}} = \mathrm{e}^{\mathrm{i} k (i + N) \mathcal{l}}\tag{1.60}
+$$</div>
+<p>再者, 由于弹簧小球模型并非连续介质, 波数$k$的取值范围并非全实数空间, 绝对值大的波数$k$可以不断通过增减$2\pi / \mathcal{l}$来达到第一布里渊区, 而小球的运动没有实质性的改变. 即$k$会被限制在: </p>
+<div>$$
+- \frac{\pi}{\mathcal{l}} &lt; k \leq \frac{\pi}{\mathcal{l}}\tag{1.61}
+$$</div>
+<p>结合上述的周期性边界条件的约束, $k$的取值范围则被限制于第一布里渊区里面间隔相等的$N$个值中, 即: </p>
+<div>$$
+k = \frac{2 \pi}{N \mathcal{l}} \cdot \lambda \text{,} \quad \lambda \in \mathbb{Z} \quad \text{and} \quad -\frac{N}{2} &lt; \lambda \leq \frac{N}{2}\tag{1.62}
+$$</div>
+<p>因此也有</p>
+<div>$$
+\sum_i^N e^{\mathrm{i}  k i \mathcal{l} } = N \delta_{k,0}\tag{1.63}
+$$</div>
+<p>接下来我们把eq. (1.49)中的动能平方项进行变换, 并应用eq. (1.63)中的结论. 可以得到: </p>
+<div>$$
+\begin{aligned}
+        \sum_i p_i^2 &amp; = \sum_i \left( \frac{1}{\sqrt{N}} \sum_k \widetilde{p}_k \mathrm{e}^{\mathrm{i} k i \mathcal{l}} \right) \left( \frac{1}{\sqrt{N}} \sum_q \widetilde{p}_q \mathrm{e}^{\mathrm{i} q i \mathcal{l}} \right) \\
+        &amp; = \frac{1}{N} \sum_i \sum_{k,q} \widetilde{p}_k \widetilde{p}_q \mathrm{e}^{\mathrm{i} (k+q) i \mathcal{l}} \\
+        &amp; = \frac{1}{N} \sum_{k,q} \left(  \widetilde{p}_k \widetilde{p}_q \sum_i \mathrm{e}^{\mathrm{i} (k+q) i \mathcal{l}}  \right) \\
+        &amp; = \frac{1}{N} \sum_{k,q} N \delta_{k + q, 0} \widetilde{p}_k \widetilde{p}_q \\
+        &amp; = \sum_k \widetilde{p}_k \widetilde{p}_{-k} \\
+        &amp; = \sum_k \widetilde{p}_{-k} \widetilde{p}_k 
+\end{aligned}\tag{1.64}
+$$</div>
+<p>意外发现了一个有用的结论: $\widetilde{p}_k$和$\widetilde{p}_{-k}$是对易的, 即$\widetilde{p}_k$和$\widetilde{p}_{k}^\dagger$也是可交换的. 同样的, 对于eq. (1.49)中的势能项, 我们有</p>
+<div>$$
+\begin{aligned}
+        \sum_i (x_{i+1} - x_i)^2 &amp; = \frac{1}{N} \sum_i \sum_{k,q} \widetilde{x}_k \widetilde{x}_q \mathrm{e}^{\mathrm{i} (k+q) i \mathcal{l}} (\mathrm{e}^{\mathrm{i} k \mathcal{l}} - 1)(\mathrm{e}^{\mathrm{i} q \mathcal{l}} - 1) \\
+        &amp; = \frac{1}{N} \sum_{k,q} \left( \widetilde{x}_k \widetilde{x}_q (\mathrm{e}^{\mathrm{i} k \mathcal{l}} - 1)(\mathrm{e}^{\mathrm{i} q \mathcal{l}} - 1) \sum_i \mathrm{e}^{\mathrm{i} (k+q) i \mathcal{l}} \right) \\
+        &amp; = \frac{1}{N} \sum_{k,q} N \delta_{k + q, 0} \widetilde{x}_k \widetilde{x}_q (\mathrm{e}^{\mathrm{i} k \mathcal{l}} - 1)(\mathrm{e}^{\mathrm{i} q \mathcal{l}} - 1) \\
+        &amp; = \sum_{k} \widetilde{x}_k \widetilde{x}_{-k}  (\mathrm{e}^{\mathrm{i} k \mathcal{l}} - 1)(\mathrm{e}^{-\mathrm{i} k \mathcal{l}} - 1) \\
+        &amp; = \sum_{k} \widetilde{x}_k \widetilde{x}_{-k} (2 - 2\mathrm{cos}(k \mathcal{l})) \\
+        &amp; = \sum_{k} \widetilde{x}_k \widetilde{x}_{-k} \left( 4 \mathrm{sin}^2 \frac{k \mathcal{l}}{2} \right) \\
+        &amp; = \sum_{k} \widetilde{x}_{-k} \widetilde{x}_k  \left( 4 \mathrm{sin}^2 \frac{k \mathcal{l}}{2} \right)
+\end{aligned}\tag{1.65}
+$$</div>
+<p>同样, $\widetilde{x}_k$和$\widetilde{x}_{-k}$也是可交换的, 即$\widetilde{x}_k$和$\widetilde{x}_{k}^\dagger$也是可交换的. 因此eq. (1.49)中的哈密顿量变为: </p>
+<div>$$
+\begin{aligned}
+        \hat{H} &amp; = \sum_k \left( \frac{1}{2m} \hat{p}_k \hat{p}_{-k} + \frac{1}{2} m \omega_k^2 \hat{x}_k \hat{x}_{-k} \right) \\
+        &amp; = \sum_k \left( \frac{1}{2m} \hat{p}_k \hat{p}_{k}^\dagger + \frac{1}{2} m \omega_k^2 \hat{x}_k \hat{x}_{k}^\dagger \right)
+\end{aligned}\tag{1.66}
+$$</div>
+<p>其中$\omega_k^2 = (4\omega_0 / m) sin^2(k \mathcal{l} /2)$, 且我们将$\hat{\widetilde{x}}_k$和$\hat{\widetilde{p}}_k$简写成了$\hat{x}_k$和$\hat{p}_k$. 此时我们定义倒易空间内的降算符$\hat{a}_k$为: </p>
+<div>$$
+\hat{a}_k = \sqrt{\frac{m \omega_k}{2 \hbar}}\left( \hat{x}_k + \frac{i}{m \omega_k} \hat{p}_k \right)\tag{1.67}
+$$</div>
+<p>利用eq. (1.58)和eq. (1.59)的共轭规则, 我们可以得到升算符$\hat{a}^\dagger_{\color{red}-k}$的表达式: </p>
+<div>$$
+\begin{aligned}
+        \hat{a}_{-k}^\dagger &amp; = \sqrt{\frac{m \omega_{-k}}{2 \hbar}}\left( \hat{x}_{-k}^\dagger - \frac{i}{m \omega_{-k}} \hat{p}_{-k}^\dagger \right) \\
+        &amp; = \sqrt{\frac{m \omega_{k}}{2 \hbar}}\left( \hat{x}_{k} - \frac{i}{m \omega_{k}} \hat{p}_{k} \right)
+\end{aligned}\tag{1.68}
+$$</div>
+<p>重新组合上述两式, 得到$\hat{x}_k$和$\hat{p}_k$关于$\hat{a}_k$的表达式: </p>
+<div>$$
+\begin{aligned}
+        \hat{x}_k &amp; = \sqrt{\frac{\hbar}{2m\omega_k}}\left( \hat{a}_k + \hat{a}_{-k}^\dagger \right) \\
+        \hat{p}_k &amp; = - \mathrm{i} \sqrt{\frac{\hbar m\omega_k}{2}}\left( \hat{a}_k - \hat{a}_{-k}^\dagger \right)
+\end{aligned}\tag{1.69}
+$$</div>
+<p>结合对易关系eq. (1.19)和eq. (1.69), 则哈密顿算子eq. (1.66)变为: </p>
+<div>$$
+\begin{aligned}
+        \hat{H} &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}_k \hat{a}^\dagger + \hat{a}^\dagger_{-k} \hat{a}_{-k} \right) \\
+        &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}_k \hat{a}^\dagger + \hat{a}^\dagger_{k} \hat{a}_{k} \right) \\
+        &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}^\dagger_{k} \hat{a}_{k} + \frac{1}{2} \right)
+\end{aligned}\tag{1.70}
+$$</div>
+<p>其中第二个等号是通过重新排列组合$k$和$-k$项得到的. 上式说明, 即使是有相互作用的系统, 我们还是能够以“粒子”的观点去看待振动, 但此时这些所谓的“粒子”不再是用于描述某<u>一个</u>弹簧小球的运动, 而是整体的某个简正模的振动幅度. </p>
+<hr />
+
+
+
+<div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> Lancaster, T. and Blundell, S. J. Quantum field theory for the gifted amateur. OUP Oxford, (2014). <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> Cohen-Tannoudji, C., Diu, B., and Laloe, F. (2009). <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>3</span> 黄昆,  韩汝琦. 固体物理学. 人民教育出版社, (1979). <a name='dfref-footnote-3' href='#ref-footnote-3' title='back to document' class='reversefootnote' >↩</a></div></div></body>
+</html>
