@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+<title>5.1 The 3D Infinite Well</title></head>
+<body><h1>5.1 The 3D Infinite Well</h1>
+<p>Recall the Schr&#246;dinger Equation in one dimension is</p>
+<div>$$
+-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\Psi(x,t)+U(x)\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t).
+$$</div>
+<p>It is not hart to imagine that for a three-dimensional case, the Schr&#246;dinger Equation (in the Cartesian coordinate) becomes</p>
+<div>$$
+-\frac{\hbar^2}{2m}\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\right)\Psi(x,y,z,t)+U(x,y,z)\Psi(x,y,z,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,y,z,t),
+$$</div>
+<p>or more generally</p>
+<div>$$
+-\frac{\hbar^2}{2m}\nabla^2\Psi(r,t)+U(r)\Psi(r,t)=i\hbar\frac{\partial}{\partial t}\Psi(r,t).
+$$</div>
+<p>We can still use the same trick - <strong>separation of variable</strong> - to isolate spatial and temporal parts. The time independent part, or the spatial part reads</p>
+<div>$$
+-\frac{\hbar^2}{2m}\nabla^2\psi(r)+U(r)\Psi(r)=E\psi(r).
+$$</div>
+<p>The derivation is similar to a one-dimensional case (see Section 2.3 for detail). </p>
+<p>Now let&#39;s consider a simple model - a three dimensional infinite well. It is not very easy to visualize such a potential, but mathematically, the potential energy can be</p>
+<div>$$
+U(x,y,z)=\begin{cases}
+0 &amp; 0&lt;x&lt;L_x, 0&lt;y&lt;L_y, 0&lt;z&lt;L_z,\\
+\infty &amp; \text{otherwise.}
+\end{cases}
+$$</div>
+<p>Wavefunctions can only exist in those region where potential equals to zero, thus this problem is also called <strong>particle in the box</strong>.</p>
+<p>To find the wavefunctions inside the &quot;box&quot;, we can separation of variable again, and let</p>
+<div>$$
+\psi(x,y,z)=X(x)Y(y)Z(z).
+$$</div>
+<p>Plugging above form into time-independent Schr&#246;dinger equation gives</p>
+<div>$$
+\frac{1}{X(x)}\frac{\partial^2}{\partial^2x}X(x)+\frac{1}{Y(y)}\frac{\partial^2}{\partial^2y}Y(y)+\frac{1}{Z(z)}\frac{\partial^2}{\partial^2z}Z(z)=-\frac{2mE}{\hbar^2}.
+$$</div>
+<p>As the right-hand side is a constant that dose not depend on $x$, $y$,or $z$, terms on the left-hand side must equal to constants as well. So we have</p>
+<div>$$
+\frac{\partial^2}{\partial^2x}X(x)=C_xX(x),
+$$</div>
+<div>$$
+\frac{\partial^2}{\partial^2y}Y(y)=C_yY(y),
+$$</div>
+<div>$$
+\frac{\partial^2}{\partial^2z}Z(z)=C_zZ(z).
+$$</div>
+<p>Which has general solution (after applying boundary conditions. Detailed calculation is similar to 0ne-dimensional scenario in Section 3.1)</p>
+<div>$$
+X(x)=A_x\sin\frac{n_x\pi x}{L_x},
+$$</div>
+<div>$$
+Y(y)=A_y\sin\frac{n_y\pi y}{L_y},
+$$</div>
+<div>$$
+Z(z)=A_z\sin\frac{n_z\pi z}{L_z},
+$$</div>
+<p>where $A_x$, $A_y$, and $A_z$ are normalization factors to be determined. Therefore, the complete spatial wave function is</p>
+<div>$$
+\psi_{n_x,n_y,n_z}(x,y,z)=A\sin\frac{n_x\pi x}{L_x}\sin\frac{n_y\pi y}{L_y}\sin\frac{n_z\pi z}{L_z},
+$$</div>
+<p>with corresponding eigen energy</p>
+<div>$$
+E_{n_x,n_y,n_z}=\left(\frac{n_x^2}{L^2_x}+\frac{n_y^2}{L^2_y}+\frac{n_z^2}{L^2_z}\right)\frac{\pi^2\hbar^2}{2m}.
+$$</div>
+<h2>5.1.1 Degeneracy</h2>
+<p>Suppose we have</p>
+<div>$$
+L_x=L_y=L_z=L.
+$$</div>
+<p>There there are states with same eigen energy:</p>
+<figure><table>
+<thead>
+<tr><th>$n_x$,$n_y$, $n_z$</th><th>$E_{n_x,n_y,n_z}$ $[\pi^2\hbar^2/2mL^2]$</th></tr></thead>
+<tbody><tr><td>1,1,1</td><td>3</td></tr><tr><td>2,1,1<br>1,2,1<br>1,1,2</td><td>6</td></tr><tr><td>1,2,2<br>2,1,2<br>2,2,1</td><td>9</td></tr><tr><td>...</td><td>...</td></tr></tbody>
+</table></figure>
+<p>Energy levels with multiple states are said to be <strong>degenerate</strong>, otherwise they are <strong>nondegenerate</strong>. In the case when $E=6\pi^2\hbar^2/2mL^2$, we say <strong>degeneracy</strong> = 3.</p>
+<h2>5.1.2 Splitting of Energy Levels</h2>
+<p>Degeneracy usually results from symmetry. For more complicated situation, we can, for example, impose an external field to break symmetry, to split originally degenerate energy levels. In this simple case, we can make $L_x$, $L_y$, and $L_z$ not equal to each other.</p>
+<p>&nbsp;</p>
+</body>
+</html>
