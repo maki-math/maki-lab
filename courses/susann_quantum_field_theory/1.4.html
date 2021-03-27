@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+    window.MathJax = {
+    loader: {load: ['[tex]/physics']},
+    tex: {packages: {'[+]': ['physics']}}
+    };
+  </script>
+<title>1.4 场算符, 二次量子化</title></head>
+<body><h1>1.4 场算符, 二次量子化</h1>
+<p>我们在上一节中使用升降算符$\hat{a}^\dagger_k$和$\hat{a}^\dagger_k$来表示了谐振子系统的哈密顿量$\hat{H}$. 我们希望, 对于任意系统的哈密顿量, 或者任意算符$\hat{A}$, 都可以找到对应的方法用升降算符来表示. 算符的种类非常多样, 按照其作用对象的数量来划分, 可以分为<strong>单粒子算符</strong>(<strong>single-particle operator</strong>), 注意这里是指作用在单粒子上的算符, 而不是说这个算符的作用对象为单粒子系统), 双粒子算符, 多粒子算符等, 如动量算符$\hat{p} = - \mathrm{i}\hbar\nabla$, 就是一个单粒子算符; 而库伦算符$\hat{V}_\mathrm{Coul}(\vec{x}_1, \vec{x}_2) = q / (4 \pi |\vec{x}_1 - \vec{x}_2|)$, 则为一个双粒子算符. 我们在本节中重点关注单粒子算符$\hat{A}$, 并将其进行二次量子化. 先考虑某一个作用在<u>单粒子系统中</u>的$\hat{A}$, 将其左右各进行一次不同基矢表示下的全同操作, 可以得到: </p>
+<div>$$
+\hat{A} = \sum_{\alpha \beta} \ket{\alpha} \bra{\alpha} \hat{A} \ket{\beta} \bra{\beta} = \sum_{\alpha \beta} {A}_{\alpha \beta}  \ket{\alpha} \bra{\beta} \text{,}\tag{1.86}
+$$</div>
+<p>其中的${A}_{\alpha \beta}$为算符$\hat{A}$对应矩阵表示中的矩阵元. 对于多粒子系统版本的“单粒子算符”$\hat{\mathcal{A}}$, 可以证明, 它的写法也非常简洁: </p>
+<div>$$
+\hat{\mathcal{A}} =  \sum_{\alpha \beta} {A}_{\alpha \beta} \hat{\alpha}^\dagger \hat{\beta} \text{.}\tag{1.87}
+$$</div>
+<p>按照惯例, 复杂的证明和讨论我们放在红框部分内, 有兴趣的读者可以进一步阅读. </p>
+<p><q><strong>算符二次量子化的详细过程以及讨论</strong>
+此处我们还是采用波函数的传统记法, 记多粒子系统的态矢量$\ket{\Psi}$为: </p>
+<div>$$
+\ket{\Psi} = \ket{\psi_1, ..., \psi_N} = \frac{1}{\sqrt{N!}}\sum_P \xi^P \prod^N_{i =1} \ket{\psi_{P(i)}} \text{.}\tag{1.88}
+$$</div>
+<p>注意此处的$\ket{\psi_1, ..., \psi_N}$记法, 表示的不再是多个波函数简单的张量积, 而是包含了交换关系的张量积, 如等式最右边所述. 其中$\xi = 1$和$\xi = -1$分别对应玻色子和费米子的情况. 
+</q>
+我们以箱归一化粒子作为粒子, 来看看eq. (1.87)的应用. 箱归一化粒子体系的哈密顿量完全由它的总动能确定, 且我们选定$\ket{\alpha}$, $\ket{\beta}$为其动量算符相互正交本征态: </p>
+<div>$$
+\begin{align}
+    \hat{H} &amp; = \frac{\hat{p}^2}{2m} \\
+    &amp; = \frac{1}{2m} \sum_{\alpha \beta} {p}_{\alpha \beta}^2 \hat{a}^\dagger_{\alpha} \hat{a}_{\beta} \\
+    &amp; = \frac{1}{2m} \sum_{\alpha} {p}_{\alpha \alpha}^2 \hat{a}^\dagger_{\alpha} \hat{a}_{\alpha} \\
+    &amp; = \frac{1}{2m} \sum_{\alpha} {p}_{\alpha}^2 \hat{n}_\alpha\tag{1.89}
+\end{align}
+$$</div>
+<p>得到的结果非常符合我们的物理直觉, 即总能量为各个态的粒子动能的总和.
+使用升降算符来表示哈密顿量固然简便. 但原本哈密顿量的写法也有自己的优势: </p>
+<div>$$
+\hat{H}(x) = \frac{\hat{p}}{2m} + \hat{V}(x) \text{,}\tag{1.90}
+$$</div>
+<p>那就是很容易看出其中的对称性. 而使用升降算符表示的哈密顿量失去了位置的信息, 也就比较难看出它的对称性. 我们稍微在这一节聊几句对称性, 以平移对称性作为例子: 当我们说某个系统的测量值具有平移不变性时, 我们既可以认为是波函数具有平移不变性: </p>
+<div>$$
+\begin{align}
+    \int \psi^*(x) {O}_{xx} \psi(x) \mathrm{d}x &amp; = \int \psi^*(x + a) {O}_{xx} \psi(x +a) \mathrm{d}(x + a) \\
+    \int \braket{\psi}{x} \bra{x} \hat{O} \ket{x} \braket{x}{\psi} \mathrm{d}x &amp; = \int \braket{\psi}{x + a} \bra{x} \hat{O} \ket{x} \braket{x + a}{\psi} \mathrm{d}(x + a) \text{.}\tag{1.91}
+\end{align}
+$$</div>
+<p>引入平移算符$ \hat{U}(a) \ket{x} = \ket{x+a} $, 很自然地可以从定义得到它的逆运算和对偶运算, 都为$ \hat{U}^{-1}(a) \ket{x + a} = \hat{U}^{\dagger}(a) \ket{x + a} = \ket{a}$, 使得eq. (1.91)中波函数的平移不变性可以转移到算符上: </p>
+<div>$$
+\begin{align}
+    &amp; \qquad \int \braket{\psi}{x + a} \bra{x} \hat{O} \ket{x} \braket{x + a}{\psi} \mathrm{d}(x + a) \\
+    &amp; = \int \braket{\psi}{x + a} \bra{x + a} \hat{U} \hat{O} \hat{U}^\dagger \ket{x +a} \braket{x + a}{\psi} \mathrm{d}(x + a) \\
+    &amp; = \bra{\psi}  \hat{U} \hat{O} \hat{U}^\dagger \ket{\psi} \\
+    &amp; = \bra{\psi} \hat{O} \ket{\psi} \text{,}\tag{1.92}
+\end{align}
+$$</div>
+<p>也就是说, 若算符$\hat{O}$有平移对称性, 则会满足下面等式: </p>
+<div>$$
+\hat{U} \hat{O} \hat{U}^\dagger = \hat{O} \text{.}\tag{1.93}
+$$</div>
+<p>下面我们来探求一下$\hat{U}$的具体形式. 将平移一小段距离$\delta a$后的波函数展开到一次项, 我们得到: </p>
+<div>$$
+\psi(x + \delta a) = \psi(x) + \frac{d \psi(x)}{dx} \delta a + ...\tag{1.94}
+$$</div>
+<p>代入动量算符$\hat{p} = -\mathrm{i} /\hbar \cdot \mathrm{d}/\mathrm{d}x$, 然后移项可得: </p>
+<div>$$
+\psi(x + \delta a) = (1 + \frac{\mathrm{i}}{\hbar} \hat{p} \delta a) \psi(x) \text{.}\tag{1.95}
+$$</div>
+<p>平移距离$a$可以看作是$\delta a$的大量累积, 故</p>
+<div>$$
+\begin{align}
+    \psi(x + a) &amp; = \lim_{N \rightarrow \infty} (1 + \frac{\mathrm{i}}{\hbar} \hat{p} \delta a)^N \psi(x)  \\
+    &amp; = \mathrm{e}^{\frac{\mathrm{i}}{\hbar}\hat{p} a} \psi(x) \text{.}\tag{1.96}
+\end{align}
+$$</div>
+<p>将上式和eq. (1.91)对比, 我们可以知道: </p>
+<div>$$
+\begin{align}
+    \psi(x + a) = \hat{U}^\dagger(a) \psi(x) &amp; =  \mathrm{e}^{\frac{\mathrm{i}}{\hbar} \hat{p} a} \psi(x) \\
+    \hat{U}^\dagger(a) &amp; = \mathrm{e}^{\frac{\mathrm{i}}{\hbar} \hat{p} a} \\
+    \hat{U}(a) &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar} \hat{p} a} \text{.}\tag{1.97}
+\end{align}
+$$</div>
+<p>回到正题, 之前说到升降算符没有位置信息, 那它具不具有平移对称性呢？可不可以通过升降算符的平移对称性来推出哈密顿量的平移对称性呢？答案是否定的. 我们试着举一个例子来说明升算符的情况. 我们考察动量算符$\hat{p}$, 它必定是平移对称的. 假设其对应的两个本征态为$\ket{m}$和$\ket{q}$, 即</p>
+<div>$$
+\begin{align}
+    \hat{p} \ket{m} &amp; = m \ket{m} \\
+    \hat{p} \ket{q} &amp; = q \ket{q} \\
+    \hat{p} \ket{m,q} &amp; = m + q \ket{m,q} \text{.}\tag{1.98}
+\end{align}
+$$</div>
+<p>注意此处我们是取了一个极度简化的例子, 其中的$n_m = 1$, $n_q = 1$, 所以我们就直接把$\ket{n_m}$直接记为$\ket{m}$, 把$\ket{n_q}$直接记为$\ket{q}$. 将平移后的升算符$\hat{a}_m^\dagger$作用在$\ket{q}$上, 我们有: </p>
+<div>$$
+\begin{align}
+    \hat{U} \hat{a}_m^\dagger \hat{U}^\dagger \ket{q} &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar} \hat{p} a} \hat{a}_m^\dagger \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} \hat{p} a} \ket{q} \\[8pt]
+    &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar} \hat{p} a} \hat{a}_m^\dagger \ket{q} \cdot \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} q a} \\[8pt]
+    &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar}\hat{p} a}  c_m \ket{m,q} \cdot \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} q a} \\[8pt]
+    &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar} (m+q) a} c_m \ket{m,q} \cdot \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} q a} \\[8pt]
+    &amp; = \mathrm{e}^{ - \frac{\mathrm{i}}{\hbar} m a} \cdot \hat{a}_m^\dagger \ket{q} \text{.}\tag{1.99}
+\end{align}
+$$</div>
+<p>结果和$\hat{a}_m^\dagger \ket{q}$差了一个相位因子. 也就可以看出, 算符本身和组成该算符的升降算符的对称性没有必然联系. </p>
+<p>为此我们额外引入一个相位因子, 构造一对可以“看出”对称性的算符, 称之为场算符, 定义为: </p>
+<div>$$
+\hat{\psi}^\dagger({x}) = \frac{1}{\sqrt{\mathcal{V}}} \sum_{{p}} \hat{a}^\dagger_{{p}} \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar} \text{,}\tag{1.100}
+$$</div>
+<div>$$
+\hat{\psi}({x}) = \frac{1}{\sqrt{\mathcal{V}}} \sum_{{p}} \hat{a}_{{p}} \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar} \text{,}\tag{1.101}
+$$</div>
+<p>它们的物理意义分别为在${x}$处产生或者消灭一个粒子. 我们用接下来的这个例子来说明其性质. </p>
+<p>将$\hat{\psi}^\dagger({x})$作用在真空态$\ket{0}$上, 可以得到: </p>
+<div>$$
+\begin{align}
+    \hat{\psi}^\dagger({x}) \ket{0} &amp; = \frac{1}{\sqrt{\mathcal{V}}} \sum_{{p}}  \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar} \hat{a}^\dagger_{{p}} \ket{0} \\
+    &amp; = \frac{1}{\sqrt{\mathcal{V}}} \sum_{{p}}  \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar} \ket{{p}} \text{......{\small pause}}\tag{1.102}
+\end{align}
+$$</div>
+<p>然后我们回想到动量空间中的波函数, 可以通过位置波函数的傅里叶变换得到: </p>
+<div>$$
+\psi({p}) = \frac{1}{\sqrt{2\pi \hbar}} \int \psi(x) \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar} \mathrm{d} {x} \text{.}\tag{1.103}
+$$</div>
+<p>另外, 动量空间中的波函数用狄拉克符号的形式也可以写成: </p>
+<div>$$
+\begin{align}
+    \psi({p}) &amp; = \braket{{p}}{\psi} \\
+    &amp; = \bra{{p}} \hat{I} \ket{\psi} \\
+    &amp; = \int \braket{{p}}{{x}} \braket{{x}}{\psi} \mathrm{d} {x} \text{.}\tag{1.104}
+\end{align}
+$$</div>
+<p>对比eq. (1.103)和eq. (1. 104)可得: </p>
+<div>$$
+\braket{{p}}{{x}} = \frac{1}{\sqrt{2 \pi \hbar}} \mathrm{e}^{-\mathrm{i} {p} \cdot {x}/\hbar}\tag{1.105}
+$$</div>
+<p>将上述关系代入刚刚eq. (1.102)暂停的地方可得: </p>
+<div>$$
+\begin{align}
+    \hat{\psi}^\dagger({x}) \ket{0} &amp; = \sqrt{\frac{2\pi \hbar}{\mathcal{V}}} \sum_{{p}} \braket{{p}}{{x}} \ket{{p}} \\
+    &amp; = \sqrt{\frac{2\pi \hbar}{\mathcal{V}}} \sum_{{p}} \ket{{p}} \braket{{p}}{{x}} \\
+    &amp; = \sqrt{\frac{2\pi \hbar}{\mathcal{V}}} \ket{{x}}\tag{1.106}
+\end{align}
+$$</div>
+<p>令$\mathcal{V} = 2\pi \hbar$, 上式的物理意义就变得非常明显了, 就是$\hat{\psi}^\dagger({x})$的作用是在${x}$处产生一个粒子. 相较于eq. (1.89)中只有动量的情况下, 现在即使有势能, 我们使用场算符也能够将哈密顿量表示出来: </p>
+<div>$$
+\begin{align}
+    \hat{H} &amp; = \frac{\hat{p}^2}{2m} + \hat{V}(x) \\
+    &amp; = \frac{1}{2m} \sum_{\alpha} {p}_{\alpha}^2 \hat{n}_\alpha + \int \mathrm{d} {x} \hat{\psi}^\dagger({x}) V({x}) \hat{\psi}({x})\tag{1.107}
+\end{align}
+$$</div>
+<p>此时, 因为$\hat{\psi}({x})$本身是具有平移对称性的, 而整体哈密顿量的对称性就可以通过$V({x})$来体现了. </p>
+</body>
+</html>
