@@ -13,14 +13,16 @@
         tags: 'ams'
     }
     };
+    
+    window.MathJax = {
+    loader: {load: ['[tex]/physics']},
+    tex: {packages: {'[+]': ['physics']}}
+    };
+
     window.MathJax = {
     tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
     }
-    };
-    window.MathJax = {
-    loader: {load: ['[tex]/physics']},
-    tex: {packages: {'[+]': ['physics']}}
     };
   </script>
 <title>1.4 场算符, 二次量子化</title></head>
