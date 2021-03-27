@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+<title>5.2 The Bohr Model of Atom</title></head>
+<body><h1>5.2 The Bohr Model of Atom</h1>
+<p>Niels Bohr proposed the Bohr model of atom in 1913, which agreed well with experimental evident that time. He won the 1922 Nobel Prize &quot;for his services in the investigation of the structure of atoms and of the radiation emanating from them&quot;. Now let&#39;s take a close look at the Bohr Model. </p>
+<p>In the Bohr Model, electron is in a circular orbit around the nucleus. In this case, all centripetal force is provided by the electron-magnetic attraction between the electron itself and the nucleus. Suppose the distance between electron and nucleus is $r$, and the speed of electron is $v$. For a Hydrogen atom, we have</p>
+<div>$$
+\frac{mv^2}{r}=\frac{1}{4\pi\varepsilon_0}\frac{e^2}{r^2}.
+$$</div>
+<p>Here $m=9.109\times10^{-31}\ kg$ is the electron mass.  $\varepsilon_0=8.854\times10^{12}\ C^2N^{-1}m^{-2}$ is the  vacuum permittivity. $e=1.602\times10^{-19}\ C$ is the charge of electron. Or, we can write the expression as</p>
+<div>$$
+v=\sqrt{\frac{e^2}{4\pi\varepsilon_0m}\frac{1}{r}}.
+$$</div>
+<p>The energy of the electron in this case can also be found simply by adding its kinetic energy and potential energy. Since we have the expression for its speed $v$, the kinetic part is pretty easy. The electric potential is also not hard to find. After simplification, the result would just be</p>
+<div>$$
+E=-\frac{e^2}{8\pi\varepsilon_0r}.
+$$</div>
+<h2>5.2.1 Angular Momentum</h2>
+<p>As a short detour, let&#39;s take a moment to analyze the angular momentum. Classically, we have angular momentum</p>
+<div>$$
+L=mvr.
+$$</div>
+<p>Here Bohr made an assumption much like the one Planck did when solving the problem of Black-body radiation. Planck assumed that energy has smallest indivisible part which equals to $hf$. Bohr also assumed that the angular momentum also has such a smallest indivisible portion which is $\hbar=h/2\pi$. Therefore,</p>
+<div>$$
+L=mvr=n\hbar.
+$$</div>
+<p>An alternative interpretation is that, we can treat the electron as a wavefunction circling around the orbit (wave-particle duality). Because the wavefunction has to be smooth, we require the circumference of the orbital to be an integer multiplication of wavelength:</p>
+<div>$$
+2\pi r=n\lambda.
+$$</div>
+<p>From the <strong>Section 2.2</strong> we know the wavelength of a matter wave follows</p>
+<div>$$
+\lambda=\frac{h}{p}=\frac{h}{mv}.
+$$</div>
+<p>Therefore, combining above two expression gives</p>
+<div>$$
+\begin{align}
+2\pi r&amp;=n\frac{h}{mv}\\
+mvr&amp;=n\frac{h}{2\pi}\\
+&amp;=n\hbar=L.
+\end{align}
+$$</div>
+<p>The same result yeilds pretty naturally.</p>
+<hr />
+<p>With above results, we can find the radius $r$ to be</p>
+<div>$$
+\bbox[silver]{r=\frac{(4\pi\varepsilon_0)\hbar^2}{me^2}n^2}.
+$$</div>
+<p>We can notate constants in front as $a_0={(4\pi\varepsilon_0)\hbar^2}/{me^2}\approx0.0529\ nm$, which is known as the Bohr radius. With this expression for radius $r$, the energy can be written as</p>
+<div>$$
+\begin{gather}
+\bbox[silver]{E=-\frac{me^4}{2(4\pi\varepsilon_0)^2\hbar^2}\frac{1}{n^2}}\\
+=-13.6\ eV\frac{1}{n^2}.
+\end{gather}
+$$</div>
+</body>
+</html>
