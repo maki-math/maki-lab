@@ -69,14 +69,14 @@ $$</div>
 <div>$$
 \begin{align}
     \hat{H} &amp; = \sum_j \frac{\hat{p}_j^2}{2m} + \frac{1}{2}m \omega_0^2(\hat{x}_{j+1} - \hat{x}_j)^2 \\
-    &amp; = \sum_j \frac{\hat{p}_j^2}{2m} + {\color{red} \frac{1}{2}} \sum_{ij}^{N} V(x_i, x_j)
-\end{align}\tag{1.49}
+    &amp; = \sum_j \frac{\hat{p}_j^2}{2m} + {\color{red} \frac{1}{2}} \sum_{ij}^{N} V(x_i, x_j)\tag{1.49}
+\end{align}
 $$</div>
 <p>其中$\hat{V}(x_i, x_j) = 1 /2 m \omega_0^2(\hat{x}_{j+1} - \hat{x}_j)^2$, 而由于第二个等号中我们对$i ,j$两次求和, 会导致重复计算, 所以最终还需要再将这一项乘上$1 / 2$. 而每一项的$V(x_i, x_j)$都可在其平衡位置附近进行泰勒展开, 直到第二项: </p>
 <div>$$
 \begin{align}
-    V(x_i, x_j) = V(0, 0) + \frac{1}{1!} \left( \frac{\partial V}{\partial x_i}x_i + \frac{\partial V}{\partial x_j}x_j \right) + \frac{1}{2!}\left( \frac{\partial^2 V}{\partial x_i^2} + 2\frac{\partial^2 V}{\partial x_i x_j} + \frac{\partial^2 V}{\partial x_j^2}  \right) + \mathcal{O}^n
-\end{align}\tag{1.50}
+    V(x_i, x_j) = V(0, 0) + \frac{1}{1!} \left( \frac{\partial V}{\partial x_i}x_i + \frac{\partial V}{\partial x_j}x_j \right) + \frac{1}{2!}\left( \frac{\partial^2 V}{\partial x_i^2} + 2\frac{\partial^2 V}{\partial x_i x_j} + \frac{\partial^2 V}{\partial x_j^2}  \right) + \mathcal{O}^n\tag{1.50}
+\end{align}
 $$</div>
 <p>由于处于平衡位置, 故一阶偏导数为$0$. 另外我们再取势能零点值$V(0, 0)$为$0$, 则上式的势能变为: </p>
 <div>$$
