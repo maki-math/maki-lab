@@ -100,8 +100,8 @@ $$</div>
         x_2 \\
         \vdots \\
         x_N
-    \end{array}\right)
-\end{align}\tag{1.52}
+    \end{array}\right)\tag{1.52}
+\end{align}
 $$</div>
 <p>其中$\partial^2 V_{ij}$为$\partial^2 V/( \partial x_i \partial x_j)$的缩略形式. 而对称矩阵是必定可以对角化的, 这意味着我们可以找到一系列“协同”的运动模式$\lbrace \widetilde{x}_k \rbrace$, 它们之间不会相互影响, 从而使得整个系统能够按照无耦合系统来处理: </p>
 <div>$$
@@ -153,8 +153,8 @@ $$</div>
         &amp; = \frac{1}{N} \sum_{k,q} \left(  \widetilde{p}_k \widetilde{p}_q \sum_i \mathrm{e}^{\mathrm{i} (k+q) i \mathcal{l}}  \right) \\
         &amp; = \frac{1}{N} \sum_{k,q} N \delta_{k + q, 0} \widetilde{p}_k \widetilde{p}_q \\
         &amp; = \sum_k \widetilde{p}_k \widetilde{p}_{-k} \\
-        &amp; = \sum_k \widetilde{p}_{-k} \widetilde{p}_k 
-\end{align}\tag{1.64}
+        &amp; = \sum_k \widetilde{p}_{-k} \widetilde{p}_k \tag{1.64}
+\end{align}
 $$</div>
 <p>意外发现了一个有用的结论: $\widetilde{p}_k$和$\widetilde{p}_{-k}$是对易的, 即$\widetilde{p}_k$和$\widetilde{p}_{k}^\dagger$也是可交换的. 同样的, 对于eq. (1.49)中的势能项, 我们有</p>
 <div>$$
@@ -172,8 +172,8 @@ $$</div>
 <div>$$
 \begin{align}
         \hat{H} &amp; = \sum_k \left( \frac{1}{2m} \hat{p}_k \hat{p}_{-k} + \frac{1}{2} m \omega_k^2 \hat{x}_k \hat{x}_{-k} \right) \\
-        &amp; = \sum_k \left( \frac{1}{2m} \hat{p}_k \hat{p}_{k}^\dagger + \frac{1}{2} m \omega_k^2 \hat{x}_k \hat{x}_{k}^\dagger \right)
-\end{align}\tag{1.66}
+        &amp; = \sum_k \left( \frac{1}{2m} \hat{p}_k \hat{p}_{k}^\dagger + \frac{1}{2} m \omega_k^2 \hat{x}_k \hat{x}_{k}^\dagger \right)\tag{1.66}
+\end{align}
 $$</div>
 <p>其中$\omega_k^2 = (4\omega_0 / m) sin^2(k \mathcal{l} /2)$, 且我们将$\hat{\widetilde{x}}_k$和$\hat{\widetilde{p}}_k$简写成了$\hat{x}_k$和$\hat{p}_k$. 此时我们定义倒易空间内的降算符$\hat{a}_k$为: </p>
 <div>$$
@@ -183,23 +183,23 @@ $$</div>
 <div>$$
 \begin{align}
         \hat{a}_{-k}^\dagger &amp; = \sqrt{\frac{m \omega_{-k}}{2 \hbar}}\left( \hat{x}_{-k}^\dagger - \frac{i}{m \omega_{-k}} \hat{p}_{-k}^\dagger \right) \\
-        &amp; = \sqrt{\frac{m \omega_{k}}{2 \hbar}}\left( \hat{x}_{k} - \frac{i}{m \omega_{k}} \hat{p}_{k} \right)
-\end{align}\tag{1.68}
+        &amp; = \sqrt{\frac{m \omega_{k}}{2 \hbar}}\left( \hat{x}_{k} - \frac{i}{m \omega_{k}} \hat{p}_{k} \right)\tag{1.68}
+\end{align}
 $$</div>
 <p>重新组合上述两式, 得到$\hat{x}_k$和$\hat{p}_k$关于$\hat{a}_k$的表达式: </p>
 <div>$$
 \begin{align}
         \hat{x}_k &amp; = \sqrt{\frac{\hbar}{2m\omega_k}}\left( \hat{a}_k + \hat{a}_{-k}^\dagger \right) \\
-        \hat{p}_k &amp; = - \mathrm{i} \sqrt{\frac{\hbar m\omega_k}{2}}\left( \hat{a}_k - \hat{a}_{-k}^\dagger \right)
-\end{align}\tag{1.69}
+        \hat{p}_k &amp; = - \mathrm{i} \sqrt{\frac{\hbar m\omega_k}{2}}\left( \hat{a}_k - \hat{a}_{-k}^\dagger \right)\tag{1.69}
+\end{align}
 $$</div>
 <p>结合对易关系eq. (1.19)和eq. (1.69), 则哈密顿算子eq. (1.66)变为: </p>
 <div>$$
 \begin{align}
         \hat{H} &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}_k \hat{a}^\dagger + \hat{a}^\dagger_{-k} \hat{a}_{-k} \right) \\
         &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}_k \hat{a}^\dagger + \hat{a}^\dagger_{k} \hat{a}_{k} \right) \\
-        &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}^\dagger_{k} \hat{a}_{k} + \frac{1}{2} \right)
-\end{align}\tag{1.70}
+        &amp; = \frac{\hbar \omega_k}{2} \left( \hat{a}^\dagger_{k} \hat{a}_{k} + \frac{1}{2} \right)\tag{1.70}
+\end{align}
 $$</div>
 <p>其中第二个等号是通过重新排列组合$k$和$-k$项得到的. 上式说明, 即使是有相互作用的系统, 我们还是能够以“粒子”的观点去看待振动, 但此时这些所谓的“粒子”不再是用于描述某<u>一个</u>弹簧小球的运动, 而是整体的某个简正模的振动幅度. </p>
 <hr />
