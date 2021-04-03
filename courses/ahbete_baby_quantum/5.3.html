@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script type="text/javascript">
+    window.MathJax = {
+    tex: {
+        tags: 'ams'
+    }
+    };
+    window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+    };
+  </script>
+<title>5.3 The Shdinger Equation for a Central Force</title></head>
+<body><h1>5.3 The Sh&#246;dinger Equation for a Central Force</h1>
+<p>A central force is a force that points from the particle directly towards (or away from) a fixed point in space, the center, and whose magnitude only depends on the distance of the object to the center, $r$. Therefore the potential only depend on distance from the center is well as</p>
+<div>$$
+\nabla U(r)=-F(r).
+$$</div>
+<p>Since the potential is spherically symmetric if we place the center at the origin or the coordinate system, it would be convenient to work in the spherical coordinate system.</p>
+<h2>5.3.1 The Spherical Coordinate System</h2>
+<p><img src="https://i.stack.imgur.com/IxTHG.png"></p>
+<p>A quick review for the spherical coordinate system:</p>
+<p>Coordinate transformations between Cartesian coordinate system and spherical coordinate system are as following</p>
+<div>$$
+\begin{cases}
+x=r\sin\theta\cos\phi,\\
+y=r\sin\theta\sin\phi,\\
+z=r\cos\theta;
+\end{cases}\  
+\begin{cases}
+r=\sqrt{x^2+y^2+z^2},\\
+\theta=\cos^{-1}({z}/{\sqrt{x^2+y^2+z^2}}),\\
+\phi=\tan^{-1}(y/x).
+\end{cases}
+$$</div>
+<p>The Volume differential in spherical coordinate is</p>
+<div>$$
+dV=r^2\sin\theta drd\theta d\phi.
+$$</div>
+<p>The Solid angle differential is</p>
+<div>$$
+d\Omega=\sin\theta d\theta d\phi.
+$$</div>
+<p>The Laplace operator is <sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup><sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup></p>
+<div>$$
+\nabla^2=\frac{1}{r^2}\left[\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right)+\csc\theta\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)+\csc^2\theta\frac{\partial^2}{\partial\phi^2}\right].
+$$</div>
+<p>Therefore, the Schr&#246;dinger equation in spherical coordinate system for a central force is</p>
+<div>$$
+-\frac{\hbar^2}{2m}\nabla^2\psi(r,\theta,\phi)+U(r)\psi(r,\theta,\phi)=E\psi(r,\theta,\phi),
+$$</div>
+<p>with $\nabla^2$ expressed above. The next step is to study this partial differential equation.</p>
+<h2>5.3.2 Separation of Variable</h2>
+<p>First, rearrange this partial differential equation so that (except the wavefunction $\psi(r,\theta,\phi)$) terms or operators with $\theta$ and $\phi$ dependence are on one side, and terms or operators with $r$ dependence on the other side.</p>
+<div>$$
+\begin{gather}
+\csc\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)\psi(r,\theta,\phi)+\csc^2\theta\frac{\partial^2}{\partial \phi^2}\psi(r,\theta,\phi)\\
+=\left[-\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right)-\frac{2mr^2}{\hbar^2}(E-U(r))\right]\psi(r,\theta,\phi).
+\end{gather}
+$$</div>
+<p>Now apply the separation of variable, and let</p>
+<div>$$
+\psi(r,\theta,\phi)=R(r)\Theta(\theta)\Phi(\phi).
+$$</div>
+<p>Then the differential equation becomes</p>
+<div>$$
+\begin{gather}
+R\Phi\csc\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial\Theta}{\partial\theta}\right)+R\Theta\csc^2\theta\frac{\partial^2\Phi}{\partial \phi^2}\\
+=-\Theta\Phi\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right)-\frac{2mr^2}{\hbar^2}(E-U(r))R\Theta\Phi.
+\end{gather}
+$$</div>
+<p>Dividing both sides by $R\Theta\Phi$ gives</p>
+<div>$$
+\begin{gather}
+\frac{1}{\Theta}\csc\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial\Theta}{\partial\theta}\right)+\frac{1}{\Phi}\csc^2\theta\frac{\partial^2\Phi}{\partial \phi^2}\\
+=-\frac{1}{R}\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right)-\frac{2mr^2}{\hbar^2}(E-U(r)).
+\end{gather}
+$$</div>
+<p>As one side depends on $\theta$ and $\phi$, the other side depends on $r$, the only possibility is that they both equal to a constant, $C$.</p>
+<div>$$
+\begin{cases}
+\frac{1}{\Theta}\csc\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial\Theta}{\partial\theta}\right)+\frac{1}{\Phi}\csc^2\theta\frac{\partial^2\Phi}{\partial \phi^2}=C\\
+-\frac{1}{R}\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right)-\frac{2mr^2}{\hbar^2}(E-U(r))=C
+\end{cases}.
+$$</div>
+<p>The first equation can be further separated.</p>
+<div>$$
+\frac{1}{\Theta}\sin\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial\Theta}{\partial\theta}\right)-C\sin^2\theta=-\frac{1}{\Phi}\frac{\partial^2\Phi}{\partial \phi^2}.
+$$</div>
+<p>With the same reasoning, the above form can only equals to another constant, $D$. Thus, we now turn a partial differential equation into three ordinary differential equations as following</p>
+<div>$$
+\begin{cases}
+-\frac{1}{R}\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right)-\frac{2mr^2}{\hbar^2}(E-U(r))=C,\\
+\frac{1}{\Theta}\sin\theta\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial\Theta}{\partial\theta}\right)-C\sin^2\theta=D,\\
+-\frac{1}{\Phi}\frac{\partial^2\Phi}{\partial \phi^2}=D.
+\end{cases}
+$$</div>
+<p>We will see the solutions of the above differential equations in the next section.</p>
+<p>&nbsp;</p>
+
+
+<div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> Brian Dolan, Lecture notes for Differential Equations and Complex Analysis (MP469), available on <a href='http://www.thphys.nuim.ie/Notes/MP469/Laplace.pdf' target='_blank' class='url'>http://www.thphys.nuim.ie/Notes/MP469/Laplace.pdf</a>. <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> WolframMathWorld, Laplace&#39;s Equation--Spherical Coordinates, available on <a href='https://mathworld.wolfram.com/LaplacesEquationSphericalCoordinates.html' target='_blank' class='url'>https://mathworld.wolfram.com/LaplacesEquationSphericalCoordinates.html</a>. <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div></div></body>
+</html>
