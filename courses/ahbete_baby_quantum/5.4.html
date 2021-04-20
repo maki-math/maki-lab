@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>5.4 Central Force Cont. and the Hydrogen Atom</title></head>
+<body><h1>5.4 Central Force Cont. and the Hydrogen Atom</h1>
+<p>In the previous section, we have converted the partial differential equation of a central force to a set of ordinary differential equations. Now let us analyze them.</p>
+<h2>5.4.1 The Azimuthal Equation</h2>
+<p>The first and the simplest one is the azimuthal equation.</p>
+<div>$$
+\frac{\partial^2\Phi(\phi)}{\partial\phi^2}=-D\Phi(\phi).
+$$</div>
+<p>It is not hard to tell the general solution is</p>
+<div>$$
+\Phi(\phi)=\mathcal{e}^{\pm i\sqrt{D}\phi}.
+$$</div>
+<p>One way to interpret the physical meaning of the azimuthal equation $\Phi(\phi)$ is that it represents the amplitude of the wave function with $\phi$ dependence. Therefore, it is in a sense the projection of the wave on the $\phi$ space. Then the following analysis would be similar to the Bohr model as discussed in <strong>Section 5.2</strong>.</p>
+<p>Now let us treat the azimuthal equation $\Phi(\phi)$ as a wave function that is constrained in a ring. $\sqrt{D}$ needs to be an integer in order to make it smooth. Thus, rewrite the equation as</p>
+<div>$$
+\bbox[silver]{\Phi(\phi)=\mathcal{e}^{im_l\phi}, m_l=0,\pm1,\pm2...}
+$$</div>
+<p>$m_l$ is the so-called magnetic quantum number.</p>
+<p>Now we have a set of Eigen solutions. The next question is: do we have an operator that is compatible<sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup> with this basis so that we have a set of eigenvalue? It turned out that one of them is the $L_z$ operator. It measures the projection of angular momentum vector on the z-axis, and we have</p>
+<div>$$
+\bbox[silver]{L_z=m_l\hbar}.
+$$</div>
+<p>This form should look familiar, and the reasoning behind it is similar to that of the Bohr model. The difference is that, in the Bohr model, we said we know the angular momentum vector $L$, but here we say we only know the z-component $L_z$.</p>
+<p>In reality, we can never precisely know the angular momentum vector $L$. If we know the angular momentum vector $L$, we can set up the coordinate system so that the angular momentum $L$ align with z-axis. Then the motion of the particle is in the xy-plane, which means we precisely know this particle has zero z-component of velocity and z-component of zero momentum, but this would violet the Uncertainty Principle.</p>
+<h2>5.4.2 The Polar Equation</h2>
+<p>To solve the polar solution (also the radio solution) analytically is beyond the scope of this series. To those might be interested, a rather detailed steps can be found in <sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup>. Here only the most important results are listed.</p>
+<p>We have the polar equation</p>
+<div>$$
+\sin\theta\frac{\partial}{\partial\theta}(\sin\theta\frac{\partial}{\partial\theta}\Theta{\theta})-C\sin^2\theta\Theta(\theta)=m_l^2\Theta(\theta).
+$$</div>
+<p>It can be shown that the constrain for the constant $C$ is that,</p>
+<div>$$
+\bbox[silver]{C=-l(l+1), l\in\N}.
+$$</div>
+<p>Here $l$ is the angular quantum number. Also, once a specific $l$ is picked, $m_l$ can only be</p>
+<div>$$
+\bbox[silver]{m_l=0,\pm1,...,\pm l}.
+$$</div>
+<p>The physical quantity associated with the angular quantum number $l$ is the length of the angular momentum vector.</p>
+<div>$$
+L^2=l(l+1)\hbar^2\ \text{or}\ |L|=\sqrt{l(l+1)}\hbar.
+$$</div>
+
+
+<div class='footnotes-area'  ><hr/>
+<div class='footnote-line'><span class='md-fn-count'>1</span> Generally, we say two operators are compatible if they commute, i.e. $[A,B]=AB-BA=0$. In this specific case, we can treat $\partial^2/\partial\phi^2$ as an operator, it is commute with $L_z=-i\hbar\partial/\partial\phi$. <a name='dfref-footnote-1' href='#ref-footnote-1' title='back to document' class='reversefootnote' >↩</a></div>
+<div class='footnote-line'><span class='md-fn-count'>2</span> Hydrogen Atom Wave Equation, AHBETE, available on <a href='https://ahbete.github.io/archive/MA436.pdf' target='_blank' class='url'>https://ahbete.github.io/archive/MA436.pdf</a>. <a name='dfref-footnote-2' href='#ref-footnote-2' title='back to document' class='reversefootnote' >↩</a></div></div></body>
+</html>
