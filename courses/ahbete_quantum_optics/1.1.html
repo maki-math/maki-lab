@@ -47,23 +47,23 @@ $1\ket{a}=\ket{a}.$</li>
 </blockquote>
 
 <blockquote><p><strong>Inner Products</strong></p>
-<p>This is an additional operation defined  in the vector space $V$. It takes two vectors to a complex number, i.e. $\left<\cdot,\cdot\right>: V\times V\rightarrow\mathbb{C}$. Here we denote $\left<\ket{a},\ket{b}\right>\equiv\braket{a}{b}$. Here are some properties:</p>
+<p>This is an additional operation defined  in the vector space $V$. It takes two vectors to a complex number, i.e. $\left<\cdot,\cdot\right>: V\times V\rightarrow\mathbb{C}$. Here we denote $\left<\ket{a},\ket{b}\right>\equiv\braket{a|b}$. Here are some properties:</p>
 <ul>
-<li>$\braket{a}{a}=0$, iff $\ket{a}=0$;</li>
-<li>$\braket{a}{b}=\braket{b}{a}^*$;</li>
+<li>$\braket{a|a}=0$, iff $\ket{a}=0$;</li>
+<li>$\braket{a|b}=\braket{b|a}^*$;</li>
 <li><strong>Anti-linearity</strong>
-$\left<\ket{a},\alpha\ket{b}\right>=\alpha\braket{a}{b}$;
-$\left<\alpha\ket{a},\ket{b}\right>=\alpha^*\braket{a}{b}$;
-$\left<\ket{a},\ket{b}+\ket{c}\right>=\alpha\braket{a}{b}+\braket{a}{c}$;
-$\left<\ket{a}+\ket{b},\ket{c}\right>=\alpha\braket{a}{c}+\braket{b}{c}$;</li>
+$\left<\ket{a},\alpha\ket{b}\right>=\alpha\braket{a|b}$;
+$\left<\alpha\ket{a},\ket{b}\right>=\alpha^*\braket{a|b}$;
+$\left<\ket{a},\ket{b}+\ket{c}\right>=\alpha\braket{a|b}+\braket{a|c}$;
+$\left<\ket{a}+\ket{b},\ket{c}\right>=\alpha\braket{a|c}+\braket{b|c}$;</li>
 <li><strong>Cauchy-Schwarz inequality</strong>
-$|\braket{a}{b}|^2\le\braket{a}{a}\braket{b}{b}$.</li>
+$|\braket{a|b}|^2\le\braket{a|a}\braket{b|b}$.</li>
 
 </ul>
 <p>$\ket{\cdot}$ is called a ket vector, and $\bra{\cdot}$ is a bra (dual) vector in the dual space $V^*$. Therefore we have an alternative way to understand inner product: treat  the dual space as a linear map $\bra{\cdot}:V\rightarrow\mathbb{C}$.</p>
 </blockquote>
 <p>&nbsp;</p>
-<p>States of the system is described by <strong>normalized</strong> vectors (normalized: $\braket{\psi}{\psi}=1$).</p>
+<p>States of the system is described by <strong>normalized</strong> vectors (normalized: $\braket{\psi|\psi}=1$).</p>
 <div>$$
 \bbox[2px, border: 1px]{\text{States}\leftrightarrow\text{Vectors}}
 $$</div>
@@ -89,10 +89,10 @@ $(\hat{A}\hat{B})^\dagger=\hat{B}^\dagger\hat{A}^\dagger$;</li>
 <p>&nbsp;</p>
 <p>To make a previous state more precise, a operator that relates to a physical observable needs to be <strong>self-adjoint (or Hermitian)</strong>, i.e. $\hat{A}^\dagger=\hat{A}$. Then this operator, in matrix representation, would have real eigenvalues. Suppose we have system with an initial state $\ket{\psi}$, and an operator $\hat{A}$ with a set of eigenvalue ${a_i}$, and a set of normalized either vector $\ket{a_i}$. One of the postulate of quantum mechanics states that, only eigen value can be observed, i.e. $\hat{A}\ket{a_i}=a_i\ket{a_i}$. The probability one eigenvalue is measured is given by</p>
 <div>$$
-{P(a_i)=|\braket{a_i}{\psi}|^2},
+{P(a_i)=|\braket{a_i|\psi}|^2},
 $$</div>
 <p>and state of the system after measurement collapses to $\ket{a_i}$.</p>
-<p>Now consider a non-degenerate case, so that the number of eigenvalue equals to the dimension of the Hilbert space $d$. Using the fact that eigenvector are <strong>orthogonal</strong> to each other (and they are also normalized), i.e. $\braket{a_i}{a_j}=\delta_{ij}$, we can define a projection operator</p>
+<p>Now consider a non-degenerate case, so that the number of eigenvalue equals to the dimension of the Hilbert space $d$. Using the fact that eigenvector are <strong>orthogonal</strong> to each other (and they are also normalized), i.e. $\braket{a_i|a_j}=\delta_{ij}$, we can define a projection operator</p>
 <div>$$
 \hat{P}=\sum_{i=1}^{n\le d}\ket{a_i}\bra{a_i},
 $$</div>
@@ -106,7 +106,7 @@ $$</div>
 $$</div>
 <p>The state $\ket{\psi}$ can also be expand in the eigen-basis</p>
 <div>$$
-\ket{\psi}=\sum_{i=0}^d\psi_i\ket{a_i}, \text{where }\psi_i=\braket{a_j}{\psi}.
+\ket{\psi}=\sum_{i=0}^d\psi_i\ket{a_i}, \text{where }\psi_i=\braket{a_j|\psi}.
 $$</div>
 </body>
 </html>
