@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
@@ -20,23 +20,24 @@
     </script>
 <title>1.1 Quantum Mech. for Pure States (1)</title></head>
 <body>
-<h1>1.1 Quantum Mech. for Pure States (1)</h1>
-<h2>1.1.1 Hilbert Spaces</h2>
-<p>In quantum mechanics, we say the dynamics of a system is described in a <strong>Hilbert space</strong> $H$. A Hilbert space is a complex <strong>vector space</strong> with a defined <strong>inner product</strong>.</p>
+<h1 id='11-quantum-mech-for-pure-states-1'>1.1 Quantum Mech. for Pure States (1)</h1>
+<h2 id='111-hilbert-spaces'>1.1.1 Hilbert Spaces</h2>
+<p>In quantum mechanics, we say the dynamics of a system are described in a <strong>Hilbert space</strong> $H$. A Hilbert space is a complete complex <strong>vector space</strong> with a defined <strong>inner product</strong>.</p>
 <div>$$
-\bbox[2px, border: 1px]{\text{System}\leftrightarrow\text{Hilbert Space}}
+\bbox[2px, border: 1px solid black]{\text{System}\leftrightarrow\text{Hilbert Space}}
 $$</div>
 <blockquote><p><strong>Vector Spaces</strong>
-A vector space is a set $V$ with an addition and an scalar multiplication. For arbitrary vectors $\ket{a},\ket{b},\ket{c}\in V$, and scalars $\alpha, \beta \in \mathbb{C}$, following properties must be satisfied:</p>
+A vector space is a set $V$ with an addition and a scalar multiplication. For arbitrary vectors $\ket{a},\ket{b},\ket{c}\in V$, and scalars $\alpha, \beta \in \mathbb{C}$, the following properties must be satisfied:</p>
 <ul>
 <li><strong>Commutativity</strong>
 $\ket{a}+\ket{b}=\ket{b}+\ket{a}$;</li>
 <li><strong>Associativity</strong>
-$(\ket{a}+\ket{b})+\ket{c}=\ket{b}+(\ket{a}+\ket{c})$;
-$(\alpha\beta)\ket{a}=\alpha(\beta\ket{a})​;</li>
+$(\ket{a}+\ket{b})+\ket{c}=\ket{a}+(\ket{b}+\ket{c})$;</li>
 <li><strong>Additive identity</strong>
 $\exists 0\in V$, s.t. $\ket{a}+0=\ket{a}$;</li>
 <li><strong>Additive inverse</strong></li>
+<li><strong>Homogeneity</strong>
+$(\alpha\beta)\ket{a}=\alpha(\beta\ket{a})$;</li>
 <li><strong>Distributive properties</strong>
 $\alpha(\ket{a}+\ket{b})=\alpha\ket{a}+\alpha\ket{b}$;
 $(\alpha+\beta)\ket{a}=\alpha\ket{a}+\beta\ket{a}$;</li>
@@ -45,38 +46,38 @@ $1\ket{a}=\ket{a}.$</li>
 
 </ul>
 </blockquote>
-
+<p>&nbsp;</p>
 <blockquote><p><strong>Inner Products</strong></p>
-<p>This is an additional operation defined  in the vector space $V$. It takes two vectors to a complex number, i.e. $\left<\cdot,\cdot\right>: V\times V\rightarrow\mathbb{C}$. Here we denote $\left<\ket{a},\ket{b}\right>\equiv\braket{a|b}$. Here are some properties:</p>
+<p>This is an additional operation defined on the vector space $V$. It takes two vectors to a complex number, i.e., $\left<\cdot,\cdot\right>: V\times V\rightarrow\mathbb{C}$. Here we denote $\left<\ket{a},\ket{b}\right>\equiv\braket{a|b}$. Here are some properties:</p>
 <ul>
-<li>$\braket{a|a}=0$, iff $\ket{a}=0$;</li>
+<li>$\braket{a|a}\ge0$, and $\braket{a|a}=0$, iff $\ket{a}=0$;</li>
 <li>$\braket{a|b}=\braket{b|a}^*$;</li>
 <li><strong>Anti-linearity</strong>
 $\left<\ket{a},\alpha\ket{b}\right>=\alpha\braket{a|b}$;
 $\left<\alpha\ket{a},\ket{b}\right>=\alpha^*\braket{a|b}$;
-$\left<\ket{a},\ket{b}+\ket{c}\right>=\alpha\braket{a|b}+\braket{a|c}$;
-$\left<\ket{a}+\ket{b},\ket{c}\right>=\alpha\braket{a|c}+\braket{b|c}$;</li>
+$\left<\ket{a},\ket{b}+\ket{c}\right>=\braket{a|b}+\braket{a|c}$;
+$\left<\ket{a}+\ket{b},\ket{c}\right>=\braket{a|c}+\braket{b|c}$;</li>
 <li><strong>Cauchy-Schwarz inequality</strong>
 $|\braket{a|b}|^2\le\braket{a|a}\braket{b|b}$.</li>
 
 </ul>
-<p>$\ket{\cdot}$ is called a ket vector, and $\bra{\cdot}$ is a bra (dual) vector in the dual space $V^*$. Therefore we have an alternative way to understand inner product: treat  the dual space as a linear map $\bra{\cdot}:V\rightarrow\mathbb{C}$.</p>
+<p>$\ket{\cdot}$ is called a ket vector, and $\bra{\cdot}$ is a bra (dual) vector in the dual space $V^*$. Therefore we have an alternative way to understand the inner product: treat the dual space as a linear map $\bra{\cdot}:V\rightarrow\mathbb{C}$.</p>
 </blockquote>
 <p>&nbsp;</p>
 <p>States of the system is described by <strong>normalized</strong> vectors (normalized: $\braket{\psi|\psi}=1$).</p>
 <div>$$
-\bbox[2px, border: 1px]{\text{States}\leftrightarrow\text{Vectors}}
+\bbox[2px, border: 1px solid black]{\text{States}\leftrightarrow\text{Vectors}}
 $$</div>
-<h2>1.1.2 Operators</h2>
+<h2 id='112-operators'>1.1.2 Operators</h2>
 <p>When we have a system, we might want to take <strong>measurements</strong>, and we will get physical <strong>observables</strong>. They are described by <strong>operators</strong> acting on the system. </p>
 <div>$$
-\bbox[2px, border: 1px]{\text{Measurements/Observables}\leftrightarrow\text{Operators}}
+\bbox[2px, border: 1px solid black]{\text{Measurements/Observables}\leftrightarrow\text{Operators}}
 $$</div>
 <p>Generally speaking, an operator turns a vector into another vector in the same vector space, i.e. $\hat{A}\ket{\psi}=\ket{\psi'}, \hat{A}: V\rightarrow V$. Physically, it turns a state into another.</p>
-<p>Now define <strong>Hermitian conjugation (Hermitian adjoint)</strong>: an operator, denoted $\hat{A}^\dagger$, is the adjoint of another operator $\hat{A}$, if it satisfy $\left<\hat{A}^\dagger\ket{a},\ket{b}\right>=\left<\ket{a},\hat{A}\ket{b}\right>$.</p>
+<p>Now define <strong>Hermitian conjugation (Hermitian adjoint)</strong>: an operator, denoted $\hat{A}^\dagger$, is the adjoint of the operator $\hat{A}$, if it satisfy $\left<\hat{A}^\dagger\ket{a},\ket{b}\right>=\left<\ket{a},\hat{A}\ket{b}\right>$.</p>
 <blockquote><p><strong>Adjoints properties</strong></p>
 <ul>
-<li>It is natural to require an adjoint has <strong>involutivity</strong>
+<li>It is natural to require that an adjoint has <strong>involutivity</strong>
 $(\hat{A}^\dagger)^\dagger=\hat{A}$;</li>
 <li><strong>Anti-linearity</strong>
 $(\hat{A}+\hat{B})^\dagger=\hat{A}^\dagger+\hat{B}^\dagger$;
@@ -87,12 +88,12 @@ $(\hat{A}\hat{B})^\dagger=\hat{B}^\dagger\hat{A}^\dagger$;</li>
 </ul>
 </blockquote>
 <p>&nbsp;</p>
-<p>To make a previous state more precise, a operator that relates to a physical observable needs to be <strong>self-adjoint (or Hermitian)</strong>, i.e. $\hat{A}^\dagger=\hat{A}$. Then this operator, in matrix representation, would have real eigenvalues. Suppose we have system with an initial state $\ket{\psi}$, and an operator $\hat{A}$ with a set of eigenvalue ${a_i}$, and a set of normalized either vector $\ket{a_i}$. One of the postulate of quantum mechanics states that, only eigen value can be observed, i.e. $\hat{A}\ket{a_i}=a_i\ket{a_i}$. The probability one eigenvalue is measured is given by</p>
+<p>To make a previous state more precise, an operator that relates to a physical observable needs to be <strong>self-adjoint (or Hermitian)</strong>, i.e. $\hat{A}^\dagger=\hat{A}$. Then this operator would have real eigenvalues. Suppose we have a system with an initial state $\ket{\psi}$, and an operator $\hat{A}$ with a set of eigenvalues $\{a_i\}$, and a set of normalized eigenvectors $\{\ket{a_i}\}$. One of the postulates of quantum mechanics states that, only the eigenvalues can be observed, i.e. $\hat{A}\ket{a_i}=a_i\ket{a_i}$. The probability that the eigenvalue $a_i$ is measured is given by</p>
 <div>$$
-{P(a_i)=|\braket{a_i|\psi}|^2},
+{P(a_i)=|\braket{a_i}{\psi}|^2},
 $$</div>
-<p>and state of the system after measurement collapses to $\ket{a_i}$.</p>
-<p>Now consider a non-degenerate case, so that the number of eigenvalue equals to the dimension of the Hilbert space $d$. Using the fact that eigenvector are <strong>orthogonal</strong> to each other (and they are also normalized), i.e. $\braket{a_i|a_j}=\delta_{ij}$, we can define a projection operator</p>
+<p>and the state of the system after measurement collapses to $\ket{a_i}$.</p>
+<p>Now consider a non-degenerate case, so that the number of eigenvalue equals the dimension of the Hilbert space $d$. Using the fact that eigenvectors are <strong>orthogonal</strong> to each other (and they are also normalized), i.e. $\braket{a_i}{a_j}=\delta_{ij}$, we can define a projection operator</p>
 <div>$$
 \hat{P}=\sum_{i=1}^{n\le d}\ket{a_i}\bra{a_i},
 $$</div>
@@ -100,13 +101,13 @@ $$</div>
 <div>$$
 \hat{I}=\sum_{i=1}^{d}\ket{a_i}\bra{a_i}.
 $$</div>
-<p>The operator $\hat{A}$, using the idea of spectral decomposition (or eigen decomposition), can be expressed as</p>
+<p>The operator $\hat{A}$, using the idea of spectral decomposition (or eigendecomposition), can be expressed as</p>
 <div>$$
 \hat{A}=\sum_{i=1}^{d}a_i\ket{a_i}\bra{a_i}.
 $$</div>
-<p>The state $\ket{\psi}$ can also be expand in the eigen-basis</p>
+<p>The state $\ket{\psi}$ can also be expanded in the eigenbasis</p>
 <div>$$
-\ket{\psi}=\sum_{i=0}^d\psi_i\ket{a_i}, \text{where }\psi_i=\braket{a_j|\psi}.
+\ket{\psi}=\sum_{i=0}^d\psi_i\ket{a_i}, \text{where }\psi_i=\braket{a_j}{\psi}.
 $$</div>
 </body>
 </html>

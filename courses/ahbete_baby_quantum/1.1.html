@@ -2,134 +2,151 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>1.1</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-<script type="text/javascript">
-    window.MathJax = {
-    tex: {
-        tags: 'ams'
-    }
-    };
-    window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-    };
-  </script>
+<title>1.1 Black-Body Radiation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+    <script type="text/javascript">
+        window.MathJax = {
+        tex: {
+            tags: 'ams'
+        }
+        };
+        window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+        };
+    </script>
 </head>
-<body>
-
-<h1>1.1 Black-Body Radiation</h1>
-<!-- <div class="video">
-    <iframe src="//player.bilibili.com/player.html?aid=457538124&bvid=BV1f541157QU&cid=248872200&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div> -->
-<p><b>Black-body</b> (hypothetical) is any object from which electromagnetic radiation emanates solely due to the thermal motion of its charges. Any radiation that strikes it must be absorbed.</p>
-
-<p>Max Plank in the year 1900 found the theory that explains black-body radiation, which resolved the problem so called <b>ultraviolet  catastrophe</b> (Detailed discussion below. Also, see classical theory curve in picture below, which tends to infinity), and started the quantum age.</p>
-<h2>1.1.1 Spectral Energy Density</h2>
-<center>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_body.svg/1024px-Black_body.svg.png" alt="spectral_energy_density_plot">
-    <p style="font-size: small;">The black-body radiation graph compared with the classical model of Rayleigh and Jeans. Image from Wikipedia</p>
-</center>
-
-<p>
-    The <b>goal</b> of the theory of black-body radiation is to find the spectral energy density $$dU=\text{ energy between }f\text{ to }f+df.$$
-    Let us <b>define</b>:$$dN(f)\equiv\text{number of modes between }f\text{ to }f+df,$$
-    $$\overline{E(f)}\equiv\text{average energy for a wave of freq }f.$$
-    We can assume$$dU\approx dN \overline{E}.$$
-</p>
-
-<h2>1.1.2 Counting Modes</h2>
-<p>First let us figure out what is \(dN\), which is essentially a counting-mode problem.</p>
-<h3>One Dimension</h3>
-<p>
-    Begin with considering a 1-D case: wave on a string from \(x=0\) to \(x=L\) can be represented as
-    $$\Psi(x,t)=A\sin\left(\frac{n\pi x}{L}\right)\cos\left(2\pi ft\right),$$
-    here \(n\) is the number of antinodes. Wave equation
-    $$\frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\frac{\partial^2}{\partial x^2}\Psi(x,t),$$
-    here \(c\) is the velocity of the wave. So
-    $$f=\frac{cn}{2L}.$$
-    As the number of antinodes is same as number of modes, \(dn=dN(f)\), so
-    $$\frac{dN(f)}{df}=\frac{dN(f)/dn}{df/dn}=\frac{2L}{c}.$$
-</p>
-
-<h3>Three Dimension</h3>
-<p>
-    Now extend the above situation to a 3-D case.
-    $$\begin{align}\Psi(x,y,z,t)=A&\sin\left(\frac{n_x\pi x}{L}\right)\sin\left(\frac{n_y\pi y}{L}\right)\\&\sin\left(\frac{n_z\pi z}{L}\right)\cos\left(2\pi ft\right),\end{align}$$
-    $$\frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\nabla^2\Psi(x,t).$$
-    We obtain
-    $$f=\frac{cn}{2L}\text{ with }n\equiv\sqrt{n_x^2+n_y^2+n_z^2}.$$
-    To count modes, consider a "antinode-number space", which is a octant(卦限) with axes \(n_x\), \(n_y\), and \(n_z\). Then \(n\) becomes the "radius". The differential of number of modes \(dN(f)\) at large \(n\) limit can be treat as a spherical shell of the octant with volume \(\frac{1}{8}4\pi n^2dn\). Therefore
-    $$\frac{dN(f)}{df}=\frac{dN(f)/dn}{df/dn}=\frac{\pi n^2L}{c}.$$
-    In term of frequency \(f\), we have
-    $$dN(f)=\frac{4\pi L^3}{c^3}f^2df.$$
-    In addition, light can have two polarization for each mode, which introduce a factor of two. The final form for <b>density of state</b> is thus
-    $$\bbox[silver]{dN(f)=\frac{8\pi L^3}{c^3}f^2df}.$$
-</p>
-
-<h2>1.1.3 Average Energy</h2>
-<p>
-    In statistical mechanics, the probability of an oscillator within an ensemble(系综) with energy \(E\) is given by
-    $$P(E)\propto \mathrm{e}^{-E/k_BT},$$
-    here \(k_b\) is the Boltzmann constant. Thus the average energy can be find via
-    $$\overline{E}=\frac{\sum EP(E)}{\sum P(E)}=\frac{\sum E\mathrm{e}^{-E/k_BT}}{\sum\mathrm{e}^{-E/k_BT}}.$$
-    <b>Classically</b>, there is no restriction on frequency (thus energy, as \(E=hf\)), the summation turns into an integration
-    $$\overline{E}=\frac{\int_0^\infty E\mathrm{e}^{-E/k_BT}}{\int_0^\infty\mathrm{e}^{-E/k_BT}}=k_BT.$$
-    This result leads to the <b>ultraviolet catastrophe</b>, as the spectral energy density would blow up at high frequency. Max Planck solved the problem by claiming the electromagnetic radiation with frequency \(f\) is only allowed to have energy \(E=nhf\). The new average energy is
-    $$\overline{E(f)}=\frac{\sum_{n=0}^\infty nhf\mathrm{e}^{-nhf/k_BT}}{\sum_{n=0}^\infty\mathrm{e}^{-nhf/k_BT}}=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}.$$
-</p>
-
-<h2>1.1.4 Result</h2>
-<p>
-    <b>Classical:</b>
-    $$dU(f)=k_BT\frac{8\pi V}{c^3}f^2df.$$
-    <b>Planck's spectral energy density:</b>
-    $$\bbox[silver]{dU(f)=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}\frac{8\pi V}{c^3}f^2df}.$$
-</p>
-
-<h2>1.1.5 Application</h2>
-<p>Based on Planck's spectral energy density, we can derive following laws.</p>
-<h3>Stefan-Boltzmann law(斯特藩－玻尔兹曼定律)</h3>
-<p>
-    To find the intensity radiated by a black-body, we can integrate the spectral energy density.
-    $$I=\int\frac{c}{4\pi}dU=\sigma T^4,$$
-    here \(\sigma={(2\pi^5k_B^4)}/{(15c^2h^3)}=5.670\times10^{-8}Wm^{-2}K^{-4}.\)
-</p>
-<h3>Wien's displacement law(维恩位移定律)</h3>
-<p>
-    By solving \({\partial(dU(\lambda)}/{\partial\lambda}=0\), we can find the peak wavelength of the radiation, which turned out to be
-    $$\lambda_{\text{peak}}T=2.897\times10^{-3}m\cdot K.$$
-</p>
-<hr>
-
-<h2>Problems</h2>
-<ol>
-    <li>
-        <p>(Conceptual) As mentioned in the video lecture, there are only three fundamental ways to produce light, what are they?</p>
-        <p>(Hint: Quantized energy ~ photon)</p>
-    </li>
-
-    <li>
-        <p>(Harris) For small \(z\), \(\mathrm{e}^z\) is approximately \(1+z\)</p>
-        <p>(a) Show Planck's spectral energy density agrees with the result of classical result in the limit of small frequency.</p>
-        <p>(b) Show at high frequencies, Planck's result approaches zero.</p>
-    </li>
-
-    <li>
-        <p>(Harris) Show the expression of \(dU\) in terms of wavelength \(\lambda\) is $$\frac{dU}{d\lambda}=\frac{8\pi Vhc}{\mathrm{e}^{hc/\lambda k_BT}-1}\frac{1}{\lambda^5}$$.</p>
-        <p>(Hint: \(f=c/\lambda\),  so \(df=-(c/\lambda^2)d\lambda\) )</p>
-    </li>
-
-    <li>
-        <p>Verify $$\overline{E(f)}=\frac{\sum_{n=0}^\infty nhf\mathrm{e}^{-nhf/k_BT}}{\sum_{n=0}^\infty\mathrm{e}^{-nhf/k_BT}}=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}.$$</p>
-        <p>(Hint: the denominator is a geometric series, and the numerator is the derivative of a geometric series)</p>
-    </li>
-</ol>
-
-</body>
+<body><h1 id='11-black-body-radiation'>1.1 Black-Body Radiation</h1>
+    <p><strong>Black-body</strong> (hypothetical) is any object from which electromagnetic radiation emanates solely due to the thermal motion of its charges. Any radiation that strikes it must be absorbed.</p>
+    <p>Max Plank in the year 1900 found the theory that explains black-body radiation, which resolved the problem of so-called <strong>ultraviolet catastrophe</strong> (Detailed discussion below. Also, see classical theory curve in the picture below, which tends to infinity), and started the quantum age.</p>
+    <center>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_body.svg/1024px-Black_body.svg.png" width="50%">
+        <p style="font-size: small;">The black-body radiation graph compared with the classical model of Rayleigh and Jeans. Image from Wikipedia</p>
+    </center>
+    <h2 id='111-spectral-energy-density'>1.1.1 Spectral Energy Density</h2>
+    <p>The <strong>goal</strong> of the theory of black-body radiation is to find the spectral energy density</p>
+    <div>$$
+    dU=\text{ energy between }f\text{ to }f+df.
+    $$</div>
+    <p>Let us <strong>define</strong>:</p>
+    <div>$$
+    dN(f)\equiv\text{number of modes between }f\text{ to }f+df,
+    $$</div>
+    <div>$$
+    \overline{E(f)}\equiv\text{average energy for a wave of freq }f.
+    $$</div>
+    <p>We can assume</p>
+    <div>$$
+    dU\approx dN \overline{E}.
+    $$</div>
+    <h2 id='112-counting-modes'>1.1.2 Counting Modes</h2>
+    <p>First let us figure out what is $dN$, which is essentially a counting-mode problem.</p>
+    <h3 id='one-dimension'>One Dimension</h3>
+    <p>Begin with considering a 1-D case: wave on a string from $x=0$ to $x=L$ can be represented as</p>
+    <div>$$
+    \Psi(x,t)=A\sin\left(\frac{n\pi x}{L}\right)\cos\left(2\pi ft\right),
+    $$</div>
+    <p>here $n$ is the number of antinodes. Wave equation</p>
+    <div>$$
+    \frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\frac{\partial^2}{\partial x^2}\Psi(x,t),
+    $$</div>
+    <p>where $c$ is the velocity of the wave. So</p>
+    <div>$$
+    f=\frac{cn}{2L}.
+    $$</div>
+    <p>As the number of antinodes is the same as the number of modes, $dn=dN(f)$, so</p>
+    <div>$$
+    \frac{dN(f)}{df}=\frac{dN(f)/dn}{df/dn}=\frac{2L}{c}.
+    $$</div>
+    <h3 id='three-dimension'>Three Dimension</h3>
+    <p>Now extend the above situation to a 3-D case.</p>
+    <div>$$
+    \begin{align}\Psi(x,y,z,t)=A&amp;\sin\left(\frac{n_x\pi x}{L}\right)\sin\left(\frac{n_y\pi y}{L}\right)\\&amp;\sin\left(\frac{n_z\pi z}{L}\right)\cos\left(2\pi ft\right),\end{align}
+    $$</div>
+    <div>$$
+    \frac{\partial^2}{\partial t^2}\Psi(x,t)=c^2\nabla^2\Psi(x,t).
+    $$</div>
+    <p>We obtain</p>
+    <div>$$
+    f=\frac{cn}{2L}\text{ with }n\equiv\sqrt{n_x^2+n_y^2+n_z^2}.
+    $$</div>
+    <p>To count modes, consider an &quot;antinode-number space&quot;, which is an octant with axes $n_x$, $n_y$, and $n_z$. Then $n$ becomes the &quot;radius&quot;. The differential of the number of modes $dN(f)$ at the large $n$ limit can be treated as a spherical shell of the octant with volume $\frac{1}{8}4\pi n^2dn$. Therefore</p>
+    <div>$$
+    \frac{dN(f)}{df}=\frac{dN(f)/dn}{df/dn}=\frac{\pi n^2L}{c}.
+    $$</div>
+    <p>In term of frequency $f$, we have</p>
+    <div>$$
+    dN(f)=\frac{4\pi L^3}{c^3}f^2df.
+    $$</div>
+    <p>In addition, light can have two polarization for each mode, which introduces a factor of two. The final form for <strong>density of states</strong> is thus</p>
+    <div>$$
+    \bbox[silver]{dN(f)=\frac{8\pi L^3}{c^3}f^2df}.
+    $$</div>
+    <h2 id='113-average-energy'>1.1.3 Average Energy</h2>
+    <p>In statistical mechanics, the probability of an oscillator within an ensemble with energy $E$ is given by</p>
+    <div>$$
+    P(E)\propto \mathrm{e}^{-E/k_BT},
+    $$</div>
+    <p>here $k_b$ is the Boltzmann constant. Thus the average energy can be found via</p>
+    <div>$$
+    \overline{E}=\frac{\sum EP(E)}{\sum P(E)}=\frac{\sum E\mathrm{e}^{-E/k_BT}}{\sum\mathrm{e}^{-E/k_BT}}.
+    $$</div>
+    <p><strong>Classically</strong>, there is no restriction on frequency (thus energy, as $E=hf$), the summation turns into an integration</p>
+    <div>$$
+    \overline{E}=\frac{\int_0^\infty E\mathrm{e}^{-E/k_BT}}{\int_0^\infty\mathrm{e}^{-E/k_BT}}=k_BT.
+    $$</div>
+    <p>This result leads to the <strong>ultraviolet catastrophe</strong>, as the spectral energy density would blow up at high frequency. Max Planck solved the problem by claiming the electromagnetic radiation with frequency $f$ is only allowed to have energy $E=nhf$. The new average energy is</p>
+    <div>$$
+    \overline{E(f)}=\frac{\sum_{n=0}^\infty nhf\mathrm{e}^{-nhf/k_BT}}{\sum_{n=0}^\infty\mathrm{e}^{-nhf/k_BT}}=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}.
+    $$</div>
+    <h2 id='114-result'>1.1.4 Result</h2>
+    <p><strong>Classical:</strong></p>
+    <div>$$
+    dU(f)=k_BT\frac{8\pi V}{c^3}f^2df.
+    $$</div>
+    <p><strong>Planck&#39;s spectral energy density:</strong></p>
+    <div>$$
+    \bbox[silver]{dU(f)=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}\frac{8\pi V}{c^3}f^2df}.
+    $$</div>
+    <h2 id='115-application'>1.1.5 Application</h2>
+    <p>Based on Planck&#39;s spectral energy density, we can derive the following laws.</p>
+    <h3 id='stefan-boltzmann-law'>Stefan-Boltzmann law</h3>
+    <p>To find the intensity radiated by a black-body, we can integrate the spectral energy density.</p>
+    <div>$$
+    I=\int\frac{c}{4\pi}dU=\sigma T^4,
+    $$</div>
+    <p>here $\sigma={(2\pi^5k_B^4)}/{(15c^2h^3)}=5.670\times10^{-8}Wm^{-2}K^{-4}.$</p>
+    <h3 id='wiens-displacement-law'>Wien&#39;s displacement law</h3>
+    <p>By solving ${\partial(dU(\lambda)}/{\partial\lambda}=0$, we can find the peak wavelength of the radiation, which turned out to be</p>
+    <div>$$
+    \lambda_{\text{peak}}T=2.897\times10^{-3}m\cdot K.
+    $$</div>
+    <hr />
+    <h2 id='problems'>Problems</h2>
+    <ol start='' >
+    <li>(Conceptual) As mentioned in the video lecture, there are only three fundamental ways to produce light, what are they?
+    (Hint: Quantized energy ~ photon)</li>
+    <li>(Harris) For small $z$, $\mathrm{e}^z$ is approximately $1+z$
+    (a) Show Planck&#39;s spectral energy density agrees with the result of classical result in the limit of small frequency.
+    (b) Show at high frequencies, Planck&#39;s result approaches zero.</li>
+    <li>(Harris) Show the expression of $dU$ in terms of wavelength $\lambda$ is</li>
+    
+    </ol>
+    <div>$$
+    \frac{dU}{d\lambda}=\frac{8\pi Vhc}{\mathrm{e}^{hc/\lambda k_BT}-1}\frac{1}{\lambda^5}.
+    $$</div>
+    <p>		(Hint: $f=c/\lambda$,  so $df=-(c/\lambda^2)d\lambda$ )</p>
+    <ol start='4' >
+    <li>Verify</li>
+    
+    </ol>
+    <div>$$
+    \overline{E(f)}=\frac{\sum_{n=0}^\infty nhf\mathrm{e}^{-nhf/k_BT}}{\sum_{n=0}^\infty\mathrm{e}^{-nhf/k_BT}}=\frac{hf}{\mathrm{e}^{nhf/k_BT}-1}.
+    $$</div>
+    <p>		(Hint: the denominator is a geometric series, and the numerator is the derivative of a geometric series)</p>
+    </body>
 </html>
